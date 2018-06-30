@@ -5,6 +5,11 @@ import { setupApplicationTest } from 'ember-qunit';
 module('Acceptance | list projects', function(hooks) {
   setupApplicationTest(hooks);
 
+  test('Should list projects projects on landing page', async function (assert) {
+    await visit('/');
+    assert.equal(this.element.querySelectorAll('.project').length, 4, 'Should display 4 projects');
+  });
+
   test('Should play snippet when user hovers over project', async function (assert) {
   });
 
