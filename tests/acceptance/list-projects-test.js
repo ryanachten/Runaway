@@ -1,12 +1,9 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | list projects', function(hooks) {
   setupApplicationTest(hooks);
-
-  test('Should show projects as the home page', async function (assert) {
-  });
 
   test('Should play snippet when user hovers over project', async function (assert) {
   });
@@ -14,10 +11,16 @@ module('Acceptance | list projects', function(hooks) {
   test('Should should link to project video when project is clicked', async function (assert) {
   });
 
-  test('Should link to information about the company', async function (assert) {
+  test('Should link to About page', async function (assert) {
+    await visit('/');
+    await click('.menu__about');
+    assert.equal( currentURL(), '/about', 'Should navigate to About page' );
   });
 
-  test('Should link to information contact form for the company', async function (assert) {
+  test('Should link to Contact page', async function (assert) {
+    await visit('/');
+    await click('.menu__contact');
+    assert.equal( currentURL(), '/contact', 'Should navigate to Contact page' );
   });
 
 });
