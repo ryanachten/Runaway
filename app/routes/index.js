@@ -8,6 +8,7 @@ export default Route.extend({
         title: "Philippines Festival 2017",
         client: "Bulwagan Foundation",
         date: "August, 2017",
+        image: "http://via.placeholder.com/350x150",
         description: "Highlights from the Philippines Festival 2017 in Wellington"
       },
       {
@@ -15,6 +16,7 @@ export default Route.extend({
         title: "Fix Federation Promotion",
         client: "Fix Federation",
         date: "April, 2017",
+        image: "http://via.placeholder.com/350x150",
         description: "Short promo for Lower Hutt's newest bakery. Delicious!"
       },
       {
@@ -22,6 +24,7 @@ export default Route.extend({
         title: "Mozart’s Marriage of Figaro Trailer",
         client: "Hannah's Playhouse",
         date: "August, 2017",
+        image: "http://via.placeholder.com/350x150",
         description: "Mozart's The Marriage of Figaro, on show now at Hannah's Playhouse in Wellington!"
       },
       {
@@ -29,6 +32,7 @@ export default Route.extend({
         title: "Designing Great Employee Experiences",
         client: "Humankind",
         date: "March, 2017",
+        image: "http://via.placeholder.com/350x150",
         description: "Need a description for this video"
       },
     ]

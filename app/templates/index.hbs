@@ -1,11 +1,7 @@
 <div>
   <h2>Work by Runaway</h2>
-  {{#each model as |project|}}
-  <article class="project">
-    <h3>{{project.title}}</h3>
-    <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
-    <p>{{project.description}}</p>
-  </article>
+  {{#each model as |projectUnit|}}
+    {{project-item project=projectUnit}}
   {{/each}}
 </div>
 

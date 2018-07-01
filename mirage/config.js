@@ -2,7 +2,7 @@ export default function() {
 
   this.namespace = '/api';
 
-  this.get('/', function () {
+  this.get('/projects', function () {
     return {
       data: [
         {
@@ -11,6 +11,7 @@ export default function() {
           title: "Philippines Festival 2017",
           client: "Bulwagan Foundation",
           date: "August, 2017",
+          image: "http://via.placeholder.com/350x150",
           description: "Highlights from the Philippines Festival 2017 in Wellington"
         },
         {
@@ -19,6 +20,7 @@ export default function() {
           title: "Fix Federation Promotion",
           client: "Fix Federation",
           date: "April, 2017",
+          image: "http://via.placeholder.com/350x150",
           description: "Short promo for Lower Hutt's newest bakery. Delicious!"
         },
         {
@@ -27,6 +29,7 @@ export default function() {
           title: "Mozart’s Marriage of Figaro Trailer",
           client: "Hannah's Playhouse",
           date: "August, 2017",
+          image: "http://via.placeholder.com/350x150",
           description: "Mozart's The Marriage of Figaro, on show now at Hannah's Playhouse in Wellington!"
         },
         {
@@ -35,6 +38,7 @@ export default function() {
           title: "Designing Great Employee Experiences",
           client: "Humankind",
           date: "March, 2017",
+          image: "http://via.placeholder.com/350x150",
           description: "Need a description for this video"
         },
       ]
