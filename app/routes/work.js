@@ -1,4 +1,4 @@
-import Route from "@ember/routing/route";
+import Route from '@ember/routing/route';
 
 export default Route.extend({
   model(){
@@ -36,6 +36,15 @@ export default Route.extend({
         title: "Designing Great Employee Experiences",
         client: "Humankind",
         date: "March, 2017",
+        image: "http://via.placeholder.com/350x150",
+        description: "Need a description for this video"
+      },
+      {
+        id: "dad_ghost",
+        featured: false,
+        title: "Remember When Dad Fought A Ghost",
+        client: "Tropfest NZ 2017",
+        date: "July, 2017",
         image: "http://via.placeholder.com/350x150",
         description: "Need a description for this video"
       },
