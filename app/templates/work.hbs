@@ -1,8 +1,15 @@
 <div>
   <h2>Work by Runaway</h2>
-  {{#each model as |projectUnit|}}
+  {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
+    <ul>
+      {{#each filteredResults as |projectUnit|}}
+      <li>{{project-item project=projectUnit}}</li>
+      {{/each}}
+    </ul>
+  {{/filter-projects}}
+  {{!-- {{#each model as |projectUnit|}}
     {{project-item project=projectUnit}}
-  {{/each}}
+  {{/each}} --}}
 </div>
 
 {{outlet}}
