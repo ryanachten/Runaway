@@ -15,7 +15,7 @@ export default Component.extend({
 
   actions: {
     handleFilterEntry(checkedRadio){
-      let filterInputValue = checkedRadio;//this.get('value');
+      let filterInputValue = checkedRadio;
       let filterAction = this.get('filter');
       filterAction(filterInputValue).then(
         (filterResults) => {

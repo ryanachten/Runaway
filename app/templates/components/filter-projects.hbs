@@ -1,15 +1,16 @@
 <div>
-  {{input
-    value=value
+  <input
+    value=''
+    checked=true
     type="radio"
     name="project-filter"
-    change=(action 'handleFilterEntry' '')
-  }}
+    onclick={{action 'handleFilterEntry' ''}}
+  />
   <span>All</span>
 </div>
 <div>
   {{input
-    value=value
+    value='film'
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'film')
@@ -18,7 +19,7 @@
 </div>
 <div>
   {{input
-    value=value
+    value='animation'
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'animation')
@@ -27,7 +28,7 @@
 </div>
 <div>
   {{input
-    value=value
+    value='motion graphics'
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'motion graphics')
