@@ -2,6 +2,7 @@
   <input
     value=''
     checked=true
+    classNames="filter__check--all"
     type="radio"
     name="project-filter"
     onclick={{action 'handleFilterEntry' ''}}
@@ -11,6 +12,7 @@
 <div>
   {{input
     value='film'
+    classNames="filter__check--film"
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'film')
@@ -20,6 +22,7 @@
 <div>
   {{input
     value='animation'
+    classNames="filter__check--animation"
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'animation')
@@ -29,6 +32,7 @@
 <div>
   {{input
     value='motion graphics'
+    classNames="filter__check--motion-graphics"
     type="radio"
     name="project-filter"
     change=(action 'handleFilterEntry' 'motion graphics')
