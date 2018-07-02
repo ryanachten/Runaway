@@ -1,7 +1,39 @@
-{{input value=value
-  key-up=(action 'handleFilterEntry')
-  class="light"
-  placeholder="Filter By Category"
-}}
+<div>
+  {{input
+    value=value
+    type="radio"
+    name="project-filter"
+    change=(action 'handleFilterEntry' '')
+  }}
+  <span>All</span>
+</div>
+<div>
+  {{input
+    value=value
+    type="radio"
+    name="project-filter"
+    change=(action 'handleFilterEntry' 'film')
+  }}
+  <span>Film</span>
+</div>
+<div>
+  {{input
+    value=value
+    type="radio"
+    name="project-filter"
+    change=(action 'handleFilterEntry' 'animation')
+  }}
+  <span>Animation</span>
+</div>
+<div>
+  {{input
+    value=value
+    type="radio"
+    name="project-filter"
+    change=(action 'handleFilterEntry' 'motion graphics')
+  }}
+  <span>Motion Graphics</span>
+</div>
+
 
 {{yield results}}

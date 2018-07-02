@@ -14,14 +14,12 @@ export default Component.extend({
   },
 
   actions: {
-    handleFilterEntry(){
-      let filterInputValue = this.get('value');
+    handleFilterEntry(checkedRadio){
+      let filterInputValue = checkedRadio;//this.get('value');
       let filterAction = this.get('filter');
       filterAction(filterInputValue).then(
         (filterResults) => {
-          if (filterResults.query === this.get('value')) {
-            this.set('results', filterResults.results)
-          }
+          this.set('results', filterResults.results)
         });
     }
   }
