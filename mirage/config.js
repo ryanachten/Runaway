@@ -86,4 +86,9 @@ export default function() {
       return { data: projects };
     }
   });
+
+  // Find and return the provided project from our project list above
+  this.get('/projects/:id', function (db, request) {
+    return { data: projects.find((project) => request.params.id === project.id) };
+  });
 }

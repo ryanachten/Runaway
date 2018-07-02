@@ -1,0 +1,10 @@
+<h2>Work by Runaway</h2>
+{{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
+  <ul>
+    {{#each filteredResults as |projectUnit|}}
+    <li>{{project-item project=projectUnit}}</li>
+    {{/each}}
+  </ul>
+{{/filter-projects}}
+
+{{outlet}}

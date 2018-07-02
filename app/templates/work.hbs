@@ -1,12 +1,4 @@
-<div>
-  <h2>Work by Runaway</h2>
-  {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
-    <ul>
-      {{#each filteredResults as |projectUnit|}}
-      <li>{{project-item project=projectUnit}}</li>
-      {{/each}}
-    </ul>
-  {{/filter-projects}}
-</div>
+{{!-- Include here any styles which should persist
+across work index and show pages --}}
 
 {{outlet}}
