@@ -4,5 +4,10 @@
   </a>
   <h3>{{project.title}}</h3>
   <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
+  <div>
+    {{#each project.category as |category|}}
+      <span class="project-item__category {{category}}">{{category}}</span>
+    {{/each}}
+  </div>
   <p>{{project.description}}</p>
 </article>
