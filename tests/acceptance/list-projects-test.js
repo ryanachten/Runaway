@@ -33,19 +33,19 @@ module('Acceptance | list projects', function(hooks) {
 
   test('Should link to Work page', async function (assert) {
     await visit('/');
-    await click('.menu__work');
+    await click('.navbar__link--work');
     assert.equal( currentURL(), '/work', 'Should navigate to Work page' );
   });
 
   test('Should link to About page', async function (assert) {
     await visit('/');
-    await click('.menu__about');
+    await click('.navbar__link--about');
     assert.equal( currentURL(), '/about', 'Should navigate to About page' );
   });
 
   test('Should link to Contact page', async function (assert) {
     await visit('/');
-    await click('.menu__contact');
+    await click('.navbar__link--contact');
     assert.equal( currentURL(), '/contact', 'Should navigate to Contact page' );
   });
 
