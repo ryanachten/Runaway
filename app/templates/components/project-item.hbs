@@ -2,7 +2,7 @@
   <a {{action 'toggleImageSize'}} class="image {{if isWide "wide"}}">
     <img src={{project.image}}>
   </a>
-  <h3>{{#link-to "work.show" project}}{{project.title}}{{/link-to}}</h3>
+  <h3 class="project-item__link">{{#link-to "work.show" project classNames=project.id}}{{project.title}}{{/link-to}}</h3>
   <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
   <div>
     {{#each project.category as |category|}}

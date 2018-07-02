@@ -24,6 +24,13 @@ module('Acceptance | list projects', function(hooks) {
     assert.ok(this.element.querySelector('.project-item__category').textContent.includes('animation'), 'Listing should have a category of animation');
   });
 
+  test('Should link to pages for a specifc project', async function (assert) {
+    await visit('/');
+    await click('.project-item__link .bulwagan-foundation');
+    assert.equal(currentURL(), '/work/bulwagan-foundation', 'Should navigate to project route');
+    assert.ok(this.element.querySelector('h1').textContent.includes('Philippines Festival 2017'), 'Should render title of the project');
+  });
+
   test('Should link to Work page', async function (assert) {
     await visit('/');
     await click('.menu__work');
