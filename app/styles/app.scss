@@ -1,1 +1,15 @@
-@import 'settings/settings.scss';
+@import 'settings/colours';
+@import "settings/global";
+
+@import "tools/mixins";
+
+// @import "normalize-scss/normalize.scss";
+@import "generic/reset";
+
+@import "elements/headings";
+
+@import "objects/media";
+
+@import "components/footer";
+
+// @import "trumps/utilities";
