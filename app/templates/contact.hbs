@@ -1,6 +1,15 @@
 <div>
   <h2>Contact Runaway</h2>
-  <p>Contact Runaway at...</p>
+  <p>For a quote or a chat, flick us a message and we'll get right back to you</p>
+  <form class="" action="index.html" method="post">
+    <label for="name-input">Name</label>
+    {{input id="name-input" value=fullName type="email" placeholder="Please enter your name"}}
+    <label for="email-input">Email</label>
+    {{input id="email-input" value=emailAddress type="email" placeholder="Please enter your email"}}
+    <label for="message-input">Message</label>
+    {{textarea name="message-input" value=message }}
+    <button type="button" name="submit" disabled={{submitDisabled}}>Send!</button>
+  </form>
 </div>
 
 {{outlet}}
