@@ -6,6 +6,24 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    /* Ember EmberFire config */
+    firebase: {
+      apiKey: 'AIzaSyCj7LsL1ny9oBKs1d-pPwd7eoKqwkrvleI',
+      authDomain: 'runaway-6acf7.firebaseapp.com',
+      databaseURL: 'https://runaway-6acf7.firebaseio.com',
+      storageBucket: 'runaway-6acf7.appspot.com',
+    },
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+    /* end of EmberFire config */
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -46,6 +64,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
+
 
   return ENV;
 };
