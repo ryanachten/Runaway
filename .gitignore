@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# Remove environment file temporarily due to api key
+/config/environment.js
+
 # compiled output
 /dist
 /tmp
