@@ -1,11 +1,9 @@
 <div>
+  {{!-- placeholder for Vimeo embed --}}
+  <img src={{model.image}}>
   <h1>{{model.title}}</h1>
   <span>{{model.date}}</span> - <span>Client: {{model.client}}</span>
-  <div>
-    {{#each model.category as |category|}}
-      <span class="project-item__category {{category}}">{{category}}</span>
-    {{/each}}
-  </div>
+  <span class="project-item__category {{category}}">{{model.category}}</span>
   <p>{{model.description}}</p>
 </div>
 

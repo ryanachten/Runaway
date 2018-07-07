@@ -5,9 +5,7 @@
   <h3 class="project-item__link">{{#link-to "work.show" project classNames=project.id}}{{project.title}}{{/link-to}}</h3>
   <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
   <div>
-    {{#each project.category as |category|}}
-      <span class="project-item__category {{category}}">{{category}}</span>
-    {{/each}}
+    <span class="project-item__category {{category}}">{{project.category}}</span>
   </div>
   <p>{{project.description}}</p>
 </article>
