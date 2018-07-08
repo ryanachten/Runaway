@@ -1,0 +1,6 @@
+{
+  "name": "runaway-ember",
+  "dependencies": {
+    "video.js": "~5.12"
+  }
+}

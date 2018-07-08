@@ -1,6 +1,6 @@
 <article class="project-item">
   <a {{action 'toggleImageSize'}} class="image {{if isWide "wide"}}">
-    <img src={{project.image}}>
+    {{ivy-videojs controls=true fluid=true src="/video/test.mp4"}}
   </a>
   <h3 class="project-item__link">{{#link-to "work.show" project classNames=project.id}}{{project.title}}{{/link-to}}</h3>
   <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
