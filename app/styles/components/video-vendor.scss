@@ -1,4 +1,10 @@
 .video-vendor__container{
   height: calc(100vw * 0.56);
   width: 100%;
+  // background-color: red;
+}
+.video-vendor__container--inactive{
+  background-color: blue;
+  width: 100px;
+  height: 100px;
 }

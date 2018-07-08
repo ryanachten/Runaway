@@ -10,5 +10,14 @@ export default {
 
   embedUrl(videoId){
     return `//player.vimeo.com/video/${videoId}`;
+  },
+
+  thumbnailUrl(videoId){
+    const apiUrl = this.apiUrl(videoId);
+    return new Promise( (resolve) => {
+      $.getJSON(apiUrl).then((res) => {
+        resolve(res.thumbnail_url);
+      });
+    });
   }
 }

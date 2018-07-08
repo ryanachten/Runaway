@@ -3,6 +3,7 @@
 */
 
 import Service from '@ember/service';
+import { computed } from '@ember/object';
 import vimeo from './video-vendor-providers/vimeo';
 import youtube from './video-vendor-providers/youtube';
 
@@ -61,5 +62,10 @@ export default Service.extend({
 
       return videoId;
     }
-  }
+  },
+
+  getThumbnailUrl(url) {
+    const videoId = this.getVideoId(url);
+    return this.getProvider(url).thumbnailUrl(videoId);
+  },
 });
