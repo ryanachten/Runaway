@@ -2,11 +2,11 @@ import Component from '@ember/component';
 
 export default Component.extend({
   isWide: false,
-  src: '/video/test1.mp4',
+  // src: '/video/test1.mp4',
   controls: true,
   actions: {
-    canplay() {
-      console.log('video ready');
+    canplay(player) {
+      player.play();
     },
 
     ended() {

@@ -7,6 +7,7 @@ export default DS.Model.extend({
   client: DS.attr(),
   date: DS.attr(),
   image: DS.attr(),
+  videoLocal:  DS.attr('string'),
   videoVendor:  DS.attr('string'),
   description: DS.attr()
 });
