@@ -4,7 +4,7 @@
 /config/environment.js
 
 # test video for video.js
-/public/video/test.mp4
+/public/video/*
 
 # compiled output
 /dist
