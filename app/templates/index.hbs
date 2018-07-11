@@ -1,10 +1,12 @@
 <div>
   <h2>Runaway</h2>
-  {{#each model as |projectUnit|}}
+  {{!-- {{#each model as |projectUnit|}}
     {{#if projectUnit.featured}}
       {{project-item project=projectUnit}}
     {{/if}}
-  {{/each}}
+  {{/each}} --}}
+
+  {{project-item project=model.firstObject}}
 </div>
 
 {{outlet}}

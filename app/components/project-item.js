@@ -1,12 +1,15 @@
 import Component from '@ember/component';
+import { VideoTexture } from 'three';
 
 export default Component.extend({
-  isWide: false,
-  // src: '/video/test1.mp4',
-  controls: true,
+  videoPlayer: null,
+  videoElement: null,
+
   actions: {
-    canplay(player) {
-      player.play();
+    canplay(player, component) {
+      this.set('videoPlayer', player);
+      this.set('videoElement', component.get('element'));
+      this.doSomething();
     },
 
     ended() {
@@ -20,5 +23,10 @@ export default Component.extend({
     playing() {
       console.log('video is playing');
     }
-  }
+  },
+
+  doSomething(){
+    console.log(VideoTexture);
+    // this.get('videoPlayer').play();
+  },
 });
