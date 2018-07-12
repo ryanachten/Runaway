@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { VideoTexture } from 'three';
 
 export default Component.extend({
   videoPlayer: null,
@@ -26,7 +25,6 @@ export default Component.extend({
   },
 
   doSomething(){
-    console.log(VideoTexture);
     // this.get('videoPlayer').play();
   },
 });
