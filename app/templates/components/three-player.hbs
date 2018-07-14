@@ -1,5 +1,12 @@
 <div class="three-player">
-
+  {{ivy-videojs
+    class="three-player__video"
+    canplay=canplay
+    controls=true
+    ended=ended
+    pause=pause
+    playing=playing
+    src='/video/test1.mp4'}}
 </div>
 
 {{yield}}

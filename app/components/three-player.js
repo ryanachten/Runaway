@@ -11,11 +11,12 @@ export default Component.extend({
   scene: null,
   camera: null,
   renderer: null,
+  cube: null,
 
   didInsertElement(){
     this._super(...arguments);
 
-    const container = document.querySelector('.three-player');
+    const container = this.$('.three-player')[0];
     const scene = new THREE.Scene();
 
     const renderer = new THREE.WebGLRenderer();
@@ -24,32 +25,53 @@ export default Component.extend({
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
+    const video = this.$('.video-js').children('video')[0];
+    const videoTexture = new THREE.VideoTexture(video);
+    videoTexture.minFilter = THREE.LinearFilter;
+
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
+    material.map = videoTexture;
     const cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
 
+    this.set('cube', cube);
     this.set('container', container);
     this.set('scene', scene);
     this.set('renderer', renderer);
+    this.set('camera', camera);
 
-    camera.position.z = 5;
+    camera.position.z = 2;
 
-     const animate = function () {
-       requestAnimationFrame( animate );
-
-       cube.rotation.x += 0.05;
-       cube.rotation.y += 0.05;
-
-       renderer.render(scene, camera);
-     };
-
-     animate();
-
-    this.doshit();
+    this.animate();
   },
 
-  doshit(){
-    console.log(this.get('scene'));
+  animate(){
+
+    this.get('renderer').render(
+      this.get('scene'),
+      this.get('camera')
+    );
+    requestAnimationFrame(() => {
+      this.animate()
+    });
+  },
+
+  canplay(player, component) {
+    console.log('video is ready to play');
+    player.play();
+  },
+
+  ended() {
+    console.log('video ended');
+  },
+
+  pause() {
+    console.log('video is paused');
+  },
+
+  playing() {
+    console.log('video is playing');
   }
+
 });
