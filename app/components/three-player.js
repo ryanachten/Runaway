@@ -58,12 +58,12 @@ export default Component.extend({
   },
 
   canplay(player, component) {
-    console.log('video is ready to play');
+    console.log('Video ready');
     player.play();
   },
 
   ended() {
-    console.log('video ended');
+    console.log('Video ended');
   },
 
   pause() {
@@ -71,7 +71,7 @@ export default Component.extend({
   },
 
   playing() {
-    console.log('video is playing');
-  }
+    console.log('Video playing');
+  },
 
 });
