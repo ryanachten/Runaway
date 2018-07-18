@@ -1,36 +1,23 @@
 import Route from "@ember/routing/route";
 
 export default Route.extend({
+  testText: 'meow',
   currentProject: null,
   projects: null,
   currentIndex: 0,
 
   model(){
-    const model = this.get('store').findAll('project');
-    model.then( (modelClass) => {
-      const projects = modelClass.map( (project) => {
-        return project.data;
-      });
-      this.set('projects', projects);
-    })
-    return model;
+    // const model = ;
+    // model.then( (modelClass) => {
+    //   const projects = modelClass.map( (project) => {
+    //     return project.data;
+    //   });
+    //   this.set('projects', projects);
+    // })
+    return this.store.findAll('project');
   },
 
-  afterModel(){
-    setInterval(() => {
-      this.incrementProject();
-    }, 1000);
-  },
-
-  incrementProject(){
-    const projects = this.get('projects');
-    const currentIndex = this.get('currentIndex');
-    if (currentIndex+1 < projects.length) {
-      this.set('currentIndex', currentIndex+1);
-    }
-    else{
-      this.set('currentIndex', 0);
-    }
-
+  afterModel(model){
+    this.controllerFor('index').start(model);
   },
 });
