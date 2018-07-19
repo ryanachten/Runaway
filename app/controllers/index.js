@@ -2,8 +2,8 @@ import {computed} from '@ember/object';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  testText: 'meow',
   projects: null,
+  currentProject: null,
   currentIndex: 0,
 
   start(model){
@@ -25,12 +25,10 @@ export default Controller.extend({
     const currentIndex = this.get('currentIndex');
     const projectCount = this.get('projects').length;
 
-    console.log(this.get('currentProject'));
-
     if (currentIndex+1 >= projectCount) {
       this.set('currentIndex', 0);
     }else{
-      this.set('currentIndex', currentIndex+1);
+      this.incrementProperty('currentIndex');
     }
   }
 });

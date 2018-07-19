@@ -1,12 +1,13 @@
 <div class="">
   <h2>Runaway</h2>
-  <p>{{projects.title}}</p>
-  {{#each model as |projectUnit|}}
+  <p>{{currentProject.title}}</p>
+  {{three-player}}
+  {{!-- {{#each model as |projectUnit|}}
     {{#if projectUnit.featured}}
-      {{!-- {{project-item project=projectUnit}} --}}
-      {{three-player}}
+      {{project-item project=projectUnit}}
+
     {{/if}}
-  {{/each}}
+  {{/each}} --}}
 </div>
 
 {{outlet}}
