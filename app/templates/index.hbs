@@ -1,13 +1,17 @@
 <div class="">
   <h2>Runaway</h2>
   <p>{{currentProject.title}}</p>
-  {{three-player}}
-  {{!-- {{#each model as |projectUnit|}}
-    {{#if projectUnit.featured}}
-      {{project-item project=projectUnit}}
+  {{!-- {{three-player}} --}}
+  {{#each model as |projectUnit|}}
+    {{!-- {{#if projectUnit.featured}} --}}
+    {{ivy-videojs
+      canplay=(action 'videoReady')
+      controls=false
+      fluid=true
+      src=projectUnit.videoLocal}}
 
-    {{/if}}
-  {{/each}} --}}
+    {{!-- {{/if}} --}}
+  {{/each}}
 </div>
 
 {{outlet}}
