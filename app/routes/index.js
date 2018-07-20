@@ -7,13 +7,6 @@ export default Route.extend({
   currentIndex: 0,
 
   model(){
-    // const model = ;
-    // model.then( (modelClass) => {
-    //   const projects = modelClass.map( (project) => {
-    //     return project.data;
-    //   });
-    //   this.set('projects', projects);
-    // })
     return this.store.findAll('project');
   },
 

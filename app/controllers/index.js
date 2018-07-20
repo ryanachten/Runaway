@@ -1,5 +1,5 @@
-import {computed} from '@ember/object';
 import Controller from '@ember/controller';
+import {computed} from '@ember/object';
 
 export default Controller.extend({
   projects: null,
@@ -22,6 +22,7 @@ export default Controller.extend({
   }),
 
   start(model){
+    // Filter projects from model and add to array
     const projects = model.map( (project) => {
       const data = project.data;
       data.id = project.id;

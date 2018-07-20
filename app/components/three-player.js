@@ -4,6 +4,7 @@
 */
 
 import Component from '@ember/component';
+import {computed} from '@ember/object';
 
 export default Component.extend({
 
@@ -12,6 +13,13 @@ export default Component.extend({
   camera: null,
   renderer: null,
   cube: null,
+  videoTexture: null,
+  updateVideo: function () {
+    console.log('update video src');
+    console.log('current', this.get('videoTexture'));
+
+  }.observes('src'),
+
 
   didInsertElement(){
     this._super(...arguments);
@@ -25,9 +33,10 @@ export default Component.extend({
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-    const video = this.$('.video-js').children('video')[0];
+    const video = this.get('src');
     const videoTexture = new THREE.VideoTexture(video);
     videoTexture.minFilter = THREE.LinearFilter;
+    this.set('videoTexture', videoTexture);
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
     const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );

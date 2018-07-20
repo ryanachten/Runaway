@@ -1,7 +1,9 @@
 <div class="">
   <h2>Runaway</h2>
   <p>{{currentProject.title}}</p>
-  {{!-- {{three-player}} --}}
+  {{#if allVideosLoaded}}
+    {{three-player src=currentVideo.video}}
+  {{/if}}
   {{#each model as |projectUnit|}}
     {{!-- {{#if projectUnit.featured}} --}}
     {{!-- {{log projectUnit.id}} --}}
@@ -9,7 +11,6 @@
       id=projectUnit.id
       canplay=(action 'videoReady')
       controls=false
-      fluid=true
       src=projectUnit.videoLocal}}
     {{!-- {{/if}} --}}
   {{/each}}
