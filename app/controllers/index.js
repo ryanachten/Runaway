@@ -9,10 +9,8 @@ export default Controller.extend({
     return projects[this.get('currentIndex')];
   }),
 
-  loadedVideos: 0,
-  allVideosLoaded: computed('projects', 'loadedVideos', function () {
-    return this.get('loadedVideos') === this.get('projects').length;
-  }),
+  loadedVideos: [],
+  allVideosLoaded: false,
 
   start(model){
     const projects = model.map( (project) => {
@@ -36,9 +34,16 @@ export default Controller.extend({
   },
 
   actions: {
-    videoReady(){
-      this.incrementProperty('loadedVideos');
-      console.log(this.get('allVideosLoaded'));
+    videoReady(player, component){
+      const video = {
+        id: component.parentView.id,
+        player: player,
+        video: player.el_.children[0]
+      }
+      this.get('loadedVideos').pushObject(video);
+      if (this.get('loadedVideos').length === this.get('projects').length) {
+        this.set('allVideosLoaded', true);
+      }
     }
   },
 });

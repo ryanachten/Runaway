@@ -4,12 +4,13 @@
   {{!-- {{three-player}} --}}
   {{#each model as |projectUnit|}}
     {{!-- {{#if projectUnit.featured}} --}}
+    {{!-- {{log projectUnit.id}} --}}
     {{ivy-videojs
+      id=projectUnit.id
       canplay=(action 'videoReady')
       controls=false
       fluid=true
       src=projectUnit.videoLocal}}
-
     {{!-- {{/if}} --}}
   {{/each}}
 </div>
