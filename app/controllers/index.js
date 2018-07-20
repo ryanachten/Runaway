@@ -11,26 +11,41 @@ export default Controller.extend({
 
   loadedVideos: [],
   allVideosLoaded: false,
+  currentVideo: computed('loadedVideos', 'currentProject', function () {
+    const projectId = this.get('currentProject').id;
+    const video = this.get('loadedVideos').filter( (video) => {
+      if (video.id === projectId) {
+        return video;
+      }
+    })[0];
+    return video;
+  }),
 
   start(model){
     const projects = model.map( (project) => {
-      return project.data;
+      const data = project.data;
+      data.id = project.id;
+      return data;
     });
     this.set('projects', projects);
     setInterval(() => {
       this.incrementProject();
-    }, 1000);
+    }, 10000);
   },
 
   incrementProject(){
     const currentIndex = this.get('currentIndex');
     const projectCount = this.get('projects').length;
 
+    this.get('currentVideo').player.pause();
+
     if (currentIndex+1 >= projectCount) {
       this.set('currentIndex', 0);
     }else{
       this.incrementProperty('currentIndex');
     }
+
+    this.get('currentVideo').player.play();
   },
 
   actions: {
