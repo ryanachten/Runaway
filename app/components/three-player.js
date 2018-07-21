@@ -14,6 +14,18 @@ export default Component.extend({
   renderer: null,
   cube: null,
   videoTexture: null,
+  createTextures: computed( 'videos', function () {
+    const videos = this.get('videos');
+    const textures = videos.map( (video) => {
+      const videoTexture = new THREE.VideoTexture(video.video);
+      videoTexture.minFilter = THREE.LinearFilter;
+      return {
+        id: video.id,
+        videoTexture,
+      };
+    });
+    return textures;
+  }),
   updateVideo: function () {
     console.log('update video src');
     console.log('current', this.get('videoTexture'));
@@ -32,6 +44,8 @@ export default Component.extend({
     container.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    console.log(this.get('createTextures'));
 
     const video = this.get('src');
     const videoTexture = new THREE.VideoTexture(video);

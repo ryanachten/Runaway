@@ -2,7 +2,10 @@
   <h2>Runaway</h2>
   <p>{{currentProject.title}}</p>
   {{#if allVideosLoaded}}
-    {{three-player src=currentVideo.video}}
+    {{three-player
+      src=currentVideo.video
+      videos=loadedVideos
+    }}
   {{/if}}
   {{#each model as |projectUnit|}}
     {{!-- {{#if projectUnit.featured}} --}}
