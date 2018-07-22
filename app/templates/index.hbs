@@ -7,14 +7,15 @@
       videos=loadedVideos
     }}
   {{/if}}
-  {{#each model as |projectUnit|}}
+  {{#each projects as |project|}}
     {{!-- {{#if projectUnit.featured}} --}}
     {{!-- {{log projectUnit.id}} --}}
     {{ivy-videojs
-      id=projectUnit.id
+      id=project.id
       canplay=(action 'videoReady')
       controls=false
-      src=projectUnit.videoLocal}}
+      loop=true
+      src=project.videoLocal}}
     {{!-- {{/if}} --}}
   {{/each}}
 </div>

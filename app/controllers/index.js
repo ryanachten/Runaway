@@ -23,10 +23,12 @@ export default Controller.extend({
 
   start(model){
     // Filter projects from model and add to array
-    const projects = model.map( (project) => {
+    const projects = model.filter( (project) => {
       const data = project.data;
-      data.id = project.id;
-      return data;
+      if (data.featured) {
+        data.id = project.id;
+        return data;
+      }      
     });
     this.set('projects', projects);
     setInterval(() => {
