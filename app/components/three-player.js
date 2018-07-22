@@ -4,33 +4,38 @@
 */
 
 import Component from '@ember/component';
-import {computed} from '@ember/object';
+import {computed, observer} from '@ember/object';
 
 export default Component.extend({
 
-  container: null,
   scene: null,
   camera: null,
   renderer: null,
   cube: null,
-  videoTexture: null,
-  createTextures: computed( 'videos', function () {
+  allMaterials: [],
+  createMaterials: computed( 'videos', function () {
     const videos = this.get('videos');
-    const textures = videos.map( (video) => {
+    const materials = videos.map( (video) => {
       const videoTexture = new THREE.VideoTexture(video.video);
       videoTexture.minFilter = THREE.LinearFilter;
+      const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
+      material.map = videoTexture;
       return {
         id: video.id,
-        videoTexture,
+        material,
       };
     });
-    return textures;
+    return materials;
   }),
-  updateVideo: function () {
-    console.log('update video src');
-    console.log('current', this.get('videoTexture'));
-
-  }.observes('src'),
+  updateVideo: observer('currentId', function () {
+    const currentId = this.get('currentId');
+    const currentMaterial = this.get('allMaterials').filter( (material) => {
+      if (material.id === currentId) {
+        return material;
+      }
+    })[0];
+    this.set('cube.material', currentMaterial.material);
+  }),
 
 
   didInsertElement(){
@@ -45,21 +50,17 @@ export default Component.extend({
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-    console.log(this.get('createTextures'));
-
-    const video = this.get('src');
-    const videoTexture = new THREE.VideoTexture(video);
-    videoTexture.minFilter = THREE.LinearFilter;
-    this.set('videoTexture', videoTexture);
+    this.set('allMaterials', this.get('createMaterials'));
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
-    material.map = videoTexture;
+
+    const material = this.get('allMaterials')[0].material;
+
     const cube = new THREE.Mesh( geometry, material );
+
     scene.add( cube );
 
     this.set('cube', cube);
-    this.set('container', container);
     this.set('scene', scene);
     this.set('renderer', renderer);
     this.set('camera', camera);
@@ -70,7 +71,6 @@ export default Component.extend({
   },
 
   animate(){
-
     this.get('renderer').render(
       this.get('scene'),
       this.get('camera')
@@ -78,23 +78,6 @@ export default Component.extend({
     requestAnimationFrame(() => {
       this.animate()
     });
-  },
-
-  canplay(player, component) {
-    console.log('Video ready');
-    player.play();
-  },
-
-  ended() {
-    console.log('Video ended');
-  },
-
-  pause() {
-    console.log('video is paused');
-  },
-
-  playing() {
-    console.log('Video playing');
   },
 
 });

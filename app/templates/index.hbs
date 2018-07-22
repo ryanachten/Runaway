@@ -3,7 +3,7 @@
   <p>{{currentProject.title}}</p>
   {{#if allVideosLoaded}}
     {{three-player
-      src=currentVideo.video
+      currentId=currentVideo.id
       videos=loadedVideos
     }}
   {{/if}}

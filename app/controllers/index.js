@@ -31,7 +31,7 @@ export default Controller.extend({
     this.set('projects', projects);
     setInterval(() => {
       this.incrementProject();
-    }, 10000);
+    }, 5000);
   },
 
   incrementProject(){
