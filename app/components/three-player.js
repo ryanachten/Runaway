@@ -58,6 +58,10 @@ export default Component.extend({
 
     const cube = new THREE.Mesh( geometry, material );
 
+    const composer = new THREE.EffectComposer(renderer);
+    composer.addPass( new THREE.RenderPass( scene, camera ) );
+    console.log('composer', composer);
+
     scene.add( cube );
 
     this.set('cube', cube);

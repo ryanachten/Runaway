@@ -8,15 +8,12 @@
     }}
   {{/if}}
   {{#each projects as |project|}}
-    {{!-- {{#if projectUnit.featured}} --}}
-    {{!-- {{log projectUnit.id}} --}}
     {{ivy-videojs
       id=project.id
       canplay=(action 'videoReady')
       controls=false
       loop=true
       src=project.videoLocal}}
-    {{!-- {{/if}} --}}
   {{/each}}
 </div>
 

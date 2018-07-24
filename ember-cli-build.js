@@ -21,6 +21,10 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('node_modules/three/build/three.js');
+  app.import('vendor/CopyShader.js');
+  app.import('vendor/EffectComposer.js');
+  app.import('vendor/RenderPass.js');
+  app.import('vendor/ShaderPass.js');
 
   return app.toTree();
 };

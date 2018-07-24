@@ -28,9 +28,10 @@ export default Controller.extend({
       if (data.featured) {
         data.id = project.id;
         return data;
-      }      
+      }
     });
     this.set('projects', projects);
+    // TODO: replace setInterval with Ember's run.debounce() or throttle()
     setInterval(() => {
       this.incrementProject();
     }, 5000);
