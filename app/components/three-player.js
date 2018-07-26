@@ -11,6 +11,7 @@ export default Component.extend({
   scene: null,
   camera: null,
   renderer: null,
+  composer: null,
   cube: null,
   allMaterials: [],
   createMaterials: computed( 'videos', function () {
@@ -60,13 +61,18 @@ export default Component.extend({
 
     const composer = new THREE.EffectComposer(renderer);
     composer.addPass( new THREE.RenderPass( scene, camera ) );
-    console.log('composer', composer);
+
+    const effect = new THREE.ShaderPass( THREE.RGBShiftShader );
+		effect.uniforms[ 'amount' ].value = 0.01;
+		effect.renderToScreen = true;
+		composer.addPass( effect );
 
     scene.add( cube );
 
     this.set('cube', cube);
     this.set('scene', scene);
     this.set('renderer', renderer);
+    this.set('composer', composer);
     this.set('camera', camera);
 
     camera.position.z = 2;
@@ -75,10 +81,7 @@ export default Component.extend({
   },
 
   animate(){
-    this.get('renderer').render(
-      this.get('scene'),
-      this.get('camera')
-    );
+    this.get('composer').render();
     requestAnimationFrame(() => {
       this.animate()
     });
