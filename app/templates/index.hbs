@@ -1,6 +1,7 @@
-<div class="">
-  <h2>Runaway</h2>
-  <p>{{currentProject.title}}</p>
+<div>
+  <div class="landing__info">
+    <h2>{{currentProject.title}}</h2>
+  </div>
   {{#if allVideosLoaded}}
     {{three-player
       currentId=currentVideo.id
@@ -10,6 +11,7 @@
   {{#each projects as |project|}}
     {{ivy-videojs
       id=project.id
+      class="landing__video-src"
       canplay=(action 'videoReady')
       controls=false
       loop=true

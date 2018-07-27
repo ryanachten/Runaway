@@ -31,10 +31,6 @@ export default Controller.extend({
       }
     });
     this.set('projects', projects);
-    // TODO: replace setInterval with Ember's run.debounce() or throttle()
-    setInterval(() => {
-      this.incrementProject();
-    }, 5000);
   },
 
   incrementProject(){
@@ -62,6 +58,10 @@ export default Controller.extend({
       this.get('loadedVideos').pushObject(video);
       if (this.get('loadedVideos').length === this.get('projects').length) {
         this.set('allVideosLoaded', true);
+        this.incrementProject();
+        setInterval(() => {
+          this.incrementProject();
+        }, 5000);
       }
     }
   },

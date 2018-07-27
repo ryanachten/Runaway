@@ -75,7 +75,7 @@ export default Component.extend({
     this.set('composer', composer);
     this.set('camera', camera);
 
-    camera.position.z = 2;
+    camera.position.z = 1;
 
     this.animate();
   },
