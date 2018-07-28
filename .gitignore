@@ -1,7 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# remove environment file temporarily due to Firebase key
-/config/environment.js
+# remove keys from git tracking
+/config/keys.js
 
 # test video for video.js
 /public/video/*

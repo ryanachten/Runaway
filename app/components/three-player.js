@@ -102,7 +102,5 @@ export default Component.extend({
 
     const effect = this.get('effect');
     effect.uniforms[ 'amount' ].value = normalisedCentredX;
-
-    console.log('coords', normalisedCentredX, normalisedCentredY);
   }
 });
