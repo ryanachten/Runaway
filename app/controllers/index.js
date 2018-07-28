@@ -59,6 +59,8 @@ export default Controller.extend({
       if (this.get('loadedVideos').length === this.get('projects').length) {
         this.set('allVideosLoaded', true);
         this.incrementProject();
+
+        // TODO: remove interval once component unmounts
         setInterval(() => {
           this.incrementProject();
         }, 5000);

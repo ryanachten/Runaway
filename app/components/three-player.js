@@ -8,10 +8,9 @@ import {computed, observer} from '@ember/object';
 
 export default Component.extend({
 
-  scene: null,
-  camera: null,
-  renderer: null,
+  container: null,
   composer: null,
+  effect: null,
   cube: null,
   allMaterials: [],
   createMaterials: computed( 'videos', function () {
@@ -42,7 +41,10 @@ export default Component.extend({
   didInsertElement(){
     this._super(...arguments);
 
+    this.set('allMaterials', this.get('createMaterials'));
+
     const container = this.$('.three-player')[0];
+    this.set('container', container);
     const scene = new THREE.Scene();
 
     const renderer = new THREE.WebGLRenderer();
@@ -50,8 +52,6 @@ export default Component.extend({
     container.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-
-    this.set('allMaterials', this.get('createMaterials'));
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 
@@ -66,14 +66,12 @@ export default Component.extend({
 		effect.uniforms[ 'amount' ].value = 0.01;
 		effect.renderToScreen = true;
 		composer.addPass( effect );
+    this.set('effect', effect);
 
     scene.add( cube );
 
     this.set('cube', cube);
-    this.set('scene', scene);
-    this.set('renderer', renderer);
     this.set('composer', composer);
-    this.set('camera', camera);
 
     camera.position.z = 1;
 
@@ -87,4 +85,24 @@ export default Component.extend({
     });
   },
 
+  // TODO: create touch input version
+  mouseMove(e){
+    const canvas = this.get('container').children[0];
+
+    // TODO: these should be stored and reset on screen resize
+    var offset = $(canvas).offset();
+    const width = $(canvas).innerWidth();
+    const height = $(canvas).innerHeight();
+
+    const relativeMouseX = e.pageX - offset.left;
+    const normalisedCentredX = ((relativeMouseX - width/2 ) /width) *2;
+
+    const relativeMouseY = e.pageY - offset.top;
+    const normalisedCentredY = ((relativeMouseY - height/2 ) /height) *2;
+
+    const effect = this.get('effect');
+    effect.uniforms[ 'amount' ].value = normalisedCentredX;
+
+    console.log('coords', normalisedCentredX, normalisedCentredY);
+  }
 });
