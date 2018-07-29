@@ -24,8 +24,12 @@ module.exports = function(environment) {
       'frame-src': "'self' https://*.firebaseapp.com",
       'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     },
-
     /* end of EmberFire config */
+
+    /* Torii authentication conig */
+    torii: {
+      sessionServiceName: 'session',
+    },
 
     EmberENV: {
       FEATURES: {

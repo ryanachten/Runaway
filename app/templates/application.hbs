@@ -1,3 +1,8 @@
 {{navbar-header}}
+{{#if session.isAuthenticated}}
+  <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
+{{else}}
+  <button type="button" name="signIn" {{action "signIn"}}>Sign In</button>
+{{/if}}
 
 {{outlet}}
