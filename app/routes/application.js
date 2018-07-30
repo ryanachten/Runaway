@@ -9,16 +9,14 @@ export default Route.extend({
   },
 
   actions: {
-    signIn: function (provider) {
-      console.log('sign in!');
+    signIn: function (email, password) {
       this.get('session').open('firebase', {
         provider: 'password',
-        email: 'test@example.com',
-        password: 'password123'
+        email: email,
+        password: password,
       });
     },
     signOut: function () {
-      console.log('sign out!');
       this.get('session').close();
     },
   },

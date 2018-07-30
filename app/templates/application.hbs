@@ -2,7 +2,9 @@
 {{#if session.isAuthenticated}}
   <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
 {{else}}
-  <button type="button" name="signIn" {{action "signIn"}}>Sign In</button>
+  {{input type='text' value=(mut email)}}
+  {{input type='text' value=(mut password)}}
+  <button type="button" name="signIn" {{action "signIn" email password}}>Sign In</button>
 {{/if}}
 
 {{outlet}}
