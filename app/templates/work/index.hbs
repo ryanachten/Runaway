@@ -1,8 +1,12 @@
 <h2>Work by Runaway</h2>
 {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
   <ul>
-    {{#each filteredResults as |projectUnit|}}
-    <li>{{project-item project=projectUnit}}</li>
+    {{#each filteredResults as |project|}}
+      <li>{{project-item project=project}}
+        {{#if session.isAuthenticated}}
+          <button type="button" name="button" onclick={{action "deleteProject" project.id}}>Delete</button>
+        {{/if}}
+      </li>
     {{/each}}
   </ul>
 {{/filter-projects}}
