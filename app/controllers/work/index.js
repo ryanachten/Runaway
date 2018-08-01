@@ -16,7 +16,12 @@ export default Controller.extend({
     },
 
     deleteProject(id){
-      console.log('delete me', id);
+      const store = this.get('store');
+      store.findRecord('project', id, { backgroundReload: false }).then((record) => {
+        record.deleteRecord();
+        record.get('isDeleted');
+        record.save();
+      });
     }
   }
 });
