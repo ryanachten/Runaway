@@ -2,9 +2,11 @@
 {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
   <ul>
     {{#each filteredResults as |project|}}
-      <li>{{project-item project=project}}
+      <li>
         {{#if session.isAuthenticated}}
-          <button type="button" name="button" onclick={{action "deleteProject" project.id}}>Delete</button>
+          {{project-item-auth project=project}}
+        {{else}}
+          {{project-item project=project}}
         {{/if}}
       </li>
     {{/each}}

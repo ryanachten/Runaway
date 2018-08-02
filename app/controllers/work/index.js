@@ -14,14 +14,5 @@ export default Controller.extend({
           .then( (results) => { return { query: category, results: results }});
       }
     },
-
-    deleteProject(id){
-      const store = this.get('store');
-      store.findRecord('project', id, { backgroundReload: false }).then((record) => {
-        record.deleteRecord();
-        record.get('isDeleted');
-        record.save();
-      });
-    }
   }
 });

@@ -1,0 +1,21 @@
+<article class="project-item">
+  {{ivy-videojs
+    canplay='canplay'
+    controls=true
+    ended='ended'
+    fluid=true
+    pause='pause'
+    playing='playing'
+    src=project.videoLocal}}
+  {{input
+    class="project-item__link"
+    type='text' value=project.title
+    enter=(action 'editProject' project)
+  }}
+  <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
+  <div>
+    <span class="project-item__category {{category}}">{{project.category}}</span>
+  </div>
+  <p>{{project.description}}</p>
+  <button type="button" name="button" onclick={{action "deleteProject" project.id}}>Delete</button>
+</article>
