@@ -11,6 +11,11 @@ export default ProjectItem.extend({
       const store = this.get('store');
       store.findRecord('project', project.id, { backgroundReload: false }).then((record) => {
         record.set('title', project.title);
+        record.set('client', project.client);
+        record.set('date', project.date);
+        record.set('category', project.category);
+        record.set('description', project.description);
+        record.save();
       });
     },
 

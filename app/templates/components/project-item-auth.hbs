@@ -12,10 +12,21 @@
     type='text' value=project.title
     enter=(action 'editProject' project)
   }}
-  <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
-  <div>
-    <span class="project-item__category {{category}}">{{project.category}}</span>
-  </div>
-  <p>{{project.description}}</p>
+  {{input
+    type='text' value=project.client
+    enter=(action 'editProject' project)
+  }}
+  {{input
+    type='text' value=project.date
+    enter=(action 'editProject' project)
+  }}
+  {{input
+    type='text' value=project.category
+    enter=(action 'editProject' project)
+  }}
+  {{textarea
+    value=project.description
+    enter=(action 'editProject' project)
+  }}
   <button type="button" name="button" onclick={{action "deleteProject" project.id}}>Delete</button>
 </article>
