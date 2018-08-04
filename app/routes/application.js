@@ -27,7 +27,7 @@ export default Route.extend({
         provider: 'password',
         email: email,
         password: password,
-      }).then( (arg) => {
+      }).then( () => {
         this.resetErrorMessage();
       }).catch( (e) => {
         this.setErrorMessage(e);

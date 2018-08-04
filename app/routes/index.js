@@ -13,4 +13,10 @@ export default Route.extend({
   afterModel(model){
     this.controllerFor('index').start(model);
   },
+
+  actions: {
+    willTransition(){
+      this.controller.removeProjectInterval();
+    }
+  }
 });

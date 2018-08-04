@@ -3,6 +3,7 @@ import {computed} from '@ember/object';
 
 export default Controller.extend({
   projects: null,
+  projectTransitionInterval: null,
   currentIndex: 0,
   currentProject: computed('currentIndex', function () {
     const projects = this.get('projects');
@@ -48,6 +49,11 @@ export default Controller.extend({
     this.get('currentVideo').player.play();
   },
 
+  removeProjectInterval(){
+    const interval = this.get('projectTransitionInterval');
+    clearInterval(interval);
+  },
+
   actions: {
     videoReady(player, component){
       const video = {
@@ -61,9 +67,10 @@ export default Controller.extend({
         this.incrementProject();
 
         // TODO: remove interval once component unmounts
-        setInterval(() => {
+        const interval = setInterval(() => {
           this.incrementProject();
         }, 5000);
+        this.set('projectTransitionInterval', interval);
       }
     }
   },
