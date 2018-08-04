@@ -1,5 +1,36 @@
 <h2>Work by Runaway</h2>
 {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
+  {{#if session.isAuthenticated}}
+    <form>
+      {{input
+        class="project-item__link"
+        type='text' value=title placeholder='Title'
+      }}
+      {{input
+        type='text' value=client placeholder='Client'
+      }}
+      {{input
+        type='text' value=date placeholder='Date'
+      }}
+      {{input
+        type='text' value=category placeholder='Category'
+      }}
+      {{input
+        type='text' value=videoLocal placeholder='Video File'
+      }}
+      {{input
+        type='text' value=videoVendor placeholder='Vimeo Link'
+      }}
+      {{textarea
+        value=description  placeholder='Description'
+      }}
+      {{input
+        type='checkbox' checked=featured
+      }}
+      <button {{action "createProject" title client date category videoLocal videoVendor description featured}}
+      >Create</button>
+    </ form>
+  {{/if}}
   <ul>
     {{#each filteredResults as |project|}}
       <li>
