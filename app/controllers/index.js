@@ -38,6 +38,8 @@ export default Controller.extend({
     const currentIndex = this.get('currentIndex');
     const projectCount = this.get('projects').length;
 
+    console.log('currentVideo', this.get('currentVideo').video);
+
     this.get('currentVideo').player.pause();
 
     if (currentIndex+1 >= projectCount) {
@@ -49,9 +51,19 @@ export default Controller.extend({
     this.get('currentVideo').player.play();
   },
 
+  startProjectInterval(){
+    const interval = setInterval(() => {
+      this.incrementProject();
+    }, 5000);
+    this.set('projectTransitionInterval', interval);
+  },
+
   removeProjectInterval(){
     const interval = this.get('projectTransitionInterval');
     clearInterval(interval);
+    this.set('projectTransitionInterval', null);
+    this.set('allVideosLoaded', false);
+    this.set('loadedVideos', []);
   },
 
   actions: {
@@ -63,14 +75,9 @@ export default Controller.extend({
       }
       this.get('loadedVideos').pushObject(video);
       if (this.get('loadedVideos').length === this.get('projects').length) {
+        console.log('videoReady');
         this.set('allVideosLoaded', true);
-        this.incrementProject();
-
-        // TODO: remove interval once component unmounts
-        const interval = setInterval(() => {
-          this.incrementProject();
-        }, 5000);
-        this.set('projectTransitionInterval', interval);
+        this.startProjectInterval();
       }
     }
   },

@@ -9,11 +9,12 @@
     }}
   {{/if}}
   {{#each projects as |project|}}
+    {{log project.id}}
     {{ivy-videojs
       id=project.id
       class="landing__video-src"
       canplay=(action 'videoReady')
-      controls=false
+      controls=true
       loop=true
       src=project.videoLocal}}
   {{/each}}

@@ -39,6 +39,7 @@ export default Component.extend({
 
 
   didInsertElement(){
+    console.log('didInsertElement');
     this._super(...arguments);
 
     this.set('allMaterials', this.get('createMaterials'));
