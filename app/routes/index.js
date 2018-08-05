@@ -11,7 +11,6 @@ export default Route.extend({
   },
 
   afterModel(model){
-    console.log('after moodel');
     this.controllerFor('index').start(model);
   },
 

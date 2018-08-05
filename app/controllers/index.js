@@ -12,6 +12,7 @@ export default Controller.extend({
 
   loadedVideos: [],
   allVideosLoaded: false,
+  videoIsPlaying: false,
   currentVideo: computed('loadedVideos', 'currentProject', function () {
     const projectId = this.get('currentProject').id;
     const video = this.get('loadedVideos').filter( (video) => {
@@ -38,8 +39,6 @@ export default Controller.extend({
     const currentIndex = this.get('currentIndex');
     const projectCount = this.get('projects').length;
 
-    console.log('currentVideo', this.get('currentVideo').video);
-
     this.get('currentVideo').player.pause();
 
     if (currentIndex+1 >= projectCount) {
@@ -56,6 +55,8 @@ export default Controller.extend({
       this.incrementProject();
     }, 5000);
     this.set('projectTransitionInterval', interval);
+    this.get('currentVideo').player.play();
+    this.set('videoIsPlaying', true);
   },
 
   removeProjectInterval(){
@@ -64,6 +65,7 @@ export default Controller.extend({
     this.set('projectTransitionInterval', null);
     this.set('allVideosLoaded', false);
     this.set('loadedVideos', []);
+    this.set('videoIsPlaying', false);
   },
 
   actions: {
@@ -75,7 +77,6 @@ export default Controller.extend({
       }
       this.get('loadedVideos').pushObject(video);
       if (this.get('loadedVideos').length === this.get('projects').length) {
-        console.log('videoReady');
         this.set('allVideosLoaded', true);
         this.startProjectInterval();
       }

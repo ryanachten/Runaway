@@ -2,14 +2,13 @@
   <div class="landing__info">
     <h2>{{currentProject.title}}</h2>
   </div>
-  {{#if allVideosLoaded}}
+  {{#if videoIsPlaying}}
     {{three-player
       currentId=currentVideo.id
       videos=loadedVideos
     }}
   {{/if}}
   {{#each projects as |project|}}
-    {{log project.id}}
     {{ivy-videojs
       id=project.id
       class="landing__video-src"

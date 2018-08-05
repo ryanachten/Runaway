@@ -28,18 +28,12 @@ export default Component.extend({
     return materials;
   }),
   updateVideo: observer('currentId', function () {
-    const currentId = this.get('currentId');
-    const currentMaterial = this.get('allMaterials').filter( (material) => {
-      if (material.id === currentId) {
-        return material;
-      }
-    })[0];
-    this.set('cube.material', currentMaterial.material);
+    const currentMaterial = this.getVideoMaterial();
+    this.set('cube.material', currentMaterial);
   }),
 
 
   didInsertElement(){
-    console.log('didInsertElement');
     this._super(...arguments);
 
     this.set('allMaterials', this.get('createMaterials'));
@@ -56,9 +50,9 @@ export default Component.extend({
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 
-    const material = this.get('allMaterials')[0].material;
+    const currentMaterial = this.getVideoMaterial();
 
-    const cube = new THREE.Mesh( geometry, material );
+    const cube = new THREE.Mesh( geometry, currentMaterial );
 
     const composer = new THREE.EffectComposer(renderer);
     composer.addPass( new THREE.RenderPass( scene, camera ) );
@@ -77,6 +71,16 @@ export default Component.extend({
     camera.position.z = 1;
 
     this.animate();
+  },
+
+  getVideoMaterial(){
+    const currentId = this.get('currentId');
+    const currentMaterial = this.get('allMaterials').filter( (material) => {
+      if (material.id === currentId) {
+        return material;
+      }
+    })[0];
+    return currentMaterial.material;
   },
 
   animate(){
