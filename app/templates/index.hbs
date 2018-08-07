@@ -1,6 +1,8 @@
 <div class="landing">
   <div class="landing__info">
-    <h1>{{currentProject.title}}</h1>
+    {{#link-to 'work.show' currentProject.id}}
+      <h1>{{currentProject.title}}</h1>
+    {{/link-to}}
   </div>
   {{#if videoIsPlaying}}
     {{three-player
