@@ -8,7 +8,6 @@ export default Component.extend({
     canplay(player, component) {
       this.set('videoPlayer', player);
       this.set('videoElement', component.get('element'));
-      this.doSomething();
     },
 
     ended() {
@@ -22,9 +21,5 @@ export default Component.extend({
     playing() {
       console.log('video is playing');
     }
-  },
-
-  doSomething(){
-    // this.get('videoPlayer').play();
-  },
+  }
 });

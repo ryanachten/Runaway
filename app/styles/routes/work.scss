@@ -1,7 +1,7 @@
 .work{
   color: white;
 }
-.createProject{
+.create-project{
   display: flex;
   flex-flow: row wrap;
   max-width: 500px;
@@ -12,14 +12,14 @@
     margin: 10px;
   }
 }
-.createProject__header{
+.create-project__header{
   text-align: center;
   width: 100%;
 }
-.createProject__description, .createProject__title{
+.create-project__description, .create-project__title{
   width: 100%;
 }
-.createProject__submit{
+.create-project__submit{
   flex-grow: 0;
   margin: 0 auto;
 }

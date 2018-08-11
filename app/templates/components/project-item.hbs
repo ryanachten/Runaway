@@ -7,10 +7,11 @@
     pause='pause'
     playing='playing'
     src=project.videoLocal}}
-  <h3 class="project-item__link">{{#link-to "work.show" project classNames=project.id}}{{project.title}}{{/link-to}}</h3>
-  <span>{{project.date}}</span> - <span>Client: {{project.client}}</span>
-  <div>
+  <div class="project-item__info">
+    <h2 class="project-item__title">{{#link-to "work.show" project}}{{project.title}}{{/link-to}}</h2>
+    <span>{{project.date}}</span>
+    <span>Client: {{project.client}}</span>
     <span class="project-item__category {{category}}">{{project.category}}</span>
+    <p class="project-item__description">{{project.description}}</p>
   </div>
-  <p>{{project.description}}</p>
 </article>

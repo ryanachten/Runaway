@@ -1,32 +1,32 @@
 {{#if session.isAuthenticated}}
   <div class="work">
-    <form class="createProject">
-      <h2 class="createProject__header">Create new project</h2>
+    <form class="create-project">
+      <h2 class="create-project__header">Create new project</h2>
       {{input
-        class="createProject__title"
+        class="create-project__title"
         type='text' value=title placeholder='Title'
       }}
       {{input
-        class="createProject__client"
+        class="create-project__client"
         type='text' value=client placeholder='Client'
       }}
       {{input
-        class="createProject__date"
+        class="create-project__date"
         type='text' value=date placeholder='Date'
       }}
       {{input
-        class="createProject__category"
+        class="create-project__category"
         type='text' value=category placeholder='Category'
       }}
       {{input
-        class="createProject__file"
+        class="create-project__file"
         type='text' value=videoLocal placeholder='Video File'
       }}
       {{input
-        class="createProject__link"
+        class="create-project__link"
         type='text' value=videoVendor placeholder='Vimeo Link'
       }}
-      <div class="createProject__featured">
+      <div class="create-project__featured">
         <label for="featured">Featured Project</label>
         {{input
           id="featured"
@@ -34,13 +34,13 @@
         }}
       </div>
       {{textarea
-        class="createProject__description"
+        class="create-project__description"
         value=description  placeholder='Description'
       }}
       <button
-      class="createProject__submit"
+      class="create-project__submit"
       type="submit"
-      {{action "createProject" title client date category videoLocal videoVendor description featured}}
+      {{action "create-project" title client date category videoLocal videoVendor description featured}}
       >Create</button>
     </form>
   </div>

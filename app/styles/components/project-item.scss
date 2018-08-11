@@ -1,0 +1,39 @@
+// Centre video-js player
+.video-js{
+  margin: 0 auto;
+}
+.project-item{
+  color: white;
+  margin: 50px 0;
+}
+.project-item__edit, .project-item__info{
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+
+  & *{
+    flex-grow: 1;
+    margin: 10px;
+  }
+}
+.project-item__title{
+  width: 100%;
+}
+.project-item__description{
+  width: 100%;
+}
+.project-item__submit{
+  flex-grow: 0;
+  margin: 0 auto;
+}
+
+// Unauthenticated
+.project-item__info{
+  text-align: center;
+
+  .project-item__category{
+    width: 100%;
+  }
+}

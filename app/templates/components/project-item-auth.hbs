@@ -3,30 +3,38 @@
     canplay='canplay'
     controls=true
     ended='ended'
-    fluid=true
+    fluid=false
     pause='pause'
     playing='playing'
     src=project.videoLocal}}
-  {{input
-    class="project-item__link"
-    type='text' value=project.title
-    enter=(action 'editProject' project)
-  }}
-  {{input
-    type='text' value=project.client
-    enter=(action 'editProject' project)
-  }}
-  {{input
-    type='text' value=project.date
-    enter=(action 'editProject' project)
-  }}
-  {{input
-    type='text' value=project.category
-    enter=(action 'editProject' project)
-  }}
-  {{textarea
-    value=project.description
-    enter=(action 'editProject' project)
-  }}
-  <button type="button" name="button" onclick={{action "deleteProject" project.id}}>Delete</button>
+  <form class="project-item__edit">
+    {{input
+      class="project-item__title"
+      type='text' value=project.title
+      enter=(action 'editProject' project)
+    }}
+    {{input
+      class="project-item__client"
+      type='text' value=project.client
+      enter=(action 'editProject' project)
+    }}
+    {{input
+      class="project-item__date"
+      type='text' value=project.date
+      enter=(action 'editProject' project)
+    }}
+    {{input
+      class="project-item__category"
+      type='text' value=project.category
+      enter=(action 'editProject' project)
+    }}
+    {{textarea
+      class="project-item__description"
+      value=project.description
+      enter=(action 'editProject' project)
+    }}
+    <button type="submit" name="button"
+      class="project-item__submit"
+      onclick={{action "deleteProject" project.id}}>Delete</button>
+  </form>
 </article>
