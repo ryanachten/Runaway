@@ -1,0 +1,25 @@
+.work{
+  color: white;
+}
+.createProject{
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 500px;
+  margin: 0 auto;
+
+  & *{
+    flex-grow: 1;
+    margin: 10px;
+  }
+}
+.createProject__header{
+  text-align: center;
+  width: 100%;
+}
+.createProject__description, .createProject__title{
+  width: 100%;
+}
+.createProject__submit{
+  flex-grow: 0;
+  margin: 0 auto;
+}

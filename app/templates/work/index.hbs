@@ -1,39 +1,51 @@
-<h2>Work by Runaway</h2>
-  {{#if session.isAuthenticated}}
-    <div>
-      <h3>Create new project</h3>
-      <form>
+{{#if session.isAuthenticated}}
+  <div class="work">
+    <form class="createProject">
+      <h2 class="createProject__header">Create new project</h2>
+      {{input
+        class="createProject__title"
+        type='text' value=title placeholder='Title'
+      }}
+      {{input
+        class="createProject__client"
+        type='text' value=client placeholder='Client'
+      }}
+      {{input
+        class="createProject__date"
+        type='text' value=date placeholder='Date'
+      }}
+      {{input
+        class="createProject__category"
+        type='text' value=category placeholder='Category'
+      }}
+      {{input
+        class="createProject__file"
+        type='text' value=videoLocal placeholder='Video File'
+      }}
+      {{input
+        class="createProject__link"
+        type='text' value=videoVendor placeholder='Vimeo Link'
+      }}
+      <div class="createProject__featured">
+        <label for="featured">Featured Project</label>
         {{input
-          class="project-item__link"
-          type='text' value=title placeholder='Title'
-        }}
-        {{input
-          type='text' value=client placeholder='Client'
-        }}
-        {{input
-          type='text' value=date placeholder='Date'
-        }}
-        {{input
-          type='text' value=category placeholder='Category'
-        }}
-        {{input
-          type='text' value=videoLocal placeholder='Video File'
-        }}
-        {{input
-          type='text' value=videoVendor placeholder='Vimeo Link'
-        }}
-        {{textarea
-          value=description  placeholder='Description'
-        }}
-        {{input
+          id="featured"
           type='checkbox' checked=featured
         }}
-        <button {{action "createProject" title client date category videoLocal videoVendor description featured}}
-        >Create</button>
-      </form>
-    </div>
-  {{/if}}
-  {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
+      </div>
+      {{textarea
+        class="createProject__description"
+        value=description  placeholder='Description'
+      }}
+      <button
+      class="createProject__submit"
+      type="submit"
+      {{action "createProject" title client date category videoLocal videoVendor description featured}}
+      >Create</button>
+    </form>
+  </div>
+{{/if}}
+{{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
   <ul>
     {{#each filteredResults as |project|}}
       <li>

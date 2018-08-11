@@ -1,44 +1,28 @@
-<div>
-  <input
-    value=''
-    checked=true
-    classNames="filter__check--all"
-    type="radio"
-    name="project-filter"
-    onclick={{action 'handleFilterEntry' ''}}
-  />
-  <span>All</span>
-</div>
-<div>
-  {{input
-    value='film'
-    classNames="filter__check--film"
-    type="radio"
-    name="project-filter"
-    change=(action 'handleFilterEntry' 'film')
-  }}
-  <span>Film</span>
-</div>
-<div>
-  {{input
-    value='animation'
-    classNames="filter__check--animation"
-    type="radio"
-    name="project-filter"
-    change=(action 'handleFilterEntry' 'animation')
-  }}
-  <span>Animation</span>
-</div>
-<div>
-  {{input
-    value='motion graphics'
-    classNames="filter__check--motion-graphics"
-    type="radio"
-    name="project-filter"
-    change=(action 'handleFilterEntry' 'motion graphics')
-  }}
-  <span>Motion Graphics</span>
-</div>
-
+<article class="filter">
+  <h2>Filter projects</h2>
+  <div class="filter__toggles">
+    <div class="filter__check">
+      <input
+        value=''
+        checked=true
+        type="radio"
+        name="project-filter"
+        onclick={{action 'handleFilterEntry' ''}}
+      />
+      <span>All</span>
+    </div>
+    {{#each filtersValues as |value|}}
+    <div class="filter__check">
+      {{input
+        value=value
+        type="radio"
+        name="project-filter"
+        change=(action 'handleFilterEntry' value)
+      }}
+      <span>{{value}}</span>
+    </div>
+    {{/each}}
+  </div>
+</article>
 
 {{yield results}}

@@ -3,6 +3,11 @@ import Component from '@ember/component';
 export default Component.extend({
   classNames: ['filter-projects'],
   value: '',
+  filtersValues: [
+    'film',
+    'animation',
+    'motion graphics'
+  ],
 
   init(){
     this._super(...arguments);
