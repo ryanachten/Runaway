@@ -1,14 +1,4 @@
 <header class="topbar">
-  {{navbar-header}}
-  {{#if session.isAuthenticated}}
-    <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
-  {{else}}
-    {{input type='email' value=(mut email) placeholder="email"}}
-    {{input type='password' value=(mut password) placeholder="password"}}
-    <button type="button" name="signIn" {{action "signIn" email password}}>Sign In</button>
-    {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
-    {{/if}}
-  {{/if}}
+  {{navbar-header authenticated=session.isAuthenticated session=session}}
 </header>
 {{outlet}}

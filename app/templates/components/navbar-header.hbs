@@ -3,6 +3,9 @@
   {{#link-to "work" class="navbar__link--work"}}Work{{/link-to}}
   {{#link-to "about" class="navbar__link--about"}}About{{/link-to}}
   {{#link-to "contact" class="navbar__link--contact"}}Contact{{/link-to}}
+  {{#if authenticated}}
+    <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
+  {{/if}}
 </nav>
 
 {{yield}}

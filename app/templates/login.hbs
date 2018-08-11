@@ -1,0 +1,27 @@
+<main class="login">
+  {{#if session.isAuthenticated}}
+    <div class="login--authed">
+      <div>
+        <h1>Log out?</h1>
+        <p>Already signed in son</p>
+        <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
+      </div>
+    </div>
+  {{else}}
+    <div class="login--unauthed">
+      <form>
+        <h1>Log in?</h1>
+        <p>Enter you details son</p>
+        {{input class="login--email" type='email' value=(mut email) placeholder="email"}}
+        {{input class="login--password" type='password' value=(mut password) placeholder="password"}}
+        <div>
+          <button class="login--submit" type="submit" name="signIn" {{action "signIn" email password}}>Sign In</button>
+        </div>
+        {{#if errorMessage}}
+          <p>{{errorMessage}}</p>
+        {{/if}}
+      </form>
+    </div>
+  {{/if}}
+  {{outlet}}
+</main>

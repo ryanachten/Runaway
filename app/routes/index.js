@@ -1,7 +1,6 @@
 import Route from "@ember/routing/route";
 
 export default Route.extend({
-  testText: 'meow',
   currentProject: null,
   projects: null,
   currentIndex: 0,

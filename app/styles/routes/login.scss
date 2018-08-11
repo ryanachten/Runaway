@@ -1,0 +1,26 @@
+.login{
+  color: white;
+}
+
+// Authenticated
+.login--authed{
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 50vh;
+  justify-content: center;
+  text-align: center;
+}
+
+// Unauthenticated
+.login--unauthed{
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  height: 50vh;
+  justify-content: center;
+  text-align: center;
+}
+.login--email, .login--password{
+  margin: 20px;
+}

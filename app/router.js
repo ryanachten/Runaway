@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('work', function() {
     this.route('show', { path: '/:project_id' });
   });
+  this.route('login');
 });
 
 export default Router;
