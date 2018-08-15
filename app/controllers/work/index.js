@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  isCreatingProject: false,
   title: null,
   client: null,
   date: null,
@@ -49,5 +50,10 @@ export default Controller.extend({
         'featured': null,
       });
     },
-  }
+    
+    toggleCreateProject(){
+      const isCreating = this.get('isCreatingProject');
+      this.set('isCreatingProject', !isCreating);
+    },
+  },
 });

@@ -1,13 +1,14 @@
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, button{
+a, button, input, textarea, option, span, label{
   font-family: 'Roboto', sans-serif;
+  color: $text-primary;
 }
 
 body{
-  background-color: black;
+  background-color: $brand-primary;
 }
 
 a{
-  color: white;
+  color: $text-primary;
   text-decoration: none;
 }

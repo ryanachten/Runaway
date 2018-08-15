@@ -15,11 +15,12 @@
     <div class="filter__check">
       {{input
         value=value
+        id=value
         type="radio"
         name="project-filter"
         change=(action 'handleFilterEntry' value)
       }}
-      <span>{{value}}</span>
+      <label for={{value}}>{{value}}</label>
     </div>
     {{/each}}
   </div>

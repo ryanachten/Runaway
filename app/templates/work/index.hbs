@@ -1,48 +1,52 @@
 {{#if session.isAuthenticated}}
   <div class="work">
-    <form class="create-project">
-      <h2 class="create-project__header">Create new project</h2>
-      {{input
-        class="create-project__title"
-        type='text' value=title placeholder='Title'
-      }}
-      {{input
-        class="create-project__client"
-        type='text' value=client placeholder='Client'
-      }}
-      {{input
-        class="create-project__date"
-        type='text' value=date placeholder='Date'
-      }}
-      {{input
-        class="create-project__category"
-        type='text' value=category placeholder='Category'
-      }}
-      {{input
-        class="create-project__file"
-        type='text' value=videoLocal placeholder='Video File'
-      }}
-      {{input
-        class="create-project__link"
-        type='text' value=videoVendor placeholder='Vimeo Link'
-      }}
-      <div class="create-project__featured">
-        <label for="featured">Featured Project</label>
+    <h2 class="create-project__header">Create new project</h2>
+    {{log toggleCreateProject}}
+    <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>Edit</button>
+    {{#if isCreatingProject}}
+      <form class="create-project">
         {{input
-          id="featured"
-          type='checkbox' checked=featured
+          class="create-project__title"
+          type='text' value=title placeholder='Title'
         }}
-      </div>
-      {{textarea
-        class="create-project__description"
-        value=description  placeholder='Description'
-      }}
-      <button
-      class="create-project__submit"
-      type="submit"
-      {{action "create-project" title client date category videoLocal videoVendor description featured}}
-      >Create</button>
-    </form>
+        {{input
+          class="create-project__client"
+          type='text' value=client placeholder='Client'
+        }}
+        {{input
+          class="create-project__date"
+          type='text' value=date placeholder='Date'
+        }}
+        {{input
+          class="create-project__category"
+          type='text' value=category placeholder='Category'
+        }}
+        {{input
+          class="create-project__file"
+          type='text' value=videoLocal placeholder='Video File'
+        }}
+        {{input
+          class="create-project__link"
+          type='text' value=videoVendor placeholder='Vimeo Link'
+        }}
+        <div class="create-project__featured">
+          <label for="featured">Featured Project</label>
+          {{input
+            id="featured"
+            type='checkbox' checked=featured
+          }}
+        </div>
+        {{textarea
+          class="create-project__description"
+          value=description  placeholder='Description'
+        }}
+        <button
+        class="create-project__submit"
+        type="submit"
+        {{action "create-project" title client date category videoLocal videoVendor description featured}}
+        >Create</button>
+      </form>
+    {{/if}}
   </div>
 {{/if}}
 {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
