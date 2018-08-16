@@ -53,11 +53,7 @@
   <ul>
     {{#each filteredResults as |project|}}
       <li>
-        {{#if session.isAuthenticated}}
-          {{project-item-auth project=project}}
-        {{else}}
-          {{project-item project=project}}
-        {{/if}}
+        {{project-item project=project authed=session.isAuthenticated}}
       </li>
     {{/each}}
   </ul>

@@ -1,17 +1,61 @@
 <article class="project-item">
-  {{ivy-videojs
-    canplay='canplay'
-    controls=false
-    ended='ended'
-    fluid=true
-    pause='pause'
-    playing='playing'
-    src=project.videoLocal}}
-  <div class="project-item__info">
-    <h2 class="project-item__title">{{#link-to "work.show" project}}{{project.title}}{{/link-to}}</h2>
-    <span>{{project.date}}</span>
-    <span>Client: {{project.client}}</span>
-    <span class="project-item__category {{category}}">{{project.category}}</span>
-    <p class="project-item__description">{{project.description}}</p>
-  </div>
+  {{#if canEdit}}
+    {{ivy-videojs
+      canplay='canplay'
+      controls=true
+      ended='ended'
+      fluid=true
+      pause='pause'
+      playing='playing'
+      src=project.videoLocal}}
+    <form class="project-item__edit">
+      {{input
+        class="project-item__title"
+        type='text' value=project.title
+        enter=(action 'editProject' project)
+      }}
+      {{input
+        class="project-item__client"
+        type='text' value=project.client
+        enter=(action 'editProject' project)
+      }}
+      {{input
+        class="project-item__date"
+        type='text' value=project.date
+        enter=(action 'editProject' project)
+      }}
+      {{input
+        class="project-item__category"
+        type='text' value=project.category
+        enter=(action 'editProject' project)
+      }}
+      {{textarea
+        class="project-item__description"
+        value=project.description
+        enter=(action 'editProject' project)
+      }}
+      <button type="submit" name="button"
+        class="project-item__submit"
+        onclick={{action "deleteProject" project.id}}>Delete</button>
+    </form>
+  {{else}}
+    {{ivy-videojs
+      canplay='canplay'
+      controls=true
+      ended='ended'
+      fluid=true
+      pause='pause'
+      playing='playing'
+      src=project.videoLocal}}
+    <div class="project-item__info">
+      <h2 class="project-item__title">{{#link-to "work.show" project}}{{project.title}}{{/link-to}}</h2>
+      <span>{{project.date}}</span>
+      <span>Client: {{project.client}}</span>
+      <span class="project-item__category {{category}}">{{project.category}}</span>
+      <p class="project-item__description">{{project.description}}</p>
+    </div>
+  {{/if}}
+  {{#if authed}}
+    <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Edit</button>
+  {{/if}}
 </article>
