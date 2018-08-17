@@ -16,6 +16,22 @@ export default Component.extend({
     return authed && isEditing;
   }),
 
+  mouseEnter(){
+    const player = this.get('videoPlayer');
+    if (!player) {
+      return;
+    }
+    player.play();
+  },
+
+  mouseLeave(){
+    const player = this.get('videoPlayer');
+    if (!player) {
+      return;
+    }
+    player.pause();
+  },
+
   actions: {
 
     toggleEditProject(){
@@ -47,18 +63,6 @@ export default Component.extend({
     canplay(player, component) {
       this.set('videoPlayer', player);
       this.set('videoElement', component.get('element'));
-    },
-
-    ended() {
-      console.log('video ended');
-    },
-
-    pause() {
-      console.log('video is paused');
-    },
-
-    playing() {
-      console.log('video is playing');
-    }
+    }, 
   }
 });

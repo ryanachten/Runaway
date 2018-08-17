@@ -1,7 +1,6 @@
 {{#if session.isAuthenticated}}
   <div class="work">
     <h2 class="create-project__header">Create new project</h2>
-    {{log toggleCreateProject}}
     <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>Edit</button>
     {{#if isCreatingProject}}
       <form class="create-project">
@@ -53,7 +52,10 @@
   <ul>
     {{#each filteredResults as |project|}}
       <li>
-        {{project-item project=project authed=session.isAuthenticated}}
+        {{project-item
+            project=project
+            authed=session.isAuthenticated
+          }}
       </li>
     {{/each}}
   </ul>

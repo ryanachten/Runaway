@@ -3,10 +3,7 @@
     {{ivy-videojs
       canplay='canplay'
       controls=true
-      ended='ended'
       fluid=true
-      pause='pause'
-      playing='playing'
       src=project.videoLocal}}
     <form class="project-item__edit">
       {{input
@@ -41,14 +38,11 @@
   {{else}}
     {{ivy-videojs
       canplay='canplay'
-      controls=true
-      ended='ended'
+      controls=false
       fluid=true
-      pause='pause'
-      playing='playing'
       src=project.videoLocal}}
     <div class="project-item__info">
-      <h2 class="project-item__title">{{#link-to "work.show" project}}{{project.title}}{{/link-to}}</h2>
+      <h2 class="project-item__title">{{#link-to "work.show" project}} {{project.title}}{{/link-to}}</h2>
       <span>{{project.date}}</span>
       <span>Client: {{project.client}}</span>
       <span class="project-item__category {{category}}">{{project.category}}</span>
