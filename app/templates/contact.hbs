@@ -23,6 +23,17 @@
       <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage'}}>Send!</button>
     </form>
   </div>
+  {{#if session.isAuthenticated}}
+    <div class="contact__messages">
+      {{#each messages as | message |}}
+        <div class="">
+          <h3>{{message.name}}</h3>
+          <span>{{message.date}}</span><span>{{message.email}}</span>
+          <p>{{message.message}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
 </div>
 
 {{outlet}}

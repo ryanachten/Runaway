@@ -6,6 +6,20 @@ export default Controller.extend({
   fullName: '',
   emailAddress: '',
   message: '',
+  messages: [
+    {
+      name: 'Ryan Achten',
+      date: new Date(),
+      email: 'ryan@testemail.com',
+      message: 'Hellooooooooo'
+    },
+    {
+      name: 'Meow',
+      date: new Date(),
+      email: 'meow@testemail.com',
+      message: 'Meowwwww'
+    }
+  ],
 
   isValidEmail: match('emailAddress', /^.+@.+\..+$/),
 
