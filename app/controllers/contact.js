@@ -27,7 +27,7 @@ export default Controller.extend({
   },
 
   actions: {
-    sendMessage(fullName, emailAddress, message){
+    createMessage(fullName, emailAddress, message){
 
       const newMessage = this.get('store').createRecord('message', {
         'name': fullName,
@@ -44,5 +44,12 @@ export default Controller.extend({
       const response = `Thanks for your interest! We'll get back to you at ${emailAddress}`;
       alert(response);
     },
+
+    deleteMessage(id){
+      this.get('store').findRecord('message', id, { backgroundReload: false }).then((record) => {
+        record.deleteRecord();
+        record.save();
+      });
+    }
   }
 });

@@ -20,7 +20,7 @@
           class="contact__message-field"
         }}
       </div>
-      <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage' fullName emailAddress message}}>Send!</button>
+      <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>Send!</button>
     </form>
   </div>
 
@@ -32,6 +32,7 @@
           <span>{{message.date}}</span><span>{{message.email}}</span>
           <p>{{message.message}}</p>
         </div>
+        <button type="button" name="delete" {{action 'deleteMessage' message.id}}>Delete</button>
       {{/each}}
     </div>
   {{/if}}
