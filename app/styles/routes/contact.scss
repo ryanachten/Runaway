@@ -1,0 +1,33 @@
+.contact{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+
+  & *{
+    margin: 10px;
+  }
+}
+
+.contact__form{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.contact__input{
+  max-width: 50%;
+}
+
+.contact__message{
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.contact__message-field{
+  flex-grow: 1;
+}

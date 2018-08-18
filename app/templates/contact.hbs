@@ -1,18 +1,28 @@
-<div>
-  <h2>Contact Runaway</h2>
-  <p>For a quote or a chat, flick us a message and we'll get right back to you</p>
-  {{#if responseMessage}}
-    <div>{{responseMessage}}</div>
-  {{/if}}
-  <form class="" action="index.html" method="post">
-    <label for="name-input">Name</label>
-    {{input id="name-input" value=fullName type="email" placeholder="Please enter your name"}}
-    <label for="email-input">Email</label>
-    {{input id="email-input" value=emailAddress type="email" placeholder="Please enter your email"}}
-    <label for="message-input">Message</label>
-    {{textarea name="message-input" value=message }}
-    <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage'}}>Send!</button>
-  </form>
+<div class="contact">
+  <div class="contact__container">
+    <h2>Contact Runaway</h2>
+    <p>For a quote or a chat, flick us a message and we'll get right back to you</p>
+    {{#if responseMessage}}
+      <div>{{responseMessage}}</div>
+    {{/if}}
+    <form class="contact__form">
+      <div class="contact__input">
+        <label for="name-input">Name</label>
+        {{input id="name-input" value=fullName type="email" placeholder="Please enter your name"}}
+      </div>
+      <div class="contact__input">
+        <label for="email-input">Email</label>
+        {{input id="email-input" value=emailAddress type="email" placeholder="Please enter your email"}}
+      </div>
+      <div class="contact__message">
+        <label for="message-input">Message</label>
+        {{textarea name="message-input" value=message
+          class="contact__message-field"
+        }}
+      </div>
+      <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage'}}>Send!</button>
+    </form>
+  </div>
 </div>
 
 {{outlet}}
