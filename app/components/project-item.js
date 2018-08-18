@@ -18,7 +18,7 @@ export default Component.extend({
 
   mouseEnter(){
     const player = this.get('videoPlayer');
-    if (!player) {
+    if (!player || this.get('isEditing')) {
       return;
     }
     player.play();
@@ -26,7 +26,7 @@ export default Component.extend({
 
   mouseLeave(){
     const player = this.get('videoPlayer');
-    if (!player) {
+    if (!player || this.get('isEditing')) {
       return;
     }
     player.pause();
@@ -63,6 +63,6 @@ export default Component.extend({
     canplay(player, component) {
       this.set('videoPlayer', player);
       this.set('videoElement', component.get('element'));
-    }, 
+    },
   }
 });

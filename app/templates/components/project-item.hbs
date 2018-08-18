@@ -31,6 +31,7 @@
         value=project.description
         enter=(action 'editProject' project)
       }}
+      <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Done Editing</button>
       <button type="submit" name="button"
         class="project-item__submit"
         onclick={{action "deleteProject" project.id}}>Delete</button>
@@ -42,14 +43,16 @@
       fluid=true
       src=project.videoLocal}}
     <div class="project-item__info">
-      <h2 class="project-item__title">{{#link-to "work.show" project}} {{project.title}}{{/link-to}}</h2>
-      <span>{{project.date}}</span>
-      <span>Client: {{project.client}}</span>
-      <span class="project-item__category {{category}}">{{project.category}}</span>
-      <p class="project-item__description">{{project.description}}</p>
+      <div class="project-item__info-container">
+        <h2 class="project-item__title">{{#link-to "work.show" project}} {{project.title}}{{/link-to}}</h2>
+        <span>{{project.date}}</span>
+        <span>Client: {{project.client}}</span>
+        <span class="project-item__category {{category}}">{{project.category}}</span>
+        <p class="project-item__description">{{project.description}}</p>
+        {{#if authed}}
+          <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Edit</button>
+        {{/if}}
+      </div>
     </div>
-  {{/if}}
-  {{#if authed}}
-    <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Edit</button>
   {{/if}}
 </article>

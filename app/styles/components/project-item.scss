@@ -5,6 +5,7 @@
 .project-item{
   color: $text-primary;
   margin: 50px 0;
+  position: relative;
 }
 .project-item__edit, .project-item__info{
   display: flex;
@@ -15,6 +16,11 @@
 
   & *{
     flex-grow: 1;
+    margin: 10px;
+  }
+
+  & button{
+    flex-grow: 0;
     margin: 10px;
   }
 }
@@ -31,7 +37,13 @@
 
 // Unauthenticated
 .project-item__info{
+  align-items: center;
+  height: 100%;
+  left: 0px;
+  min-width: 100%;
+  position: absolute;
   text-align: center;
+  top: 0px;
 
   .project-item__category{
     width: 100%;
