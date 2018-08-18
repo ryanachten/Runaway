@@ -6,7 +6,7 @@ export default Controller.extend({
   fullName: '',
   emailAddress: '',
   message: '',
-  response: '',
+  messageResponse: null,
 
   messages: null,
 
@@ -17,8 +17,6 @@ export default Controller.extend({
     // and if the email input is a valid email address pattern
     return !this.get('isValidEmail') || this.get('fullName') === '' || this.get('message') === '';
   }),
-
-  responseMessage: '',
 
   init(){
     this.get('store').findAll('message').then( (records) => {
@@ -42,7 +40,7 @@ export default Controller.extend({
       this.set('message', '');
 
       const response = `Thanks for your interest! We'll get back to you at ${emailAddress}`;
-      alert(response);
+      this.set('messageResponse', response);
     },
 
     deleteMessage(id){
