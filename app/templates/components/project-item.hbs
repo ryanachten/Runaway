@@ -31,7 +31,7 @@
         value=project.description
         enter=(action 'editProject' project)
       }}
-      <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Done Editing</button>
+      <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Done</button>
       <button type="submit" name="button"
         class="project-item__submit"
         onclick={{action "deleteProject" project.id}}>Delete</button>

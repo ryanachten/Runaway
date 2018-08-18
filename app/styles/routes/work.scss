@@ -1,14 +1,21 @@
 .work{
   color: $text-primary;
+  text-align: center;
 }
 .create-project{
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   max-width: 500px;
   margin: 0 auto;
 
   & *{
     flex-grow: 1;
+    margin: 10px;
+  }
+
+  & button{
+    flex-grow: 0;
     margin: 10px;
   }
 }
