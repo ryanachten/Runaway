@@ -60,5 +60,25 @@
       "videoVendor": "https://vimeo.com/215161008",
       "description": "Need a description for this video"
     }
+  },
+  "messages": {
+    "123abc": {
+      "name": "Ryan Achten",
+      "date": "Sat Aug 18 2018 14:32:30 GMT+1200 (NZST)",
+      "email": "ryan@testemail.com",
+      "message": "Hello from Ryan"
+    },
+    "213bac": {
+      "name": "Jane Doe",
+      "date": "Sat Aug 18 2018 14:32:30 GMT+1200 (NZST)",
+      "email": "jane@testemail.com",
+      "message": "Hello from Jane"
+    },
+    "231bca": {
+      "name": "John Doe",
+      "date": "Sat Aug 18 2018 14:32:30 GMT+1200 (NZST)",
+      "email": "john@testemail.com",
+      "message": "Hello from John"
+    }
   }
 }

@@ -6,20 +6,7 @@ export default Controller.extend({
   fullName: '',
   emailAddress: '',
   message: '',
-  messages: [
-    {
-      name: 'Ryan Achten',
-      date: new Date(),
-      email: 'ryan@testemail.com',
-      message: 'Hellooooooooo'
-    },
-    {
-      name: 'Meow',
-      date: new Date(),
-      email: 'meow@testemail.com',
-      message: 'Meowwwww'
-    }
-  ],
+  messages: null,
 
   isValidEmail: match('emailAddress', /^.+@.+\..+$/),
 
@@ -30,6 +17,12 @@ export default Controller.extend({
   }),
 
   responseMessage: '',
+
+  init(){
+    this.get('store').findAll('message').then( (records) => {
+      this.set('messages', records);
+    });
+  },
 
   actions: {
     sendMessage(){
