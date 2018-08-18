@@ -20,7 +20,7 @@
           class="contact__message-field"
         }}
       </div>
-      <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage'}}>Send!</button>
+      <button type="button" name="submit" disabled={{submitDisabled}} {{action 'sendMessage' fullName emailAddress message}}>Send!</button>
     </form>
   </div>
 

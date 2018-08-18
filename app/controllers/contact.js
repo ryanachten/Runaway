@@ -6,6 +6,8 @@ export default Controller.extend({
   fullName: '',
   emailAddress: '',
   message: '',
+  response: '',
+
   messages: null,
 
   isValidEmail: match('emailAddress', /^.+@.+\..+$/),
@@ -25,13 +27,22 @@ export default Controller.extend({
   },
 
   actions: {
-    sendMessage(){
-      const response = `Thanks for your interest! We'll get back to you at ${this.get('emailAddress')}`;
-      alert(response);
-      this.set('responseMessage', response);
+    sendMessage(fullName, emailAddress, message){
+
+      const newMessage = this.get('store').createRecord('message', {
+        'name': fullName,
+        'date': new Date(),
+        'emailAddress': emailAddress,
+        'message': message
+      });
+      newMessage.save();
+
       this.set('fullName', '');
       this.set('emailAddress', '');
       this.set('message', '');
-    }
+
+      const response = `Thanks for your interest! We'll get back to you at ${emailAddress}`;
+      alert(response);
+    },
   }
 });

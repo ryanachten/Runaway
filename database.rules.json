@@ -1,6 +1,12 @@
 {
   "rules": {
-    ".read": true,
-    ".write": "auth != null"
+    "projects": {
+    	".read": true,
+    	".write": "auth != null"
+    },
+    "messages": {
+    	".read": "auth != null",
+    	".write": true
+    }
   }
 }
