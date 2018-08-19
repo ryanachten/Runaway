@@ -81,10 +81,12 @@
     <div class="project-item__info">
       <div class="project-item__info-container">
         {{#link-to "work.show" project}}<h2 class="project-item__title"> {{project.title}}</h2>{{/link-to}}
-        <span>{{project.date}}</span>
-        <span>Client: {{project.client}}</span>
-        <span class="project-item__category {{category}}">{{project.category}}</span>
-        <p class="project-item__description">{{project.description}}</p>
+        <article class="project-item__meta">
+          <span>{{project.date}}</span>
+          <span>Client: {{project.client}}</span>
+          <span class="project-item__category {{category}}">{{project.category}}</span>
+          <p class="project-item__description">{{project.description}}</p>
+        </article>
         {{#if authed}}
           <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Edit</button>
         {{/if}}
