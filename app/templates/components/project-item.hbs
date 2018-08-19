@@ -6,33 +6,69 @@
       fluid=true
       src=project.videoLocal}}
     <form class="project-item__edit">
+      <div class="project-item__field title">
+        <label for="project-title">Title</label>
+        {{input
+          id="project-title"
+          type='text' value=project.title
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-client">Client</label>
+        {{input
+          id="project-client"
+          type='text' value=project.client
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-date">Date</label>
+        {{input
+          id="project-date"
+          type='text' value=project.date
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-category">Category</label>
+        {{input
+          id="project-category"
+          type='text' value=project.category
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-videoVendor">Vimeo Link</label>
+        {{input
+          id="project-videoVendor"
+          type='url' value=project.videoVendor
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-videoLocal">Video Snippet Filename</label>
+        {{input
+          id="project-videoLocal"
+          type='url' value=project.videoLocal
+          enter=(action 'editProject' project)
+        }}
+      </div>
+      <div class="project-item__field">
+        <label for="project-description">Description</label>
+        {{textarea
+          id="project-description"
+          value=project.description
+          enter=(action 'editProject' project)
+        }}
+      </div>
       {{input
-        class="project-item__title"
-        type='text' value=project.title
-        enter=(action 'editProject' project)
-      }}
-      {{input
-        class="project-item__client"
-        type='text' value=project.client
-        enter=(action 'editProject' project)
-      }}
-      {{input
-        class="project-item__date"
-        type='text' value=project.date
-        enter=(action 'editProject' project)
-      }}
-      {{input
-        class="project-item__category"
-        type='text' value=project.category
-        enter=(action 'editProject' project)
-      }}
-      {{textarea
-        class="project-item__description"
-        value=project.description
-        enter=(action 'editProject' project)
+        id="project-featured"
+        type='checkbox' checked=project.featured
+        click=(action 'toggleFeatured' value="target.checked")
       }}
       <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Done</button>
-      <button type="submit" name="button"
+      <button type="button" name="button"
         class="project-item__submit"
         onclick={{action "deleteProject" project.id}}>Delete</button>
     </form>

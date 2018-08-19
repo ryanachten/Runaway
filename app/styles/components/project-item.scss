@@ -24,12 +24,25 @@
     margin: 10px;
   }
 }
-.project-item__title{
+
+.project-item__field{
+  align-items: center;
+  display: flex;
+
+  label{
+    flex-grow: 0;
+    margin: 0px;
+  }
+
+  input{
+    flex-grow: 1;
+  }
+}
+
+.project-item__field.title{
   width: 100%;
 }
-.project-item__description{
-  width: 100%;
-}
+
 .project-item__submit{
   flex-grow: 0;
   margin: 0 auto;

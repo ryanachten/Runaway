@@ -39,13 +39,25 @@ export default Component.extend({
       this.set('isEditing', !isEditing);
     },
 
+    toggleFeatured(featured){
+      const id = this.get('project.id');
+      const store = this.get('store');
+      store.findRecord('project', id, { backgroundReload: false }).then((record) => {
+        record.set('featured', featured);
+        record.save();
+      });
+    },
+
     editProject(project){
+
       const store = this.get('store');
       store.findRecord('project', project.id, { backgroundReload: false }).then((record) => {
         record.set('title', project.title);
         record.set('client', project.client);
         record.set('date', project.date);
         record.set('category', project.category);
+        record.set('videoLocal', project.videoLocal);
+        record.set('videoVendor', project.videoVendor);
         record.set('description', project.description);
         record.save();
       });
