@@ -44,7 +44,7 @@
       src=project.videoLocal}}
     <div class="project-item__info">
       <div class="project-item__info-container">
-        <h2 class="project-item__title">{{#link-to "work.show" project}} {{project.title}}{{/link-to}}</h2>
+        {{#link-to "work.show" project}}<h2 class="project-item__title"> {{project.title}}</h2>{{/link-to}}
         <span>{{project.date}}</span>
         <span>Client: {{project.client}}</span>
         <span class="project-item__category {{category}}">{{project.category}}</span>

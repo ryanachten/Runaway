@@ -2,13 +2,18 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, button, input, textarea, option, span, label, li{
   font-family: 'Roboto', sans-serif;
   color: $text-primary;
-}
-
-body{
-  background-color: $brand-primary;
+  font-size: 1.8rem;
 }
 
 a{
   color: $text-primary;
   text-decoration: none;
 }
+
+html { font-size: 62.5%; }
+h1   { font-size: 3.4rem; }
+h2   { font-size: 2.8rem; }
+h3   { font-size: 2.2rem; }
+h4   { font-size: 2.0rem; }
+h5, h6   { font-size: 2.8rem; }
+body { font-size: 1.8rem; }
