@@ -23,7 +23,6 @@
       <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>Send!</button>
       <div class="contact__reponse">
         {{#if messageResponse}}
-          {{log messageResponse}}
           <p>{{messageResponse}}</p>
         {{/if}}
       </div>
@@ -35,7 +34,8 @@
       {{#each messages as | message |}}
         <div>
           <h3>{{message.name}}</h3>
-          <span>{{message.date}}</span><span>{{message.email}}</span>
+
+          <span>{{moment-format message.date 'h:mm a DD/MM/YYYY' }}</span><span>{{message.email}}</span>
           <p>{{message.message}}</p>
         </div>
         <button type="button" name="delete" {{action 'deleteMessage' message.id}}>Delete</button>

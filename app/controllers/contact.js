@@ -8,7 +8,9 @@ export default Controller.extend({
   message: '',
   messageResponse: null,
 
-  messages: null,
+  messages: computed('model', function () {
+    return this.get('model').sortBy('date').reverse();
+  }),
 
   isValidEmail: match('emailAddress', /^.+@.+\..+$/),
 
@@ -18,11 +20,6 @@ export default Controller.extend({
     return !this.get('isValidEmail') || this.get('fullName') === '' || this.get('message') === '';
   }),
 
-  init(){
-    this.get('store').findAll('message').then( (records) => {
-      this.set('messages', records);
-    });
-  },
 
   actions: {
     createMessage(fullName, emailAddress, message){
