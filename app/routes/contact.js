@@ -1,8 +1,13 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+
   model(){
-    return this.get('store').findAll('message');
+    const authenticated = this.get('session.isAuthenticated');
+    if (authenticated) {
+      return this.get('store').findAll('message');
+    }
+    return null;
   },
 
   actions: {
