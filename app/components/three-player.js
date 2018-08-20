@@ -10,6 +10,8 @@ export default Component.extend({
 
   container: null,
   composer: null,
+  webglRenderer: null,
+  camera: null,
   effect: null,
   cube: null,
   allMaterials: [],
@@ -42,11 +44,13 @@ export default Component.extend({
     this.set('container', container);
     const scene = new THREE.Scene();
 
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
-    container.appendChild(renderer.domElement);
+    const webglRenderer = new THREE.WebGLRenderer();
+    webglRenderer.setSize(container.offsetWidth, container.offsetHeight);
+    container.appendChild(webglRenderer.domElement);
+    this.set('webglRenderer', webglRenderer);
 
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    this.set('camera', camera);
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 
@@ -54,7 +58,7 @@ export default Component.extend({
 
     const cube = new THREE.Mesh( geometry, currentMaterial );
 
-    const composer = new THREE.EffectComposer(renderer);
+    const composer = new THREE.EffectComposer(webglRenderer);
     composer.addPass( new THREE.RenderPass( scene, camera ) );
 
     const effect = new THREE.ShaderPass( THREE.RGBShiftShader );
@@ -71,6 +75,29 @@ export default Component.extend({
     camera.position.z = 1;
 
     this.animate();
+
+    window.addEventListener('resize', this.onWindowResize.bind(this), false);
+  },
+
+  willDestroyElement(){
+    this._super(...arguments);
+    window.removeEventListener('resize', this.onWindowResize);
+    window.cancelAnimationFrame(this.get('animationFrame'));
+  },
+
+  onWindowResize(){
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const camera = this.get('camera');
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    const composer = this.get('composer');
+    composer.setSize( width, height );
+
+    const webglRenderer = this.get('webglRenderer');
+    webglRenderer.setSize( width, height );
   },
 
   getVideoMaterial(){
@@ -85,9 +112,10 @@ export default Component.extend({
 
   animate(){
     this.get('composer').render();
-    requestAnimationFrame(() => {
+    const animationFrame = requestAnimationFrame(() => {
       this.animate()
     });
+    this.set('animationFrame', animationFrame);
   },
 
   // TODO: create touch input version
