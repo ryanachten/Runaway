@@ -2,12 +2,8 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px;
   width: 100%;
-}
-// TODO: remove home once replaced w/ logo
-.navbar__link--home, .navbar__menu-button{
-  color: $text-primary;
 }
 
 // Landing page -specific styles
@@ -15,16 +11,18 @@
   .navbar{
     position: absolute;
   }
-  // TODO: remove home once replaced w/ logo
-  .navbar__menu-button, .navbar__link--home, .navbar__menu-signout{
+  .navbar.menuOpen{
+    mix-blend-mode: multiply;
+  }
+
+  *{
     color: $text-inverse;
   }
 }
 
-
 // If menu is open
 .navbar.menuOpen{
-  background: rgba(255, 255, 255, 0.9);
+  background: black;
   display: flex;
   height: 100vh;
   justify-content: space-around;
@@ -34,8 +32,8 @@
   text-align: center;
   z-index: 1;
 
-  // TODO: remove home once replaced w/ logo
-  .navbar__link--home, .navbar__menu-button, .navbar__menu-signout{
-    color: $text-primary;
+  *{
+    color: $text-inverse;
+    font-size: $size-03;
   }
 }

@@ -15,6 +15,10 @@ export default Component.extend({
     toggleMenu: function (open) {
       const isOpen = typeof(open) !== "undefined" ? open : !this.get('menuOpen');
       this.set('menuOpen', isOpen);
+
+      if ($('.landing__info')) {
+        $('.landing__info').toggleClass('menuOpen', isOpen);
+      }
     },
     signOut: function () {
       this.get('session').close();

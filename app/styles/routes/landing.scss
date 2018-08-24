@@ -3,15 +3,23 @@
   display: flex;
   height: 100vh;
   justify-content: center;
-  overflow-y: auto;
+  overflow: hidden;
   width: 100vw;
 }
+
+// Hide video src for three.js player
 .landing__video-src{
   display: none;
 }
+
 .landing__info{
   h1{
     color: $text-inverse;
   }
   position: absolute;
+}
+
+// If the menu is open, hide the project info container
+.landing__info.menuOpen{
+  display: none;
 }

@@ -11,15 +11,15 @@ a{
 }
 
 html { font-size: 62.5%; }
-h1   { font-size: 3.4rem; }
-h2   { font-size: 2.8rem; }
-h3   { font-size: 2.2rem; }
-h4   { font-size: 2.0rem; }
-h5, h6   { font-size: 2.8rem; }
-body { font-size: 1.8rem; }
+h1   { font-size: $size-05; }
+h2   { font-size: $size-04; }
+h3   { font-size: $size-03; }
+h4   { font-size: $size-02; }
+h5, h6   { font-size: $size-01; }
+body { font-size: $size-base; }
 
 .material-icons{
-  font-size: 3rem;
+  font-size: $size-03;
 }
 
 button, input[type="submit"], input[type="reset"] {
