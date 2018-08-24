@@ -7,8 +7,8 @@ export default Component.extend({
   menuOpen: false,
 
   isLanding: computed('route', function () {
-    const route = this.get('route') === 'index' ? 'isLanding' : '';
-    return route;
+    const isLanding = this.get('route') === 'index' ? 'isLanding' : '';
+    return isLanding;
   }),
 
   actions: {

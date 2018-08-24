@@ -2,16 +2,14 @@
   color: $text-primary;
   text-align: center;
 }
-
-.filter__label{
-  display: inline;
-}
 .filter__toggles{
   display: inline-block;
   padding: 20px 20px 0 20px;
   text-align: center;
 }
 .filter__check{
-  display: inline;
   margin: 10px;
+}
+.filter__check.selected{
+  text-decoration: underline;
 }

@@ -1,27 +1,7 @@
 <article class="filter">
-  <h4 class="filter__label">Filter</h4>
   <div class="filter__toggles">
-    <div class="filter__check">
-      <input
-        value=''
-        checked=true
-        type="radio"
-        name="project-filter"
-        onclick={{action 'handleFilterEntry' ''}}
-      />
-      <span>All</span>
-    </div>
     {{#each filtersValues as |value|}}
-    <div class="filter__check">
-      {{input
-        value=value
-        id=value
-        type="radio"
-        name="project-filter"
-        change=(action 'handleFilterEntry' value)
-      }}
-      <label for={{value}}>{{value}}</label>
-    </div>
+      <button class="filter__check" type="button" name="project-filter" {{action 'handleFilterEntry' value}}>{{value}}</button>
     {{/each}}
   </div>
 </article>

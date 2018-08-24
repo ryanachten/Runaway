@@ -1,8 +1,7 @@
 <nav class="{{if menuOpen 'navbar menuOpen' 'navbar'}}">
-  <span {{action 'toggleMenu'}}>{{#link-to "index" class="navbar__link--home"}}Runaway{{/link-to}}</span>
+  <span {{action 'toggleMenu' false}}>{{#link-to "index" class="navbar__link--home"}}Runaway{{/link-to}}</span>
 
   {{#if menuOpen}}
-
       <span {{action 'toggleMenu' false}}>
         {{#link-to "work" class="navbar__link--work"}}Work{{/link-to}}
       </span>
