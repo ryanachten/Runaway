@@ -12,9 +12,9 @@ export default Component.extend({
   }),
 
   actions: {
-    toggleMenu: function () {
-      const isOpen = this.get('menuOpen');
-      this.set('menuOpen', !isOpen);
+    toggleMenu: function (open) {
+      const isOpen = typeof(open) !== "undefined" ? open : !this.get('menuOpen');
+      this.set('menuOpen', isOpen);
     },
     signOut: function () {
       this.get('session').close();

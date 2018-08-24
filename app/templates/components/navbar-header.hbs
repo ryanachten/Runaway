@@ -1,17 +1,28 @@
 <nav class="{{if menuOpen 'navbar menuOpen' 'navbar'}}">
-  {{#link-to "index" class="navbar__link--home"}}Runaway{{/link-to}}
+  <span {{action 'toggleMenu'}}>{{#link-to "index" class="navbar__link--home"}}Runaway{{/link-to}}</span>
 
   {{#if menuOpen}}
-      {{#link-to "work" class="navbar__link--work"}}Work{{/link-to}}
-      {{#link-to "about" class="navbar__link--about"}}About{{/link-to}}
-      {{#link-to "contact" class="navbar__link--contact"}}Contact{{/link-to}}
-      <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}><i class="material-icons">close</i></button>
+
+      <span {{action 'toggleMenu' false}}>
+        {{#link-to "work" class="navbar__link--work"}}Work{{/link-to}}
+      </span>
+      <span {{action 'toggleMenu' false}}>
+        {{#link-to "about" class="navbar__link--about"}}About{{/link-to}}
+      </span>
+      <span {{action 'toggleMenu' false}}>
+        {{#link-to "contact" class="navbar__link--contact"}}Contact{{/link-to}}
+      </span>
+      <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}>
+        <i class="material-icons">close</i>
+      </button>
   {{else}}
     <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}><i class="material-icons">menu</i></button>
   {{/if}}
 
   {{#if authenticated}}
-    <button type="button" name="signOut" {{action "signOut"}}><i class="material-icons">exit_to_app</i></button>
+    <button type="button" name="signOut" {{action "signOut"}}>
+      <i class="material-icons">exit_to_app</i>
+    </button>
   {{/if}}
 
 </nav>
