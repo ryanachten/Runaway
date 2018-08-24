@@ -62,15 +62,22 @@
           enter=(action 'editProject' project)
         }}
       </div>
-      {{input
-        id="project-featured"
-        type='checkbox' checked=project.featured
-        click=(action 'toggleFeatured' value="target.checked")
-      }}
-      <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Done</button>
+      <div class="project-item__field">
+        <label for="project-featured">Featured</label>
+        {{input
+          id="project-featured"
+          type='checkbox' checked=project.featured
+          click=(action 'toggleFeatured' value="target.checked")
+        }}
+      </div>
+      <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>
+        <i class="material-icons">done</i>
+      </button>
       <button type="button" name="button"
         class="project-item__submit"
-        onclick={{action "deleteProject" project.id}}>Delete</button>
+        onclick={{action "deleteProject" project.id}}>
+        <i class="material-icons">delete_forever</i>
+      </button>
     </form>
   {{else}}
     {{ivy-videojs
@@ -80,16 +87,22 @@
       src=project.videoLocal}}
     <div class="project-item__info">
       <div class="project-item__info-container">
-        {{#link-to "work.show" project}}<h2 class="project-item__title"> {{project.title}}</h2>{{/link-to}}
+        <div>
+          {{#link-to "work.show" project}}
+            <h2 class="project-item__title"> {{project.title}}</h2>
+          {{/link-to}}
+          {{#if authed}}
+            <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>
+              <i class="material-icons">edit</i>
+            </button>
+          {{/if}}
+        </div>
         <article class="project-item__meta">
           <span>{{project.date}}</span>
           <span>Client: {{project.client}}</span>
           <span class="project-item__category {{category}}">{{project.category}}</span>
           <p class="project-item__description">{{project.description}}</p>
         </article>
-        {{#if authed}}
-          <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>Edit</button>
-        {{/if}}
       </div>
     </div>
   {{/if}}

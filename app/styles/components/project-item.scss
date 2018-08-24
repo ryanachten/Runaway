@@ -3,7 +3,6 @@
   margin: 0 auto;
 }
 .project-item{
-  color: $text-primary;
   margin: 50px 0;
   position: relative;
 }
@@ -60,6 +59,10 @@
 
   .project-item__category{
     width: 100%;
+  }
+
+  *{
+    color: white;
   }
 }
 @media (max-width: 700px){

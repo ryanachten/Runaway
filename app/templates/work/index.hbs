@@ -1,6 +1,6 @@
 {{#if session.isAuthenticated}}
   <div class="work">
-    <h3 class="create-project__header">Create new project</h3>
+    <h3 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create new project</h3>
     {{#if isCreatingProject}}
       <form class="create-project">
         {{input
@@ -42,11 +42,13 @@
         class="create-project__submit"
         type="submit"
         {{action "create-project" title client date category videoLocal videoVendor description featured}}
-        >Create</button>
-        <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>Done</button>
+        >
+          <i class="material-icons">done</i>
+        </button>
+        <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>
+          <i class="material-icons">close</i>
+        </button>
       </form>
-    {{else}}
-      <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>Edit</button>
     {{/if}}
   </div>
 {{/if}}
