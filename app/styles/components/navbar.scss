@@ -7,11 +7,12 @@
 
 // If menu is open
 .navbar.menuOpen{
-  background: $brand-primary;
+  background: rgba(255, 255, 255, 0.9);
   display: flex;
   height: 100vh;
   flex-direction: column;
   padding: 0;
+  position: absolute;
   text-align: center;
   z-index: 1;
 
