@@ -4,6 +4,26 @@
   padding: 20px;
   width: 100%;
 }
+// TODO: remove home once replaced w/ logo
+.navbar__link--home, .navbar__menu-button{
+  color: $text-primary;
+
+  .material-icons{
+    font-size: 3rem;
+  }
+}
+
+// Landing page -specific styles
+.isLanding{
+  .navbar{
+    position: absolute;
+  }
+  // TODO: remove home once replaced w/ logo
+  .navbar__menu-button, .navbar__link--home{
+    color: $text-inverse;
+  }
+}
+
 
 // If menu is open
 .navbar.menuOpen{
@@ -16,15 +36,8 @@
   text-align: center;
   z-index: 1;
 
-  .navbar__menu-button{
-    margin: 0 auto;
-    width: 100px;
-  }
-}
-
-// Landing page -specific styles
-.isLanding{
-  .navbar{
-    position: absolute;
+  // TODO: remove home once replaced w/ logo
+  .navbar__link--home, .navbar__menu-button{
+    color: $text-primary;
   }
 }
