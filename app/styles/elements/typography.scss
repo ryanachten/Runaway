@@ -10,9 +10,19 @@ a{
   text-decoration: none;
 }
 
+@mixin text-header {
+  font-family: 'Capriola', sans-serif;
+};
+
 html { font-size: 62.5%; }
-h1   { font-size: $size-05; }
-h2   { font-size: $size-04; }
+h1   {
+  @include text-header;
+  font-size: $size-05;
+}
+h2   {
+  @include text-header;
+  font-size: $size-04;
+}
 h3   { font-size: $size-03; }
 h4   { font-size: $size-02; }
 h5, h6   { font-size: $size-01; }

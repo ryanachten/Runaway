@@ -22,6 +22,7 @@
 
 // If menu is open
 .navbar.menuOpen{
+
   background: black;
   display: flex;
   height: 100vh;
@@ -32,7 +33,8 @@
   text-align: center;
   z-index: 1;
 
-  *{
+  .navbar__link{
+    @include text-header;
     color: $text-inverse;
     font-size: $size-03;
   }
