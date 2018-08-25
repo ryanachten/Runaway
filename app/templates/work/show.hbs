@@ -1,9 +1,11 @@
 <div>
   {{video-vendor-player url=model.videoVendor}}
-  <h1>{{model.title}}</h1>
-  <span>{{model.date}}</span> - <span>Client: {{model.client}}</span>
-  <span class="project-item__category {{category}}">{{model.category}}</span>
-  <p>{{model.description}}</p>
+  <div class="project-page__container">
+    <h1 class="project-page__title">{{model.title}}</h1>
+    <span>{{model.date}}</span><span>{{model.client}}</span>
+    <span>{{model.category}}</span>
+    <p class="project-page__description">{{model.description}}</p>
+  </div>
 </div>
 
 {{outlet}}

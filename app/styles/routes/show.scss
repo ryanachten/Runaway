@@ -1,0 +1,15 @@
+.project-page__container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 20px auto;
+  text-align: center;
+  width: 800px;
+
+  *{
+    margin: 10px;
+  }
+}
+.project-page__title, .project-page__description{
+  width: 100%;
+}
