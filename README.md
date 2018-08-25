@@ -45,7 +45,11 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+* `ember build`
+* `firebase deploy`
+
+This build is currently configured for hosting on Firebase.
+See [here](https://github.com/firebase/emberfire/blob/master/docs/guide/deploying-to-firebase-hosting.md) for more information.
 
 ## Further Reading / Useful Links
 
