@@ -4,7 +4,9 @@
       <div>
         <h1>Log out?</h1>
         <p>Already signed in son</p>
-        <button type="button" name="signOut" {{action "signOut"}}>Sign Out</button>
+        <button class="login__signout" type="button" name="signOut" {{action "signOut"}}>
+          <i class="material-icons">exit_to_app</i>
+        </button>
       </div>
     </div>
   {{else}}
@@ -15,7 +17,9 @@
         {{input class="login--email" type='email' value=(mut email) placeholder="email"}}
         {{input class="login--password" type='password' value=(mut password) placeholder="password"}}
         <div>
-          <button class="login--submit" type="submit" name="signIn" {{action "signIn" email password}}>Sign In</button>
+          <button class="login--submit" type="submit" name="signIn" {{action "signIn" email password}}>
+            <i class="material-icons">done</i>
+          </button>
         </div>
         {{#if errorMessage}}
           <p>{{errorMessage}}</p>

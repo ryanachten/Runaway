@@ -1,6 +1,6 @@
 <div class="contact">
   <div class="contact__container">
-    <h2>Contact Runaway</h2>
+    <h2 class="contact__title">Contact Runaway</h2>
     <p>For a quote or a chat, flick us a message and we'll get right back to you</p>
     {{#if responseMessage}}
       <div>{{responseMessage}}</div>
@@ -20,7 +20,9 @@
           class="contact__message-field"
         }}
       </div>
-      <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>Send!</button>
+      <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>
+        <i class="material-icons">send</i>
+      </button>
       <div class="contact__reponse">
         {{#if messageResponse}}
           <p>{{messageResponse}}</p>
