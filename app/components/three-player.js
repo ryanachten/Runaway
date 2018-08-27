@@ -61,8 +61,9 @@ export default Component.extend({
     const composer = new THREE.EffectComposer(webglRenderer);
     composer.addPass( new THREE.RenderPass( scene, camera ) );
 
-    const effect = new THREE.ShaderPass( THREE.RGBShiftShader );
-		effect.uniforms[ 'amount' ].value = 0.01;
+    const effect = new THREE.ShaderPass( THREE.BadTVShader );
+		effect.uniforms[ 'distortion' ].value = 0.01;
+    effect.uniforms[ 'distortion2' ].value = 0;
 		effect.renderToScreen = true;
 		composer.addPass( effect );
     this.set('effect', effect);
@@ -128,12 +129,13 @@ export default Component.extend({
     const height = $(canvas).innerHeight();
 
     const relativeMouseX = e.pageX - offset.left;
-    const normalisedCentredX = ((relativeMouseX - width/2 ) /width) *2;
+    const normalisedCentredX = (relativeMouseX - width/2) / (width/2);
 
     const relativeMouseY = e.pageY - offset.top;
-    const normalisedCentredY = ((relativeMouseY - height/2 ) /height) *2;
+    const normalisedCentredY = (relativeMouseY - height/2 ) / (height/2);
 
     const effect = this.get('effect');
-    effect.uniforms[ 'amount' ].value = normalisedCentredX;
+    effect.uniforms[ 'distortion' ].value = normalisedCentredX*10;
+    effect.uniforms[ 'time' ].value = normalisedCentredY*10;
   }
 });

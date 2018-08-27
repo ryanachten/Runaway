@@ -25,7 +25,7 @@ module.exports = function(defaults) {
   app.import('vendor/EffectComposer.js');
   app.import('vendor/RenderPass.js');
   app.import('vendor/ShaderPass.js');
-  app.import('vendor/shaders/RGBShiftShader.js');
+  app.import('vendor/shaders/BadTVShader.js');
 
   return app.toTree();
 };
