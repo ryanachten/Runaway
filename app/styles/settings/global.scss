@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Aclonica|Atomic+Age|Capriola|Changa|Cherry+Swash|Nova+Square|Song+Myung|Yeseva+One|Rock+Salt');
+@import url('https://fonts.googleapis.com/css?family=Metamorphous|Lato');
 
 
 $size-05: 4.2rem;
@@ -9,3 +9,17 @@ $size-03: 2.8rem;
 $size-02: 2.4rem;
 $size-01: 2.0rem;
 $size-base: 1.8rem;
+
+@mixin primary-font {
+  font-family: 'Metamorphous', sans-serif;
+}
+
+.runaway-logotype {
+  @include primary-font;
+  text-transform: lowercase;
+}
+
+@mixin text-header {
+  @include primary-font;
+  text-transform: lowercase;
+};

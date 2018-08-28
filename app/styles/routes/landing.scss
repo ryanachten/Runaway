@@ -15,8 +15,13 @@
 .landing__info{
   h1{
     color: $text-inverse;
+    line-height: 60px;
+    max-width: 500px;
+    padding: 30px;
+    z-index: 9;
   }
   position: absolute;
+  z-index: 9 !important;
 }
 
 // If the menu is open, hide the project info container

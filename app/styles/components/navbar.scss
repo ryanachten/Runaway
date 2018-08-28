@@ -12,7 +12,7 @@
     position: absolute;
   }
   .navbar.menuOpen{
-    mix-blend-mode: multiply;
+    mix-blend-mode: screen;
   }
 
   *{
@@ -22,20 +22,23 @@
 
 // If menu is open
 .navbar.menuOpen{
-
-  background: black;
+  background: $brand-primary;
   display: flex;
   height: 100vh;
   justify-content: space-around;
   flex-direction: column;
   padding: 0;
-  position: absolute;
+  position: fixed;
   text-align: center;
   z-index: 1;
 
-  .navbar__link{
+  .navbar__link, .navbar__menu-button{
     @include text-header;
-    color: $text-inverse;
+    color: $text-primary;
     font-size: $size-03;
+
+    *{
+      color: $text-primary;
+    }
   }
 }
