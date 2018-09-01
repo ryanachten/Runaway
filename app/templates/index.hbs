@@ -1,9 +1,9 @@
 <div class="landing">
-  <div class="landing__info">
-    {{#link-to 'work.show' currentProject.id}}
-      <h1>{{currentProject.title}}</h1>
-    {{/link-to}}
-  </div>
+  {{#link-to 'work.show' currentProject.id
+    class="landing__info"
+  }}
+    <h1 class="landing__title">{{currentProject.title}}</h1>
+  {{/link-to}}
   {{#if videoIsPlaying}}
     {{three-player
       currentId=currentVideo.id
