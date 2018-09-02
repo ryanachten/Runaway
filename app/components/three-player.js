@@ -73,17 +73,21 @@ export default Component.extend({
     this.set('cube', cube);
     this.set('composer', composer);
 
-    camera.position.z = 1;
+    camera.position.z = 0.8;
 
     this.animate();
 
     window.addEventListener('resize', this.onWindowResize.bind(this), false);
+
+    $('.landing').mousemove(this.updateShader.bind(this));
   },
 
   willDestroyElement(){
     this._super(...arguments);
     window.removeEventListener('resize', this.onWindowResize);
     window.cancelAnimationFrame(this.get('animationFrame'));
+
+    $('.landing').off( "mousemove" );
   },
 
   onWindowResize(){
@@ -120,7 +124,7 @@ export default Component.extend({
   },
 
   // TODO: create touch input version
-  mouseMove(e){
+  updateShader(e){
     const canvas = this.get('container').children[0];
 
     // TODO: these should be stored and reset on screen resize
