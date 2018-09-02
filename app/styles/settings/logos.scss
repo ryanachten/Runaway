@@ -1,0 +1,55 @@
+
+@mixin bg-img-settings {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}
+
+@mixin runaway-logotype--white {
+  @include bg-img-settings;
+  background-image: url('/img/branding/runaway_logotype.svg');
+  filter: invert(0);
+  height: calc(56px / 2);
+  width: calc(376px / 2);
+}
+@mixin runaway-logotype--black {
+  @include runaway-logotype--white;
+  filter: invert(1);
+}
+
+@mixin runaway-logotype-round--white {
+  @include bg-img-settings;
+  background-image: url('/img/branding/runaway_logotype_round.svg');
+  filter: invert(0);
+  height: calc(223px / 1.5);
+  width: calc(229px / 1.5);
+}
+@mixin runaway-logotype-round--black {
+  @include runaway-logotype-round--white;
+  filter: invert(1);
+}
+
+@mixin runaway-logo--white {
+  @include bg-img-settings;
+  background-image: url('/img/branding/runaway_logo.svg');
+  filter: invert(0);
+  height: calc(223px / 1.5);
+  width: calc(229px / 1.5);
+}
+@mixin runaway-logo--black {
+  @include runaway-logo--white;
+  filter: invert(1);
+}
+
+@mixin runaway-skeleton--white {
+  @include bg-img-settings;
+  background-image: url('/img/branding/runaway_skeleton.svg');
+  filter: invert(0);
+  height: calc(396px / 2);
+  width: calc(342px / 2);
+}
+@mixin runaway-skeleton--black {
+  @include runaway-skeleton--white;
+  filter: invert(1);
+}

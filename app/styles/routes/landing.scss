@@ -35,6 +35,13 @@
   display: none;
 }
 
+.landing__skeleton-icon{
+  @include runaway-skeleton--white;
+  bottom: 30px;
+  position: absolute;
+  right: 30px;
+}
+
 @media only screen and (max-width: 600px) {
     .landing__title{
       font-size: 7rem;
