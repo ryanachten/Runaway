@@ -14,9 +14,20 @@ $size-base: 1.8rem;
   font-family: 'Metamorphous', sans-serif;
 }
 
-.runaway-logotype {
-  @include primary-font;
-  text-transform: lowercase;
+@mixin runaway-logotype--white {
+  display: block;
+  background-image: url('/img/branding/runaway_logotype.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(0);
+  height: calc(56px / 2);
+  width: calc(376px / 2);
+}
+
+@mixin runaway-logotype--black {
+  @include runaway-logotype--white;
+  filter: invert(1);
 }
 
 @mixin text-header {

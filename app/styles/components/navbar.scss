@@ -1,15 +1,30 @@
 .navbar{
+  align-items: center;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   padding: 30px;
   width: 100%;
+
+  .logo{
+    @include runaway-logotype--black;
+  }
+}
+
+.navbar__menu-button{
+  .material-icons{
+      font-size: 3.5rem;
+  }
 }
 
 // Landing page -specific styles
 .isLanding{
   .navbar{
     position: absolute;
+
+    .logo{
+      @include runaway-logotype--white;
+    }
   }
   .navbar.menuOpen{
     mix-blend-mode: screen;
@@ -40,5 +55,9 @@
     *{
       color: $text-primary;
     }
+  }
+
+  .logo{
+    @include runaway-logotype--black;
   }
 }
