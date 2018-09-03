@@ -1,9 +1,14 @@
 .filter{
   color: $text-primary;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 9;
 }
 .filter__toggles{
-  display: inline-block;
+  background-color: $brand-primary;
+  position: fixed;
   text-align: center;
 }
 .filter__check{

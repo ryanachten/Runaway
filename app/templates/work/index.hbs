@@ -55,7 +55,7 @@
 {{#filter-projects filter=(action 'filterByCategory') as |filteredResults|}}
   <ul>
     {{#each filteredResults as |project|}}
-      <li>
+      <li class="work__project-item">
         {{project-item
             project=project
             authed=session.isAuthenticated

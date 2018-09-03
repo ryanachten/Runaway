@@ -22,8 +22,8 @@
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_logotype_round.svg');
   filter: invert(0);
-  height: calc(223px / 1.5);
-  width: calc(229px / 1.5);
+  height: calc(223px / 2);
+  width: calc(229px / 2);
 }
 @mixin runaway-logotype-round--black {
   @include runaway-logotype-round--white;
@@ -46,8 +46,8 @@
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_skeleton.svg');
   filter: invert(0);
-  height: calc(396px / 2);
-  width: calc(342px / 2);
+  height: calc(296px / 2);
+  width: calc(242px / 2);
 }
 @mixin runaway-skeleton--black {
   @include runaway-skeleton--white;
