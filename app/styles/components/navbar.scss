@@ -46,7 +46,7 @@
   padding: 0;
   position: fixed;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
 
   .navbar__link, .navbar__menu-button{
     @include text-header;
@@ -55,6 +55,7 @@
 
     *{
       color: $text-primary;
+      margin: 0 auto;
     }
   }
 
