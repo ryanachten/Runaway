@@ -48,14 +48,16 @@
   text-align: center;
   z-index: 2;
 
-  .navbar__link, .navbar__menu-button{
+  *{
     @include text-header;
-    color: $text-primary;
     font-size: $size-03;
+    color: $text-primary;
+    margin: 0 auto;
+  }
 
-    *{
-      color: $text-primary;
-      margin: 0 auto;
+  .navbar__menu-button{
+    i{
+        font-family: 'Material Icons';
     }
   }
 

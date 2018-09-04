@@ -6,15 +6,15 @@
   display: block;
 }
 
-@mixin runaway-logotype--white {
+@mixin runaway-logotype--white($scale) {
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_logotype.svg');
   filter: invert(0);
-  height: calc(56px / 2);
-  width: calc(376px / 2);
+  height: calc(56px / #{$scale});
+  width: calc(376px / #{$scale});
 }
-@mixin runaway-logotype--black {
-  @include runaway-logotype--white;
+@mixin runaway-logotype--black($scale) {
+  @include runaway-logotype--white($scale);
   filter: invert(1);
 }
 
@@ -42,14 +42,14 @@
   filter: invert(1);
 }
 
-@mixin runaway-skeleton--white {
+@mixin runaway-skeleton--white($scale) {
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_skeleton.svg');
   filter: invert(0);
-  height: calc(296px / 2);
-  width: calc(242px / 2);
+  height: calc(232px * #{$scale});
+  width: calc(201px * #{$scale});
 }
-@mixin runaway-skeleton--black {
-  @include runaway-skeleton--white;
+@mixin runaway-skeleton--black($scale) {
+  @include runaway-skeleton--white($scale);
   filter: invert(1);
 }

@@ -21,35 +21,14 @@
   z-index: 99;
 }
 
-.landing__title{
-  color: $text-inverse;
-  font-size: 10vw;
-  margin: 0;
-  // text-align: center;
-  word-break: break-word;
-  z-index: 9;
-}
-
 // If the menu is open, hide the project info container
 .landing__info.menuOpen{
   display: none;
 }
 
 .landing__skeleton-icon{
-  @include runaway-skeleton--white;
+  @include runaway-skeleton--white(0.7);
   bottom: 30px;
   position: absolute;
   right: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-    .landing__title{
-      font-size: 7rem;
-    }
-}
-
-@media only screen and (min-width: 1800px) {
-    .landing__title{
-      font-size: 20rem;
-    }
 }
