@@ -33,6 +33,7 @@ export default Controller.extend({
       }
     });
     this.set('projects', projects);
+    console.log('this', this);
   },
 
   incrementProject(){
