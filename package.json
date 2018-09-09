@@ -44,6 +44,7 @@
     "emberfire": "^2.0.10",
     "eslint-plugin-ember": "^5.0.0",
     "ivy-videojs": "^0.6.6",
+    "liquid-fire": "^0.29.5",
     "loader.js": "^4.2.3",
     "three": "^0.94.0",
     "torii": "^0.10.1"
