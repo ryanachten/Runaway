@@ -18,8 +18,6 @@ export default Component.extend({
 
       if ($('.landing__title')) {
         const landingTitle = $('.landing__title')[0];
-        console.log('landingTitle', landingTitle);
-        console.log('isOpen', isOpen);
         $(landingTitle).toggleClass('menuOpen', isOpen);
       }
     },
