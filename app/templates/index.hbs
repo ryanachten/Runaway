@@ -16,9 +16,10 @@
     {{ivy-videojs
       id=project.id
       class="landing__video-src"
-      canplay=(action 'videoReady')
+      ready=(action 'videoReady')
       controls=true
       loop=true
+      muted="muted"
       src=project.videoLocal}}
   {{/each}}
   {{#link-to "work" class="landing__skeleton-icon"}}{{/link-to}}

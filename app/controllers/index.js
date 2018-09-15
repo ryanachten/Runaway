@@ -69,6 +69,7 @@ export default Controller.extend({
   },
 
   actions: {
+    // Further video.js autoplay info here: https://blog.videojs.com/autoplay-best-practices-with-video-js/
     videoReady(player, component){
       const video = {
         id: component.parentView.id,
