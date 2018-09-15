@@ -14,7 +14,7 @@ export default function(){
   );
 
   this.transition(
-    this.toRoute('work.index'),
+    this.toRoute('work'),
     this.use('explode',
       animateContainer('.work'),
     ),
