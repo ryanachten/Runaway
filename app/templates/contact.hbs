@@ -1,7 +1,7 @@
 <div class="contact">
   <div class="contact__container">
-    <h2 class="contact__title">Contact Runaway</h2>
-    <p>For a quote or a chat, flick us a message and we'll get right back to you</p>
+    <h2 class="contact__title">Get in touch</h2>
+    <p class="contact__intro">For a quote or a chat, flick us a message and we'll get right back to you</p>
     {{#if responseMessage}}
       <div>{{responseMessage}}</div>
     {{/if}}
@@ -15,13 +15,14 @@
         {{input id="email-input" value=emailAddress type="email" placeholder="Please enter your email"}}
       </div>
       <div class="contact__message">
-        <label for="message-input">Message</label>
+        <label class="contact__message-label"
+        for="message-input">Message</label>
         {{textarea name="message-input" value=message
           class="contact__message-field"
         }}
       </div>
       <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>
-        <i class="material-icons">send</i>
+        <i class="material-icons">mail_outline</i>
       </button>
       <div class="contact__reponse">
         {{#if messageResponse}}

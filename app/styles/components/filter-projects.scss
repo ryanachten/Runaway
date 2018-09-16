@@ -2,13 +2,11 @@
   color: $text-primary;
   display: flex;
   justify-content: center;
-  mix-blend-mode: difference;
-  position: relative;
+  margin-bottom: 20px;
   z-index: 1;
 }
 .filter__toggles{
   background-color: $brand-primary;
-  position: fixed;
   text-align: center;
 }
 .filter__check{

@@ -1,5 +1,6 @@
 .contact{
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -9,29 +10,40 @@
   text-align: center;
 
   & *{
-    margin: 10px;
+    margin: 10px 0;
   }
 }
 
-.contact__title{
-  margin-bottom: 30px;
+.contact__container{
+  margin: 0 20px;
+}
+
+.contact__title, .contact__intro{
+  margin: 0 auto 30px auto;
 }
 
 .contact__form{
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 .contact__input{
+  display: flex;
+  flex-flow: column;
   max-width: 50%;
+  min-width: 250px;
 }
 .contact__message{
   align-items: center;
-  display: flex;
   width: 100%;
 }
+.contact__message-label{
+  display: block;
+  margin: 10px auto;
+  width: 80%;
+}
 .contact__message-field{
-  flex-grow: 1;
+  width: 80%;
 }
 
 .contact__reponse{
