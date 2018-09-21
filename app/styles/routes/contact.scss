@@ -18,6 +18,12 @@
   margin: 0 20px;
 }
 
+.contact__header-img{
+  @include runaway-logotype--black(1);
+  margin: 0 auto 30px auto;
+  width: 100%;
+}
+
 .contact__title, .contact__intro{
   margin: 0 auto 30px auto;
 }
@@ -28,22 +34,17 @@
   justify-content: space-around;
 }
 .contact__input{
-  display: flex;
-  flex-flow: column;
-  max-width: 50%;
-  min-width: 250px;
-}
-.contact__message{
-  align-items: center;
-  width: 100%;
-}
-.contact__message-label{
-  display: block;
-  margin: 10px auto;
-  width: 80%;
+  flex-grow: 1;
+  margin: 20px;
 }
 .contact__message-field{
-  width: 80%;
+  margin: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact__send-button i{
+  font-size: 4rem;
 }
 
 .contact__reponse{

@@ -1,28 +1,20 @@
 <div class="contact">
   <div class="contact__container">
+    <div class="contact__header-img" />
     <h2 class="contact__title">Get in touch</h2>
     <p class="contact__intro">For a quote or a chat, flick us a message and we'll get right back to you</p>
     {{#if responseMessage}}
       <div>{{responseMessage}}</div>
     {{/if}}
     <form class="contact__form">
-      <div class="contact__input">
-        <label for="name-input">Name</label>
-        {{input id="name-input" value=fullName type="email" placeholder="Please enter your name"}}
-      </div>
-      <div class="contact__input">
-        <label for="email-input">Email</label>
-        {{input id="email-input" value=emailAddress type="email" placeholder="Please enter your email"}}
-      </div>
-      <div class="contact__message">
-        <label class="contact__message-label"
-        for="message-input">Message</label>
-        {{textarea name="message-input" value=message
-          class="contact__message-field"
-        }}
-      </div>
-      <button type="submit" name="submit" disabled={{submitDisabled}} {{action 'createMessage' fullName emailAddress message}}>
-        <i class="material-icons">mail_outline</i>
+      {{input id="name-input" class="contact__input" value=fullName type="email" placeholder="Your name"}}
+      {{input id="email-input" class="contact__input" value=emailAddress type="email" placeholder="Your email"}}
+      {{textarea name="message-input" value=message
+        class="contact__message-field" placeholder="Your message"
+      }}
+      <button type="submit" name="submit" disabled={{submitDisabled}}
+      class="contact__send-button" {{action 'createMessage' fullName emailAddress message}}>
+        <i class="material-icons">mail</i>
       </button>
       <div class="contact__reponse">
         {{#if messageResponse}}

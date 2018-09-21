@@ -8,13 +8,10 @@ button, input, input[type="submit"], input[type="reset"] {
   padding: 0;
 }
 
-input{
-  border: 1px solid $text-primary;
+input, textarea{
+  border: none;
+  border-radius: 5px;
   outline: none;
-  padding: 10px;
-  background: none;
-}
-
-textarea, textarea[type=text]{
-    outline: none;
+  padding: 15px;
+  background: #ededed;
 }

@@ -13,12 +13,12 @@
     <div class="login--unauthed">
       <form>
         <h1>Log in?</h1>
-        <p>Enter you details son</p>
+        <p>Enter your details son</p>
         {{input class="login--email" type='email' value=(mut email) placeholder="email"}}
         {{input class="login--password" type='password' value=(mut password) placeholder="password"}}
         <div>
           <button class="login--submit" type="submit" name="signIn" {{action "signIn" email password}}>
-            <i class="material-icons">done</i>
+            <i class="material-icons">check_circle</i>
           </button>
         </div>
         {{#if errorMessage}}
