@@ -1,10 +1,20 @@
-// Centre video-js player
 .video-js{
   margin: 0 auto;
 }
+.video-js, .vjs-tech{
+  border-radius: 20px;
+}
+
+
 .project-item{
   position: relative;
+
+  h2{
+    font-size: 8vw;
+    mix-blend-mode: difference;
+  }
 }
+
 .project-item__edit, .project-item__info{
   display: flex;
   flex-flow: row wrap;
@@ -61,6 +71,20 @@
   }
   *{
     color: white;
+  }
+}
+
+.project-item__meta{
+  mix-blend-mode: difference;
+
+  span{
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .project-item__divider{
+    margin: 20px auto;
+    width: 60%;
   }
 }
 
