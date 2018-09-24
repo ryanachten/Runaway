@@ -30,15 +30,15 @@
   filter: invert(1);
 }
 
-@mixin runaway-logo--white {
+@mixin runaway-logo--white($scale) {
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_logo.svg');
   filter: invert(0);
-  height: calc(223px / 1.5);
-  width: calc(229px / 1.5);
+  height: calc(223px * #{$scale});
+  width: calc(229px * #{$scale});
 }
-@mixin runaway-logo--black {
-  @include runaway-logo--white;
+@mixin runaway-logo--black($scale) {
+  @include runaway-logo--white($scale);
   filter: invert(1);
 }
 

@@ -26,6 +26,7 @@
   margin: 0;
   word-break: break-word;
   z-index: 9;
+  @include header-outline(3px);
 }
 
 // If the menu is open, hide the project info container

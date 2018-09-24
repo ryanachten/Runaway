@@ -8,7 +8,9 @@
   z-index: 2;
 
   .logo{
-    @include runaway-logotype-round--black;
+    // @include runaway-logotype-round--black;
+    @include runaway-logo--black(0.5);
+    // @include runaway-logotype--black(1.5);
   }
 }
 
@@ -25,6 +27,8 @@
 
     .logo{
       @include runaway-logotype-round--white;
+      // @include runaway-logo--white(0.5);
+      // @include runaway-logotype--white(1.5);
     }
   }
   .navbar.menuOpen{

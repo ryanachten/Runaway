@@ -11,7 +11,7 @@
 
   h2{
     font-size: 8vw;
-    mix-blend-mode: difference;
+    @include header-outline(2px);
   }
 }
 
@@ -75,7 +75,6 @@
 }
 
 .project-item__meta{
-  mix-blend-mode: difference;
 
   span{
     letter-spacing: 3px;
@@ -83,6 +82,7 @@
   }
 
   .project-item__divider{
+    border: 1px solid white;
     margin: 20px auto;
     width: 60%;
   }
