@@ -22,9 +22,12 @@
 
 .landing__title{
   font-size: 10vw;
-  margin: 0;
+  min-width: 250px;
+  margin: 0 auto;
+  width: 80%;
   word-break: break-word;
   z-index: 9;
+
   @include header-outline(3px);
 }
 
