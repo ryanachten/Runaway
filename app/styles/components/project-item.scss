@@ -8,11 +8,10 @@
 
 .project-item{
   position: relative;
-
-  h2{
-    font-size: 8vw;
-    @include header-outline(2px);
-  }
+}
+.project-item__title{
+  font-size: 8vw;
+  @include header-outline(2px);
 }
 
 .project-item__edit, .project-item__info{
