@@ -2,13 +2,18 @@ import Component from '@ember/component';
 import {computed} from '@ember/object';
 
 export default Component.extend({
-  classNameBindings: ['isLanding'],
+  classNameBindings: ['isLanding', 'isShowProject'],
 
   menuOpen: false,
 
   isLanding: computed('route', function () {
     const isLanding = this.get('route') === 'index' ? 'isLanding' : '';
     return isLanding;
+  }),
+
+  isShowProject: computed('route', function () {
+    const isShowProject = this.get('route') === 'work.show' ? 'isShowProject' : '';
+    return isShowProject;
   }),
 
   actions: {

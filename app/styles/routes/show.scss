@@ -1,21 +1,5 @@
-// .project-page__container{
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: space-around;
-//   margin: 20px auto;
-//   text-align: center;
-//   width: 800px;
-//
-//   *{
-//     margin: 10px;
-//   }
-// }
-// .project-page__title, .project-page__description{
-//   width: 100%;
-// }
-
-.project-page--info{
-  margin-bottom: 20px;
+.project-item__meta{
+  margin-bottom: 40px;
 }
 
 .project-page--video-inactive{
@@ -34,4 +18,9 @@
   .project-item__title{
     margin-bottom: 20px;
   }
+}
+
+// Fullscreen the background image
+.project-page-player.video-vendor__container{
+  height: 100vh !important;
 }

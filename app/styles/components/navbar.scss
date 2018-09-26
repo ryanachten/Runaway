@@ -8,9 +8,7 @@
   z-index: 2;
 
   .logo{
-    // @include runaway-logotype-round--black;
     @include runaway-logo--black(0.5);
-    // @include runaway-logotype--black(1.5);
   }
 }
 
@@ -21,14 +19,12 @@
 }
 
 // Landing page -specific styles
-.isLanding{
+.isLanding, .isShowProject{
   .navbar{
     position: absolute;
 
     .logo{
       @include runaway-logotype-round--white;
-      // @include runaway-logo--white(0.5);
-      // @include runaway-logotype--white(1.5);
     }
   }
   .navbar.menuOpen{
@@ -40,6 +36,16 @@
     color: $text-inverse;
   }
 }
+
+
+.isShowProject{
+  .navbar{
+    .logo{
+      @include runaway-logo--white(0.5);
+    }
+  }
+}
+
 
 // If menu is open
 .navbar.menuOpen{
