@@ -1,8 +1,15 @@
 <div class="work__header-img" />
 {{#if session.isAuthenticated}}
   <div class="work">
-    <h3 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create new project</h3>
+    {{#unless isCreatingProject}}
+      <button class="create-project__button"
+       {{action 'toggleCreateProject'}}>
+        Create new project
+        <i class="material-icons">create</i>
+      </button>
+    {{/unless}}
     {{#if isCreatingProject}}
+      <h3 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create new project</h3>
       <form class="create-project">
         {{input
           class="create-project__title"

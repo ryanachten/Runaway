@@ -25,6 +25,16 @@
     margin: 10px;
   }
 }
+
+.create-project__button{
+  @include icon-button;
+  margin: 20px auto;
+
+  .material-icons{
+    margin-left: 10px;
+  }
+}
+
 .create-project__header{
   cursor: pointer;
   text-align: center;
