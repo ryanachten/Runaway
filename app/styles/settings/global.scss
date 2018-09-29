@@ -13,8 +13,3 @@ $size-base: 1.8rem;
 @mixin primary-font {
   font-family: 'Metamorphous', sans-serif;
 }
-
-@mixin text-header {
-  @include primary-font;
-  text-transform: lowercase;
-};

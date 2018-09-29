@@ -2,10 +2,3 @@ $brand-primary: white;
 $brand-secondary: black;
 $text-primary: black;
 $text-inverse: white;
-
-@mixin header-outline($stroke) {
-  color: $text-inverse;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
-  -webkit-text-stroke-color: $text-inverse;
-  -webkit-text-stroke-width: $stroke;
-}

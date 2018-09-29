@@ -1,3 +1,15 @@
+@mixin text-header {
+  @include primary-font;
+  text-transform: lowercase;
+};
+
+@mixin header-outline($stroke) {
+  color: $text-inverse;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
+  -webkit-text-stroke-color: $text-inverse;
+  -webkit-text-stroke-width: $stroke;
+}
+
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, button, input, textarea, option, span, label, li{
   font-family: 'Lato', sans-serif;
