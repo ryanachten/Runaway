@@ -12,10 +12,19 @@
   }
 }
 
-.navbar__menu-button{
+.navbar__menu-left-align{
+  align-items: center;
+  display: flex;
+}
+
+.navbar__menu-button, .navbar__menu-signout{
   .material-icons{
       font-size: 3.5rem;
   }
+}
+
+.navbar__menu-signout{
+  margin-right: 20px;
 }
 
 // Landing page -specific styles

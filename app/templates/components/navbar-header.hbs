@@ -18,13 +18,15 @@
         <i class="material-icons">close</i>
       </button>
   {{else}}
-    <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}><i class="material-icons">menu</i></button>
-  {{/if}}
+    <div class="navbar__menu-left-align">
+      {{#if authenticated}}
+        <button type="button" name="signOut" class="navbar__menu-signout" {{action "signOut"}}>
+          <i class="material-icons">exit_to_app</i>
+        </button>
+      {{/if}}
 
-  {{#if authenticated}}
-    <button type="button" name="signOut" class="navbar__menu-signout" {{action "signOut"}}>
-      <i class="material-icons">exit_to_app</i>
-    </button>
+      <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}><i class="material-icons">menu</i></button>
+    </div>
   {{/if}}
 
 </nav>
