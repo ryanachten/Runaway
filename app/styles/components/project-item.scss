@@ -44,6 +44,10 @@
   input{
     flex-grow: 1;
   }
+
+  &.featured{
+    flex-grow: 0;
+  }
 }
 
 .project-item__field.title{

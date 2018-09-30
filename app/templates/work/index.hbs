@@ -5,7 +5,7 @@
       <button class="create-project__button"
        {{action 'toggleCreateProject'}}>
         Create new project
-        <i class="material-icons">create</i>
+        <i class="fas fa-edit"></i>
       </button>
     {{/unless}}
     {{#if isCreatingProject}}
@@ -51,10 +51,10 @@
         type="submit"
         {{action "create-project" title client date category videoLocal videoVendor description featured}}
         >
-          <i class="material-icons">done</i>
+          <i class="fas fa-check"></i>
         </button>
         <button type="button" name="toggleCreate" {{action "toggleCreateProject"}}>
-          <i class="material-icons">close</i>
+          <i class="fas fa-times"></i>
         </button>
       </form>
     {{/if}}

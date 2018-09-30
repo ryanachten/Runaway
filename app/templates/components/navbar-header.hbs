@@ -15,17 +15,19 @@
         {{#link-to "contact" class="navbar__link"}}Contact{{/link-to}}
       </span>
       <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}>
-        <i class="material-icons">close</i>
+        <i class="fas fa-times"></i>
       </button>
   {{else}}
     <div class="navbar__menu-left-align">
       {{#if authenticated}}
         <button type="button" name="signOut" class="navbar__menu-signout" {{action "signOut"}}>
-          <i class="material-icons">exit_to_app</i>
+          <i class="fas fa-sign-out-alt"></i>
         </button>
       {{/if}}
 
-      <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}><i class="material-icons">menu</i></button>
+      <button type="button" name="toggleMenu" class="navbar__menu-button" {{action "toggleMenu"}}>
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   {{/if}}
 

@@ -63,7 +63,7 @@
           enter=(action 'editProject' project)
         }}
       </div>
-      <div class="project-item__field">
+      <div class="project-item__field featured">
         <label for="project-featured">Featured</label>
         {{input
           id="project-featured"
@@ -72,12 +72,12 @@
         }}
       </div>
       <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>
-        <i class="material-icons">done</i>
+        <i class="fas fa-check"></i>
       </button>
       <button type="button" name="button"
         class="project-item__submit"
         onclick={{action "deleteProject" project.id}}>
-        <i class="material-icons">delete_forever</i>
+        <i class="fas fa-trash-alt"></i>
       </button>
     </form>
   {{else}}
@@ -95,7 +95,7 @@
           {{/link-to}}
           {{#if authed}}
             <button type="button" name="toggleCreate" {{action "toggleEditProject"}}>
-              <i class="material-icons">edit</i>
+              <i class="fas fa-edit"></i>
             </button>
           {{/if}}
         </div>

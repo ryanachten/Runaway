@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Metamorphous|Lato');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/solid.css');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/brands.css');
 
@@ -14,4 +14,8 @@ $size-base: 1.8rem;
 
 @mixin primary-font {
   font-family: 'Metamorphous', sans-serif;
+}
+
+.fas{
+  font-size: 2.5rem;
 }

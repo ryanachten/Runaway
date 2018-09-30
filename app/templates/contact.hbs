@@ -14,7 +14,7 @@
       }}
       <button type="submit" name="submit" disabled={{submitDisabled}}
       class="contact__send-button" {{action 'createMessage' fullName emailAddress message}}>
-        <i class="material-icons">mail</i>
+        <i class="fas fa-envelope"></i>
       </button>
       <div class="contact__reponse">
         {{#if messageResponse}}
@@ -34,7 +34,7 @@
             <p>{{message.message}}</p>
           </div>
           <button type="button" name="delete" class="contact__delete-button" {{action 'deleteMessage' message.id}}>
-            <i class="material-icons">delete</i>
+            <i class="fas fa-trash-alt"></i>
           </button>
         </div>
       {{/each}}
