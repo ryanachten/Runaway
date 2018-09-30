@@ -42,8 +42,7 @@ export default Controller.extend({
 
     deleteMessage(id){
       this.get('store').findRecord('message', id, { backgroundReload: false }).then((record) => {
-        record.deleteRecord();
-        record.save();
+        record.destroyRecord();
       });
     }
   }

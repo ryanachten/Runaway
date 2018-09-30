@@ -4,9 +4,9 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  height: 80vh;
   margin: 0 auto;
   max-width: 800px;
+  min-height: 80vh;
   text-align: center;
 
   & *{
@@ -43,7 +43,7 @@
   box-sizing: border-box;
 }
 
-.contact__send-button {
+.contact__send-button, .contact__delete-button {
   @include icon-button;
 }
 
@@ -53,4 +53,15 @@
 
 .contact__messages{
   width: 100%;
+}
+.contact__message{
+  align-items: center;
+  display: flex;
+}
+.contact__message-body{
+  flex-grow: 1;
+}
+.contact__delete-button{
+  height: fit-content;
+  width: fit-content;
 }

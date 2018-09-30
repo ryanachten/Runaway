@@ -27,13 +27,16 @@
   {{#if session.isAuthenticated}}
     <div class="contact__messages">
       {{#each messages as | message |}}
-        <div>
-          <h3>{{message.name}}</h3>
-
-          <span>{{moment-format message.date 'h:mm a DD/MM/YYYY' }}</span><span>{{message.email}}</span>
-          <p>{{message.message}}</p>
+        <div class="contact__message">
+          <div class="contact__message-body">
+            <h3>{{message.name}}</h3>
+            <span>{{moment-format message.date 'h:mm a DD/MM/YYYY' }}</span><span>{{message.email}}</span>
+            <p>{{message.message}}</p>
+          </div>
+          <button type="button" name="delete" class="contact__delete-button" {{action 'deleteMessage' message.id}}>
+            <i class="material-icons">delete</i>
+          </button>
         </div>
-        <button type="button" name="delete" {{action 'deleteMessage' message.id}}>Delete</button>
       {{/each}}
     </div>
   {{/if}}
