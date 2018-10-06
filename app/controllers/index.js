@@ -2,8 +2,11 @@ import Controller from '@ember/controller';
 import {computed} from '@ember/object';
 
 export default Controller.extend({
+  frameId: null,
+  currentFrame: 0,
+
   projects: null,
-  projectTransitionInterval: null,
+  // projectTransitionInterval: null,
   currentIndex: 0,
   currentProject: computed('currentIndex', function () {
     const projects = this.get('projects');
@@ -48,20 +51,34 @@ export default Controller.extend({
     }
 
     this.get('currentVideo').player.play();
+
+    this.set('currentFrame', 0);
   },
 
   startProjectInterval(){
-    const interval = setInterval(() => {
-      this.incrementProject();
-    }, 5000);
-    this.set('projectTransitionInterval', interval);
     this.get('currentVideo').player.play();
     this.set('videoIsPlaying', true);
+    this.animate();
+  },
+
+  animate(){
+    const maxAnimationLength = 500;
+    const frameId = window.requestAnimationFrame(() => {
+      this.animate();
+    });
+    const currentFrame = this.get('currentFrame');
+    // console.log('currentFrame', currentFrame);
+    if (currentFrame >= maxAnimationLength) {
+      return this.incrementProject();
+    }
+    this.set('currentFrame', currentFrame+1);
+    this.set('frameId', frameId);
   },
 
   removeProjectInterval(){
-    const interval = this.get('projectTransitionInterval');
-    clearInterval(interval);
+    const frameId = this.get('frameId');
+    window.cancelAnimationFrame(frameId);
+
     this.set('projectTransitionInterval', null);
     this.set('allVideosLoaded', false);
     this.set('loadedVideos', []);
