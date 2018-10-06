@@ -10,7 +10,7 @@
     {{/unless}}
     {{#if isCreatingProject}}
       <h3 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create new project</h3>
-      <form class="create-project">
+      <form class="create-project" action="formTest">
         {{input
           class="create-project__title"
           type='text' value=title placeholder='Title'
@@ -27,14 +27,22 @@
           class="create-project__category"
           type='text' value=category placeholder='Category'
         }}
-        {{input
-          class="create-project__file"
-          type='text' value=videoLocal placeholder='Video File'
-        }}
         {{!-- {{input
           class="create-project__file"
-          type='file' value=videoLocal placeholder='Video File'
+          type='text' value=videoLocal placeholder='Video File'
         }} --}}
+        {{!-- {{input
+          class="create-project__file"
+          type='file' action="uploadVideo" placeholder='Video File'
+        }} --}}
+        <input
+          onchange={{action "uploadVideo"}}
+          accept="video"
+          type="file"
+        />
+        {{#if videoUploadStatus}}
+          <p class="create-project__upload-status {{videoUploadStatus}}">Video upload {{videoUploadStatus}}</p>
+        {{/if}}
         {{input
           class="create-project__link"
           type='text' value=videoVendor placeholder='Vimeo Link'

@@ -43,6 +43,21 @@
 .create-project__description, .create-project__title{
   width: 100%;
 }
+.create-project__upload-status{
+  width: 100%;
+
+  &.pending{
+    color: #00aabf;
+  }
+
+  &.success{
+    color: #00bf4f;
+  }
+
+  &.failed{
+    color: #bf0000;
+  }
+}
 .create-project__submit{
   flex-grow: 0;
   margin: 0 auto;
