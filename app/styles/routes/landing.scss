@@ -41,7 +41,31 @@
   bottom: 30px;
   position: absolute;
   right: 30px;
+  z-index: 10;
 }
+
+.landing__prev-project, .landing__next-project{
+  border: 1px solid;
+  border-radius: 50%;
+  color: $text-inverse;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+  z-index: 100;
+
+  i{
+    font-size: $size-03;
+  }
+}
+
+.landing__prev-project{
+  left: 30px;
+}
+
+.landing__next-project{
+  right: 30px;
+}
+
 
 @media only screen and (max-width: 600px) {
     .landing__title{

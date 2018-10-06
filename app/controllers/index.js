@@ -81,6 +81,14 @@ export default Controller.extend({
         this.set('allVideosLoaded', true);
         this.startProjectInterval();
       }
+    },
+
+    nextProject(){
+      this.incrementProject();
+    },
+
+    previousProject(){
+      // this.decrementProject();
     }
   },
 });

@@ -12,13 +12,6 @@ export default function(){
       animateContainer('.contact'),
     ),
   );
-
-  this.transition(
-    this.toRoute('work'),
-    this.use('explode',
-      animateContainer('.work'),
-    ),
-  );
 }
 
 function animateContainer(container) {

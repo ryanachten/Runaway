@@ -23,6 +23,13 @@
       src=project.videoLocal}}
   {{/each}}
   {{#link-to "work" class="landing__skeleton-icon"}}{{/link-to}}
+
+  <button class="landing__prev-project" type="button" name="toggleCreate" {{action "previousProject"}}>
+    <i class="fas fa-angle-left"></i>
+  </button>
+  <button class="landing__next-project" type="button" name="nextProject" {{action "nextProject"}}>
+    <i class="fas fa-angle-right"></i>
+  </button>
 </div>
 
 {{outlet}}
