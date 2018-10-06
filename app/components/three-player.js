@@ -5,6 +5,7 @@
 
 import Component from '@ember/component';
 import {computed, observer} from '@ember/object';
+import {requestFrame, cancelAnimation} from '../utilities/animation-frame';
 
 export default Component.extend({
 
@@ -85,7 +86,7 @@ export default Component.extend({
   willDestroyElement(){
     this._super(...arguments);
     window.removeEventListener('resize', this.onWindowResize);
-    window.cancelAnimationFrame(this.get('animationFrame'));
+    cancelAnimation(this.get('animationFrame'));
 
     $('.landing').off( "mousemove" );
   },
@@ -117,7 +118,7 @@ export default Component.extend({
 
   animate(){
     this.get('composer').render();
-    const animationFrame = requestAnimationFrame(() => {
+    const animationFrame = requestFrame(() => {
       this.animate()
     });
     this.set('animationFrame', animationFrame);

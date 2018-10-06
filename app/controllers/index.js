@@ -1,12 +1,12 @@
 import Controller from '@ember/controller';
 import {computed} from '@ember/object';
+import {requestFrame, cancelAnimation} from '../utilities/animation-frame';
 
 export default Controller.extend({
   frameId: null,
   currentFrame: 0,
 
   projects: null,
-  // projectTransitionInterval: null,
   currentIndex: 0,
   currentProject: computed('currentIndex', function () {
     const projects = this.get('projects');
@@ -80,7 +80,7 @@ export default Controller.extend({
 
   animate(){
     const maxAnimationLength = 500;
-    const frameId = window.requestAnimationFrame(() => {
+    const frameId = requestFrame(() => {
       this.animate();
     });
     const currentFrame = this.get('currentFrame');
@@ -94,7 +94,7 @@ export default Controller.extend({
 
   removeProjectInterval(){
     const frameId = this.get('frameId');
-    window.cancelAnimationFrame(frameId);
+    cancelAnimation(frameId);
 
     this.set('projectTransitionInterval', null);
     this.set('allVideosLoaded', false);
