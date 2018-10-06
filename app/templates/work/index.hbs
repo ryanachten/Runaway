@@ -31,6 +31,10 @@
           class="create-project__file"
           type='text' value=videoLocal placeholder='Video File'
         }}
+        {{!-- {{input
+          class="create-project__file"
+          type='file' value=videoLocal placeholder='Video File'
+        }} --}}
         {{input
           class="create-project__link"
           type='text' value=videoVendor placeholder='Vimeo Link'
@@ -49,7 +53,7 @@
         <button
         class="create-project__submit"
         type="submit"
-        {{action "create-project" title client date category videoLocal videoVendor description featured}}
+        {{action "createProject" title client date category videoLocal videoVendor description featured}}
         >
           <i class="fas fa-check"></i>
         </button>

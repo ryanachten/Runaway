@@ -9,5 +9,4 @@ export default DS.Model.extend({
   videoLocal:  DS.attr('string'),
   videoVendor:  DS.attr('string'),
   description: DS.attr(),
-  image: DS.attr(),
 });

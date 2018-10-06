@@ -26,6 +26,7 @@ export default Controller.extend({
     },
 
     createProject(title, client, date, category, videoLocal, videoVendor, description, featured){
+      console.log(title, client, date, category, videoLocal, videoVendor, description, featured);
       const store = this.get('store');
       const newProject = store.createRecord('project', {
         'type': "project",
@@ -38,19 +39,26 @@ export default Controller.extend({
         'description': description,
         'featured': featured,
       });
-      newProject.save();
-      this.setProperties({
-        'title': null,
-        'client': null,
-        'date': null,
-        'category': null,
-        'videoLocal': null,
-        'videoVendor': null,
-        'description': null,
-        'featured': null,
+      const saveStatus = newProject.save();
+      saveStatus.then( (result) => {
+        console.log('Saved project successfully', result);
+
+        this.setProperties({
+          'title': null,
+          'client': null,
+          'date': null,
+          'category': null,
+          'videoLocal': null,
+          'videoVendor': null,
+          'description': null,
+          'featured': null,
+        });
+      }).catch( e => {
+        console.log('Error while saving project', e);
+        console.log('e.error', e.error);
       });
     },
-    
+
     toggleCreateProject(){
       const isCreating = this.get('isCreatingProject');
       this.set('isCreatingProject', !isCreating);

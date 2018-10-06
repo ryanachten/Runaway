@@ -3,6 +3,9 @@
 # remove keys from git tracking
 /config/keys.js
 
+# remove Firebase cache from tracking
+.firebase/*
+
 # test video for video.js
 /public/video/*
 
