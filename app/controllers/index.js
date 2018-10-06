@@ -55,6 +55,23 @@ export default Controller.extend({
     this.set('currentFrame', 0);
   },
 
+  decrementProject(){
+    const currentIndex = this.get('currentIndex');
+    const projectCount = this.get('projects').length;
+
+    this.get('currentVideo').player.pause();
+
+    if (currentIndex-1 < 0) {
+      this.set('currentIndex', projectCount-1);
+    }else{
+      this.set('currentIndex', currentIndex-1);
+    }
+
+    this.get('currentVideo').player.play();
+
+    this.set('currentFrame', 0);
+  },
+
   startProjectInterval(){
     this.get('currentVideo').player.play();
     this.set('videoIsPlaying', true);
@@ -105,7 +122,7 @@ export default Controller.extend({
     },
 
     previousProject(){
-      // this.decrementProject();
+      this.decrementProject();
     }
   },
 });
