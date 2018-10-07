@@ -27,14 +27,25 @@
           class="create-project__category"
           type='text' value=category placeholder='Category'
         }}
-        <input
-          onchange={{action "uploadVideo"}}
-          accept="video"
-          type="file"
-        />
-        {{#if videoUploadStatus}}
-          <p class="create-project__upload-status {{videoUploadStatus}}">Video upload {{videoUploadStatus}}</p>
-        {{/if}}
+        <div class="create-project__videoLocal">
+          <label
+            class="input create-project__videoLocal-label"
+            for="videoUpload">
+              <i class="fas fa-upload"></i>
+              Upload video snippet
+          </label>
+          <input
+            id="videoUpload"
+            class="create-project__videoLocal-input"
+            onchange={{action "uploadVideo"}}
+            accept="video"
+            type="file"
+          />
+          {{#if videoUploadStatus}}
+            <p class="create-project__upload-status {{videoUploadStatus}}">Video upload {{videoUploadStatus}}</p>
+          {{/if}}
+        </div>
+
         {{input
           class="create-project__link"
           type='text' value=videoVendor placeholder='Vimeo Link'

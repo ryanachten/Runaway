@@ -37,8 +37,11 @@ export default Controller.extend({
     },
 
     createProject(title, client, date, category, videoVendor, description, featured){
-      const store = this.get('store');
+      if (!this.get('isAbleToCreateProject')) {
+        return;
+      }
 
+      const store = this.get('store');
       const videoUploadUrl = this.get('videoUploadUrl');
 
       const newProject = store.createRecord('project', {
