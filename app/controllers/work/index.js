@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import {computed} from '@ember/object';
 
 export default Controller.extend({
   firebaseApp: Ember.inject.service(),
@@ -6,12 +7,17 @@ export default Controller.extend({
   isCreatingProject: false,
 
   videoUploadStatus: null,
+  isAbleToCreateProject: computed('title', 'client', 'date', 'category', 'description', 'videoUploadUrl', 'videoUploadStatus', function () {
+    const {title, client, date, category, description, videoUploadUrl} = this.getProperties('title', 'client', 'date', 'category', 'description', 'videoUploadUrl');
+
+    return title && client && date && category && description && videoUploadUrl && this.get('videoUploadStatus') === 'success';
+  }),
 
   title: null,
   client: null,
   date: null,
   category: null,
-  videoLocal: null,
+  videoUploadUrl: null,
   videoVendor: null,
   description: null,
   featured: false,
@@ -30,42 +36,41 @@ export default Controller.extend({
       }
     },
 
-    createProject(title, client, date, category, videoLocal, videoVendor, description, featured){
-      console.log(title, client, date, category, videoLocal, videoVendor, description, featured);
+    createProject(title, client, date, category, videoVendor, description, featured){
       const store = this.get('store');
 
-      console.log('videoLocal', videoLocal);
+      const videoUploadUrl = this.get('videoUploadUrl');
 
-      // const newProject = store.createRecord('project', {
-      //   'type': "project",
-      //   'title': title,
-      //   'client': client,
-      //   'date': date,
-      //   'category': category,
-      //   'videoLocal': '/video/' + videoLocal,
-      //   'videoVendor': videoVendor,
-      //   'description': description,
-      //   'featured': featured,
-      // });
+      const newProject = store.createRecord('project', {
+        'type': "project",
+        'title': title,
+        'client': client,
+        'date': date,
+        'category': category,
+        'videoLocal': videoUploadUrl,
+        'videoVendor': videoVendor,
+        'description': description,
+        'featured': featured,
+      });
 
-      // const saveStatus = newProject.save();
-      // saveStatus.then( (result) => {
-      //   console.log('Saved project successfully', result);
-      //
-      //   this.setProperties({
-      //     'title': null,
-      //     'client': null,
-      //     'date': null,
-      //     'category': null,
-      //     'videoLocal': null,
-      //     'videoVendor': null,
-      //     'description': null,
-      //     'featured': null,
-      //   });
-      // }).catch( e => {
-      //   console.log('Error while saving project', e);
-      //   console.log('e.error', e.error);
-      // });
+      const saveStatus = newProject.save();
+      saveStatus.then( (result) => {
+        console.log('Saved project successfully', result);
+
+        this.setProperties({
+          'title': null,
+          'client': null,
+          'date': null,
+          'category': null,
+          'videoLocal': null,
+          'videoVendor': null,
+          'description': null,
+          'featured': false,
+          'videoUploadStatus': null,
+        });
+      }).catch( e => {
+        console.log('Error while saving project', e);
+      });
     },
 
     uploadVideo(e){
@@ -74,12 +79,12 @@ export default Controller.extend({
       const storage = this.get('firebaseApp').storage().ref();
       const video = e.target.files[0];
       const newVideoRef = storage.child(`videos/${video.name}`);
-      const linkRef = newVideoRef.put(video).then( (snapshot) => {
-        console.log('snapshot', snapshot);
-        console.log('linkRef', linkRef);
+      newVideoRef.put(video).then( (snapshot) => {
 
-        newVideoRef.getDownloadURL().then(function(url) {
-          console.log('video download url', url);
+        newVideoRef.getDownloadURL().then((url) => {
+          if (url) {
+            this.set('videoUploadUrl', url);
+          }
         });
 
         this.set('videoUploadStatus', 'success');

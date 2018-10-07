@@ -27,14 +27,6 @@
           class="create-project__category"
           type='text' value=category placeholder='Category'
         }}
-        {{!-- {{input
-          class="create-project__file"
-          type='text' value=videoLocal placeholder='Video File'
-        }} --}}
-        {{!-- {{input
-          class="create-project__file"
-          type='file' action="uploadVideo" placeholder='Video File'
-        }} --}}
         <input
           onchange={{action "uploadVideo"}}
           accept="video"
@@ -59,9 +51,9 @@
           value=description  placeholder='Description'
         }}
         <button
-        class="create-project__submit"
+        class="create-project__submit {{unless isAbleToCreateProject 'disabled'}}"
         type="submit"
-        {{action "createProject" title client date category videoLocal videoVendor description featured}}
+        {{action "createProject" title client date category videoVendor description featured}}
         >
           <i class="fas fa-check"></i>
         </button>
