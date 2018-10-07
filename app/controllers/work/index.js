@@ -66,6 +66,7 @@ export default Controller.extend({
           'date': null,
           'category': null,
           'videoLocal': null,
+          videoUploadUrl: null,
           'videoVendor': null,
           'description': null,
           'featured': false,

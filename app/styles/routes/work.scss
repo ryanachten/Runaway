@@ -44,7 +44,8 @@
   width: 100%;
 }
 .create-project__videoLocal{
-  width: 100%;
+  margin: 10px;
+  width: calc(100% - 50px);
 
   .create-project__videoLocal-label{
     cursor: pointer;
@@ -65,8 +66,17 @@
     position: absolute;
     z-index: -1;
   }
+
+  .create-project__upload-url{
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    word-break: break-all;
+  }
 }
 .create-project__upload-status{
+
+  margin: 0;
 
   &.pending{
     color: #00aabf;

@@ -10,11 +10,15 @@
   -webkit-text-stroke-width: $stroke;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, small
 a, button, input, textarea, option, span, label, li{
   font-family: 'Lato', sans-serif;
   color: $text-primary;
   font-size: 1.8rem;
+}
+
+small{
+  font-size: initial;
 }
 
 a{
