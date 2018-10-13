@@ -1,17 +1,5 @@
 {
   "projects": {
-    "bulwagan-foundation": {
-      "type": "project",
-      "featured": true,
-      "title": "Philippines Festival 2017",
-      "client": "Bulwagan Foundation",
-      "date": "August, 2017",
-      "category": "film",
-      "image": "http://via.placeholder.com/350x150",
-      "videoLocal": "/video/test1.mp4",
-      "videoVendor": "https://vimeo.com/225555149",
-      "description": "Highlights from the Philippines Festival 2017 in Wellington"
-    },
     "fix-federation": {
       "type": "project",
       "featured": true,
@@ -19,46 +7,46 @@
       "client": "Fix Foundation",
       "date": "April, 2017",
       "category": "animation",
-      "image": "http://via.placeholder.com/350x150",
-      "videoLocal": "/video/test2.mp4",
-      "videoVendor": "https://vimeo.com/259761195",
+      "videoSnippetName": "fix_3mb",
+      "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2Ffix_3mb.mp4?alt=media&token=a838348f-ff38-4aa1-8cc0-5e6425df3e7a",
+      "videoVendorUrl": "https://vimeo.com/259761195",
       "description": "Short promo for Lower Hutt's newest bakery. Delicious!"
     },
-    "mozarts-marriage": {
+    "greyhounds-as-pets": {
       "type": "project",
       "featured": true,
-      "title": "Mozart’s Marriage of Figaro Trailer",
-      "client": "Hannah's Playhouse",
+      "title": "Greyhounds as Pets",
+      "client": "Greyhounds as Pets",
       "date": "August, 2017",
       "category": "film",
-      "image": "http://via.placeholder.com/350x150",
-      "videoLocal": "/video/test3.mp4",
-      "videoVendor": "https://vimeo.com/228386448",
-      "description": "Mozart's The Marriage of Figaro, on show now at Hannah's Playhouse in Wellington!"
+      "videoSnippetName": "GAP_3mb",
+      "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2FGAP_3mb.mp4?alt=media&token=5f424019-f939-46bd-aaa3-c6ab7ba78945",
+      "videoVendorUrl": "https://vimeo.com/228386448",
+      "description": "I guess it's a promo about Greyhounds as Pets?"
     },
-    "employee-experience": {
+    "personal-trainer": {
+      "type": "project",
+      "featured": true,
+      "title": "Personal Trainer Promo",
+      "client": "Some Personal Trainer",
+      "date": "August, 2017",
+      "category": "motion graphics",
+      "videoSnippetName": "instagram_3mb",
+      "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2Finstagram_3mb.mp4?alt=media&token=e57084f7-3dcb-4ea0-a720-f3e680470d0d",
+      "videoVendorUrl": "https://vimeo.com/228386448",
+      "description": "I guess it's a promo for some Personal Trainer?"
+    },
+    "wrdc": {
       "type": "project",
       "featured": true,
       "title": "Designing Great Employee Experiences",
-      "client": "Humankind",
-      "date": "March, 2017",
-      "category": "motion graphics",
-      "image": "http://via.placeholder.com/350x150",
-      "videoLocal": "/video/test4.mp4",
-      "videoVendor": "https://vimeo.com/225555149",
-      "description": "Need a description for this video"
-    },
-    "dad-ghost": {
-      "type": "project",
-      "featured": false,
-      "title": "Remember When Dad Fought A Ghost",
-      "client": "Tropfest NZ 2017",
-      "date": "July, 2017",
+      "client": "WRDC",
+      "date": "August, 2017",
       "category": "film",
-      "image": "http://via.placeholder.com/350x150",
-      "videoLocal": "/video/test1.mp4",
-      "videoVendor": "https://vimeo.com/215161008",
-      "description": "Need a description for this video"
+      "videoSnippetName": "WRDC_3mb",
+      "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2FWRDC_3mb.mp4?alt=media&token=ac6a96ec-8bc2-4dbe-af1f-e681e03a7400",
+      "videoVendorUrl": "https://vimeo.com/228386448",
+      "description": "Not sure what WRDC stands for"
     }
   },
   "messages": {
