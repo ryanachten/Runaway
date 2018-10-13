@@ -27,17 +27,17 @@
           class="create-project__category"
           type='text' value=category placeholder='Category'
         }}
-        <div class="input create-project__videoLocal">
+        <div class="input create-project__videoSnippetUrl">
           {{#unless videoUploadStatus}}
             <label
-              class="create-project__videoLocal-label"
+              class="create-project__videoSnippetUrl-label"
               for="videoUpload">
                 <i class="fas fa-upload"></i>
                 Upload video snippet
             </label>
             <input
               id="videoUpload"
-              class="create-project__videoLocal-input"
+              class="create-project__videoSnippetUrl-input"
               onchange={{action "uploadVideo"}}
               accept="video"
               type="file"
@@ -53,7 +53,7 @@
 
         {{input
           class="create-project__link"
-          type='text' value=videoVendor placeholder='Vimeo Link'
+          type='text' value=videoVendorUrl placeholder='Vimeo Link'
         }}
         <div class="create-project__featured">
           <label for="featured">Featured Project</label>
@@ -69,7 +69,7 @@
         <button
         class="create-project__submit {{unless isAbleToCreateProject 'disabled'}}"
         type="submit"
-        {{action "createProject" title client date category videoVendor description featured}}
+        {{action "createProject" title client date category videoVendorUrl description featured}}
         >
           <i class="fas fa-check"></i>
         </button>

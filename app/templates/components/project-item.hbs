@@ -5,7 +5,7 @@
       controls=true
       fluid=true
       muted="muted"
-      src=project.videoLocal}}
+      src=project.videoSnippetUrl}}
     <form class="project-item__edit">
       <div class="project-item__field title">
         <label for="project-title">Title</label>
@@ -40,18 +40,18 @@
         }}
       </div>
       <div class="project-item__field">
-        <label for="project-videoVendor">Vimeo Link</label>
+        <label for="project-videoVendorUrl">Vimeo Link</label>
         {{input
-          id="project-videoVendor"
-          type='url' value=project.videoVendor
+          id="project-videoVendorUrl"
+          type='url' value=project.videoVendorUrl
           enter=(action 'editProject' project)
         }}
       </div>
       <div class="project-item__field">
-        <label for="project-videoLocal">Video Snippet Filename</label>
+        <label for="project-videoSnippetUrl">Video Snippet Filename</label>
         {{input
-          id="project-videoLocal"
-          type='url' value=project.videoLocal
+          id="project-videoSnippetUrl"
+          type='url' value=project.videoSnippetUrl
           enter=(action 'editProject' project)
         }}
       </div>
@@ -86,7 +86,7 @@
       controls=false
       fluid=true
       muted="muted"
-      src=project.videoLocal}}
+      src=project.videoSnippetUrl}}
     <div class="project-item__info">
       <div class="project-item__info-container">
         <div>

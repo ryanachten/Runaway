@@ -4,6 +4,7 @@ import {computed} from '@ember/object';
 
 export default Component.extend({
   store: inject(),
+  firebaseApp: Ember.inject.service(),
 
   videoPlayer: null,
   videoElement: null,
@@ -56,11 +57,15 @@ export default Component.extend({
         record.set('client', project.client);
         record.set('date', project.date);
         record.set('category', project.category);
-        record.set('videoLocal', project.videoLocal);
-        record.set('videoVendor', project.videoVendor);
+        record.set('videoSnippetUrl', project.videoSnippetUrl);
+        record.set('videoVendorUrl', project.videoVendorUrl);
         record.set('description', project.description);
         record.save();
       });
+    },
+
+    removeVideo(){
+
     },
 
     deleteProject(id){

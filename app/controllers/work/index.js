@@ -18,7 +18,7 @@ export default Controller.extend({
   date: null,
   category: null,
   videoUploadUrl: null,
-  videoVendor: null,
+  videoVendorUrl: null,
   description: null,
   featured: false,
 
@@ -36,7 +36,7 @@ export default Controller.extend({
       }
     },
 
-    createProject(title, client, date, category, videoVendor, description, featured){
+    createProject(title, client, date, category, videoVendorUrl, description, featured){
       if (!this.get('isAbleToCreateProject')) {
         return;
       }
@@ -50,24 +50,23 @@ export default Controller.extend({
         'client': client,
         'date': date,
         'category': category,
-        'videoLocal': videoUploadUrl,
-        'videoVendor': videoVendor,
+        'videoSnippetUrl': videoUploadUrl,
+        'videoVendorUrl': videoVendorUrl,
         'description': description,
         'featured': featured,
       });
 
       const saveStatus = newProject.save();
       saveStatus.then( (result) => {
-        console.log('Saved project successfully', result);
 
         this.setProperties({
           'title': null,
           'client': null,
           'date': null,
           'category': null,
-          'videoLocal': null,
-          videoUploadUrl: null,
-          'videoVendor': null,
+          'videoSnippetUrl': null,
+          'videoUploadUrl': null,
+          'videoVendorUrl': null,
           'description': null,
           'featured': false,
           'videoUploadStatus': null,

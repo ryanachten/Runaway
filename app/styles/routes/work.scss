@@ -43,11 +43,11 @@
 .create-project__description, .create-project__title{
   width: 100%;
 }
-.create-project__videoLocal{
+.create-project__videoSnippetUrl{
   margin: 10px;
   width: calc(100% - 50px);
 
-  .create-project__videoLocal-label{
+  .create-project__videoSnippetUrl-label{
     cursor: pointer;
     display: block;
     margin: 0;
@@ -58,7 +58,7 @@
     }
   }
 
-  .create-project__videoLocal-input{
+  .create-project__videoSnippetUrl-input{
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
