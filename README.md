@@ -24,6 +24,11 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
+### CORS
+Updating the Firebase CORS headers required by Three.js for three-player can be set using the `firebase-cors.json` file.
+Using the `gsutil` CLI, we can submit these updates via the following command:
+`gsutil cors set firebase-cors.json gs://runaway-6acf7.appspot.com`
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details

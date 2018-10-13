@@ -19,6 +19,7 @@ export default Component.extend({
   createMaterials: computed( 'videos', function () {
     const videos = this.get('videos');
     const materials = videos.map( (video) => {
+      video.video.crossOrigin = "Anonymous";
       const videoTexture = new THREE.VideoTexture(video.video);
       videoTexture.minFilter = THREE.LinearFilter;
       const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
