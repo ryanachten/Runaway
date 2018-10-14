@@ -4,7 +4,6 @@ import {computed} from '@ember/object';
 
 export default Component.extend({
   store: inject(),
-  firebaseApp: Ember.inject.service(),
 
   videoPlayer: null,
   videoElement: null,
@@ -31,14 +30,6 @@ export default Component.extend({
       return;
     }
     player.pause();
-  },
-
-  removeVideo(fileName){
-    console.log('fileName', fileName);
-    const storage = this.get('firebaseApp').storage().ref();
-    const videoRef = storage.child(`videos/${fileName}`);
-    console.log('videoRef', videoRef);
-    return videoRef.delete()
   },
 
   actions: {
@@ -75,15 +66,9 @@ export default Component.extend({
     deleteProject(id){
       const store = this.get('store');
       store.findRecord('project', id, { backgroundReload: false }).then((record) => {
-        const fileName = record.get('videoSnippetFileName');
-        this.removeVideo(fileName).then( () => {
-          console.log('deleted video successfully');
-          // record.deleteRecord();
-          // record.get('isDeleted');
-          // record.save();
-        }).catch((error) => {
-          console.log('error deleting video');
-        });
+        record.deleteRecord();
+        console.log(record.get('isDeleted'));
+        record.save();
       });
     },
 

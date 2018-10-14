@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   title: DS.attr(),
@@ -7,7 +8,9 @@ export default DS.Model.extend({
   client: DS.attr(),
   date: DS.attr(),
   videoSnippetFileName:  DS.attr('string'),
-  videoSnippetUrl:  DS.attr('string'),
+  videoSnippetUrl:  computed('videoSnippetFileName', function() {
+    return `/video/${this.get('videoSnippetFileName')}`;
+  }),
   videoVendorUrl:  DS.attr('string'),
   description: DS.attr(),
 });
