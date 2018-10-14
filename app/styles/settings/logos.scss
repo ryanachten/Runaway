@@ -12,6 +12,10 @@
   filter: invert(0);
   height: calc(56px / #{$scale});
   width: calc(376px / #{$scale});
+
+  @media screen and (max-width: 400px) {
+    width: 200px;
+  }
 }
 @mixin runaway-logotype--black($scale) {
   @include runaway-logotype--white($scale);

@@ -22,7 +22,7 @@
   line-height: $size-02;
   margin: 40px auto;
   max-width: 900px;
-  padding: 0 30px;
+  padding: 0 20px;
   text-align: center;
 }
 
@@ -74,4 +74,11 @@
 
 .about__services-title{
   @include text-header;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 350px) {
+  .about__services-item{
+    margin: 10px;
+  }
 }
