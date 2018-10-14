@@ -7,7 +7,7 @@
       "client": "Fix Foundation",
       "date": "April, 2017",
       "category": "animation",
-      "videoSnippetName": "fix_3mb",
+      "videoSnippetFileName": "fix_3mb",
       "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2Ffix_3mb.mp4?alt=media&token=a838348f-ff38-4aa1-8cc0-5e6425df3e7a",
       "videoVendorUrl": "https://vimeo.com/259761195",
       "description": "Short promo for Lower Hutt's newest bakery. Delicious!"
@@ -19,7 +19,7 @@
       "client": "Greyhounds as Pets",
       "date": "August, 2017",
       "category": "film",
-      "videoSnippetName": "GAP_3mb",
+      "videoSnippetFileName": "GAP_3mb",
       "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2FGAP_3mb.mp4?alt=media&token=5f424019-f939-46bd-aaa3-c6ab7ba78945",
       "videoVendorUrl": "https://vimeo.com/228386448",
       "description": "I guess it's a promo about Greyhounds as Pets?"
@@ -31,7 +31,7 @@
       "client": "Some Personal Trainer",
       "date": "August, 2017",
       "category": "motion graphics",
-      "videoSnippetName": "instagram_3mb",
+      "videoSnippetFileName": "instagram_3mb",
       "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2Finstagram_3mb.mp4?alt=media&token=e57084f7-3dcb-4ea0-a720-f3e680470d0d",
       "videoVendorUrl": "https://vimeo.com/228386448",
       "description": "I guess it's a promo for some Personal Trainer?"
@@ -43,7 +43,7 @@
       "client": "WRDC",
       "date": "August, 2017",
       "category": "film",
-      "videoSnippetName": "WRDC_3mb",
+      "videoSnippetFileName": "WRDC_3mb",
       "videoSnippetUrl": "https://firebasestorage.googleapis.com/v0/b/runaway-6acf7.appspot.com/o/videos%2FWRDC_3mb.mp4?alt=media&token=ac6a96ec-8bc2-4dbe-af1f-e681e03a7400",
       "videoVendorUrl": "https://vimeo.com/228386448",
       "description": "Not sure what WRDC stands for"

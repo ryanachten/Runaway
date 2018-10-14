@@ -6,7 +6,8 @@ export default DS.Model.extend({
   category: DS.attr(),
   client: DS.attr(),
   date: DS.attr(),
-  videoSnippetUrl:  DS.attr(),
+  videoSnippetFileName:  DS.attr('string'),
+  videoSnippetUrl:  DS.attr('string'),
   videoVendorUrl:  DS.attr('string'),
   description: DS.attr(),
 });

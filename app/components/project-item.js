@@ -33,6 +33,14 @@ export default Component.extend({
     player.pause();
   },
 
+  removeVideo(fileName){
+    console.log('fileName', fileName);
+    const storage = this.get('firebaseApp').storage().ref();
+    const videoRef = storage.child(`videos/${fileName}`);
+    console.log('videoRef', videoRef);
+    return videoRef.delete()
+  },
+
   actions: {
 
     toggleEditProject(){
@@ -64,16 +72,18 @@ export default Component.extend({
       });
     },
 
-    removeVideo(){
-
-    },
-
     deleteProject(id){
       const store = this.get('store');
       store.findRecord('project', id, { backgroundReload: false }).then((record) => {
-        record.deleteRecord();
-        record.get('isDeleted');
-        record.save();
+        const fileName = record.get('videoSnippetFileName');
+        this.removeVideo(fileName).then( () => {
+          console.log('deleted video successfully');
+          // record.deleteRecord();
+          // record.get('isDeleted');
+          // record.save();
+        }).catch((error) => {
+          console.log('error deleting video');
+        });
       });
     },
 

@@ -17,6 +17,7 @@ export default Controller.extend({
   client: null,
   date: null,
   category: null,
+  videoUploadFileName: null,
   videoUploadUrl: null,
   videoVendorUrl: null,
   description: null,
@@ -43,6 +44,7 @@ export default Controller.extend({
 
       const store = this.get('store');
       const videoUploadUrl = this.get('videoUploadUrl');
+      const videoUploadFileName = this.get('videoUploadFileName');
 
       const newProject = store.createRecord('project', {
         'type': "project",
@@ -50,6 +52,7 @@ export default Controller.extend({
         'client': client,
         'date': date,
         'category': category,
+        'videoSnippetFileName': videoUploadFileName,
         'videoSnippetUrl': videoUploadUrl,
         'videoVendorUrl': videoVendorUrl,
         'description': description,
@@ -64,6 +67,7 @@ export default Controller.extend({
           'client': null,
           'date': null,
           'category': null,
+          'videoSnippetFileName': null,
           'videoSnippetUrl': null,
           'videoUploadUrl': null,
           'videoVendorUrl': null,
@@ -81,11 +85,14 @@ export default Controller.extend({
 
       const storage = this.get('firebaseApp').storage().ref();
       const video = e.target.files[0];
-      const newVideoRef = storage.child(`videos/${video.name}`);
+      const fileName = video.name;
+      const newVideoRef = storage.child(`videos/${fileName}`);
+
       newVideoRef.put(video).then( (snapshot) => {
 
         newVideoRef.getDownloadURL().then((url) => {
           if (url) {
+            this.set('videoUploadFileName', fileName);
             this.set('videoUploadUrl', url);
           }
         });
