@@ -4,12 +4,12 @@
     {{#unless isCreatingProject}}
       <button class="create-project__button"
        {{action 'toggleCreateProject'}}>
-        Create new project
+        Create project
         <i class="fas fa-edit"></i>
       </button>
     {{/unless}}
     {{#if isCreatingProject}}
-      <h3 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create new project</h3>
+      <h5 class="create-project__header" onclick={{action "toggleCreateProject"}}>Create project</h5>
       <form class="create-project" action="formTest">
         {{input
           class="create-project__title"

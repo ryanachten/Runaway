@@ -1,4 +1,11 @@
-$brand-primary: white;
+$gold: #c4a747;
+$grey: #636363;
+$pink: #fff1f1;
+
+$brand-primary: $gold;
 $brand-secondary: black;
-$text-primary: black;
-$text-inverse: white;
+$text-primary: $grey;
+$text-inverse: $gold;
+
+$background-colour: $pink;
+$background-gradient: radial-gradient($background-colour, white, $background-colour);

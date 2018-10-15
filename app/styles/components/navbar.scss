@@ -42,7 +42,7 @@
   }
 
   *{
-    color: $text-inverse;
+    color: $background-colour;
   }
 }
 
@@ -58,7 +58,7 @@
 
 // If menu is open
 .navbar.menuOpen{
-  background: $brand-primary;
+  background: $background-gradient;
   display: flex;
   height: 100vh;
   justify-content: space-around;

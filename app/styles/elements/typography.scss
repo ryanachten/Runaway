@@ -4,9 +4,9 @@
 };
 
 @mixin header-outline($stroke) {
-  color: $text-inverse;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
-  -webkit-text-stroke-color: $text-inverse;
+  color: $background-colour;
+  -webkit-text-fill-color: transparentize($background-colour, 0.7);
+  -webkit-text-stroke-color: $background-colour;
   -webkit-text-stroke-width: $stroke;
 }
 
@@ -39,3 +39,8 @@ h3   { font-size: $size-03; }
 h4   { font-size: $size-02; }
 h5, h6   { font-size: $size-01; }
 body { font-size: $size-base; }
+
+// Icon styles
+i{
+  color: lighten($brand-primary, 20%);
+}

@@ -1,5 +1,4 @@
 .work{
-  color: $text-primary;
   text-align: center;
 }
 .work__header-img{
@@ -28,7 +27,9 @@
 
 .create-project__button{
   @include icon-button;
+  letter-spacing: 3px;
   margin: 20px auto;
+  text-transform: uppercase;
 
   i{
     margin-left: 20px;
@@ -37,7 +38,10 @@
 
 .create-project__header{
   cursor: pointer;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
   text-align: center;
+  text-transform: uppercase;
   width: 100%;
 }
 .create-project__description, .create-project__title{
