@@ -59,11 +59,11 @@
   }
 
   *{
-    color: $text-inverse;
+    color: $background-colour;
   }
   hr{
     border: none;
-    border-bottom: 1px solid $text-inverse;
+    border-bottom: 1px solid $background-colour;
     margin: 25px auto 20px auto;
     width: 80%;
   }

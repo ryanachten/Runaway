@@ -43,4 +43,9 @@ body { font-size: $size-base; }
 // Icon styles
 i{
   color: lighten($brand-primary, 20%);
+
+  &:hover{
+    transition: 0.5s;
+    color: $brand-primary;
+  }
 }

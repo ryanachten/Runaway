@@ -12,14 +12,19 @@ input, .input, textarea{
   background: transparentize(white, 0.7);
   border: none;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px #b9b9b9;
+  box-shadow: 1px 1px 5px $shadow;
   outline: none;
   padding: 15px;
+
+  &:hover{
+    transition: 0.5s;
+    background: transparentize(white, 0.1);
+  }
 }
 
 @mixin icon-button {
   background: none;
-  box-shadow: 1px 1px 5px #b9b9b9;
+  box-shadow: 1px 1px 5px $shadow;
   display: flex;
   align-items: center;
   justify-content: center;
