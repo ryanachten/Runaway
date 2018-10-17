@@ -1,3 +1,10 @@
+@mixin input-hover {
+    &:hover{
+      transition: 0.5s;
+      background: transparentize(white, 0.1);
+    }
+}
+
 // Input overrides
 button, input, input[type="submit"], input[type="reset"] {
   border: none;
@@ -9,17 +16,14 @@ button, input, input[type="submit"], input[type="reset"] {
 }
 
 input, .input, textarea{
-  background: transparentize(white, 0.7);
+  background: transparentize(white, 0.8);
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 5px $shadow;
   outline: none;
   padding: 15px;
 
-  &:hover{
-    transition: 0.5s;
-    background: transparentize(white, 0.1);
-  }
+  @include input-hover;
 }
 
 @mixin icon-button {

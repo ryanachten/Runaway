@@ -10,11 +10,14 @@
 }
 .filter__check{
   @include icon-button;
+
   display: inline-flex;
   font-size: small;
   letter-spacing: 2px;
   margin: 10px;
   text-transform: uppercase;
+
+  @include input-hover;
 }
 .filter__check.selected{
   background: $brand-primary;
