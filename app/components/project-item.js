@@ -73,6 +73,7 @@ export default Component.extend({
     },
 
     canplay(player, component) {
+      $(component.get('element')).closest(".project-item").fadeIn(2000);
       this.set('videoPlayer', player);
       this.set('videoElement', component.get('element'));
     },
