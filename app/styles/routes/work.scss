@@ -2,7 +2,7 @@
   text-align: center;
 }
 .work__header-img{
-  @include runaway-logotype--black(1);
+  @include runaway-logotype--dark(1);
   margin: 0 auto 40px auto;
   width: 100%;
 }

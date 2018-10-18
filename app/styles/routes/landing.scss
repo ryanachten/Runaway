@@ -37,7 +37,7 @@
 }
 
 .landing__skeleton-icon{
-  @include runaway-skeleton--white(0.7);
+  @include runaway-skeleton--light(0.7);
   bottom: 30px;
   position: absolute;
   right: 30px;

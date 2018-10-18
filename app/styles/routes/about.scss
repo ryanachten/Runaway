@@ -6,13 +6,13 @@
 }
 
 .about__header-img{
-  @include runaway-skeleton--black(1.2);
+  @include runaway-skeleton--dark(1.2);
   margin: 0 auto 30px auto;
   width: 100%;
 }
 
 .about__header-logotype{
-  @include runaway-logotype--black(1);
+  @include runaway-logotype--dark(1);
   margin: 20px auto 60px auto;
   width: 100%;
 }
