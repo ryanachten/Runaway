@@ -38,7 +38,7 @@
   }
   .navbar.menuOpen{
     align-items: center;
-    mix-blend-mode: screen;
+    mix-blend-mode: hard-light;
   }
 
   *{
@@ -69,17 +69,17 @@
   z-index: 2;
 
   *{
-    color: $text-primary;
+    color: $brand-primary;
     margin: 0 auto;
   }
 
   .navbar__link, .navbar__menu-button{
     @include text-header;
-    color: $text-primary;
+    color: $brand-primary;
     font-size: $size-03;
 
     *{
-      color: $text-primary;
+      color: $brand-primary;
     }
   }
 

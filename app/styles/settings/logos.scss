@@ -9,8 +9,8 @@
 @mixin runaway-logotype--light($scale) {
   @include bg-img-settings;
   background-image: url('/img/branding/runaway_logotype-light.svg');
-  height: calc(56px / #{$scale});
-  width: calc(376px / #{$scale});
+  height: calc(50px / #{$scale});
+  width: calc(200px / #{$scale});
 
   @media screen and (max-width: 400px) {
     width: 200px;
@@ -19,6 +19,9 @@
 @mixin runaway-logotype--dark($scale) {
   @include runaway-logotype--light($scale);
   background-image: url('/img/branding/runaway_logotype-dark.svg');
+  // background-image: url('/img/branding/runaway_logotype.png');
+  // background-image: url('/img/branding/runaway_logotype2.png');
+  // background-image: url('/img/branding/runaway_logotype3.png');
 }
 
 @mixin runaway-logotype-round--light {

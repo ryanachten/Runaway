@@ -42,7 +42,7 @@ body { font-size: $size-base; }
 
 // Icon styles
 i{
-  color: lighten($brand-primary, 20%);
+  color: lighten($brand-primary, 10%);
 
   &:hover{
     transition: 0.5s;
