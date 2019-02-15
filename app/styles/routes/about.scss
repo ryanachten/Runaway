@@ -22,7 +22,7 @@
   line-height: $size-02;
   margin: 40px auto;
   max-width: 900px;
-  padding: 0 20px;
+  padding: 0 40px;
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
 
 .about__services-item{
   align-items: center;
-  background-color: transparentize($background-colour, 0.3) !important;
+  background-color: transparentize(white, 0.3) !important;
   background-blend-mode: screen !important;
   background-position: top center !important;
   background-repeat: no-repeat !important;
@@ -57,7 +57,7 @@
   filter: saturate(70%);
   &:hover{
     transition: 500ms;
-    background-color: transparentize($background-colour, 0.4) !important;
+    background-color: transparentize(white, 0.4) !important;
     filter: saturate(190%);
   }
 
