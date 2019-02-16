@@ -3,113 +3,123 @@
   https://github.com/mtmckenna/ember-sample-cube/blob/master/app/components/sample-cube.js
 */
 
-import Component from '@ember/component';
-import {computed, observer} from '@ember/object';
-import {requestFrame, cancelAnimation} from '../utilities/animation-frame';
+import Component from "@ember/component";
+import { computed, observer } from "@ember/object";
+import { requestFrame, cancelAnimation } from "../utilities/animation-frame";
 
 export default Component.extend({
-
   container: null,
   composer: null,
   webglRenderer: null,
   camera: null,
-  effect: null,
+  badTvShader: null,
+  rgbShiftShader: null,
   cube: null,
   allMaterials: [],
-  createMaterials: computed( 'videos', function () {
-    const videos = this.get('videos');
-    const materials = videos.map( (video) => {
+  createMaterials: computed("videos", function() {
+    const videos = this.get("videos");
+    const materials = videos.map(video => {
       video.video.crossOrigin = "Anonymous";
       const videoTexture = new THREE.VideoTexture(video.video);
       videoTexture.minFilter = THREE.LinearFilter;
-      const material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
+      const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
       material.map = videoTexture;
       return {
         id: video.id,
-        material,
+        material
       };
     });
     return materials;
   }),
-  updateVideo: observer('currentId', function () {
+  updateVideo: observer("currentId", function() {
     const currentMaterial = this.getVideoMaterial();
-    this.set('cube.material', currentMaterial);
+    this.set("cube.material", currentMaterial);
   }),
 
-
-  didInsertElement(){
+  didInsertElement() {
     this._super(...arguments);
 
-    this.set('allMaterials', this.get('createMaterials'));
+    this.set("allMaterials", this.get("createMaterials"));
 
-    const container = this.$('.three-player')[0];
-    this.set('container', container);
+    const container = this.$(".three-player")[0];
+    this.set("container", container);
     const scene = new THREE.Scene();
 
     const webglRenderer = new THREE.WebGLRenderer();
     webglRenderer.setSize(container.offsetWidth, container.offsetHeight);
     container.appendChild(webglRenderer.domElement);
-    this.set('webglRenderer', webglRenderer);
+    this.set("webglRenderer", webglRenderer);
 
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    this.set('camera', camera);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    this.set("camera", camera);
 
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
 
     const currentMaterial = this.getVideoMaterial();
 
-    const cube = new THREE.Mesh( geometry, currentMaterial );
+    const cube = new THREE.Mesh(geometry, currentMaterial);
 
     const composer = new THREE.EffectComposer(webglRenderer);
-    composer.addPass( new THREE.RenderPass( scene, camera ) );
+    composer.addPass(new THREE.RenderPass(scene, camera));
 
-    const effect = new THREE.ShaderPass( THREE.BadTVShader );
-		effect.uniforms[ 'distortion' ].value = 0.01;
-    effect.uniforms[ 'distortion2' ].value = 0;
-		effect.renderToScreen = true;
-		composer.addPass( effect );
-    this.set('effect', effect);
+    const rgbShiftShader = new THREE.ShaderPass(THREE.RGBShiftShader);
+    rgbShiftShader.uniforms["amount"].value = 0.01;
+    // rgbShiftShader.renderToScreen = true;
+    composer.addPass(rgbShiftShader);
+    this.set("rgbShiftShader", rgbShiftShader);
 
-    scene.add( cube );
+    const badTvShader = new THREE.ShaderPass(THREE.BadTVShader);
+    badTvShader.uniforms["distortion"].value = 0.01;
+    badTvShader.uniforms["distortion2"].value = 0;
+    badTvShader.renderToScreen = true;
+    composer.addPass(badTvShader);
+    this.set("badTvShader", badTvShader);
 
-    this.set('cube', cube);
-    this.set('composer', composer);
+    scene.add(cube);
+
+    this.set("cube", cube);
+    this.set("composer", composer);
 
     camera.position.z = 0.8;
 
     this.animate();
 
-    window.addEventListener('resize', this.onWindowResize.bind(this), false);
+    window.addEventListener("resize", this.onWindowResize.bind(this), false);
 
-    $('.landing').mousemove(this.updateShader.bind(this));
+    $(".landing").mousemove(this.updateShader.bind(this));
   },
 
-  willDestroyElement(){
+  willDestroyElement() {
     this._super(...arguments);
-    window.removeEventListener('resize', this.onWindowResize);
-    cancelAnimation(this.get('animationFrame'));
+    window.removeEventListener("resize", this.onWindowResize);
+    cancelAnimation(this.get("animationFrame"));
 
-    $('.landing').off( "mousemove" );
+    $(".landing").off("mousemove");
   },
 
-  onWindowResize(){
+  onWindowResize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    const camera = this.get('camera');
+    const camera = this.get("camera");
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    const composer = this.get('composer');
-    composer.setSize( width, height );
+    const composer = this.get("composer");
+    composer.setSize(width, height);
 
-    const webglRenderer = this.get('webglRenderer');
-    webglRenderer.setSize( width, height );
+    const webglRenderer = this.get("webglRenderer");
+    webglRenderer.setSize(width, height);
   },
 
-  getVideoMaterial(){
-    const currentId = this.get('currentId');
-    const currentMaterial = this.get('allMaterials').filter( (material) => {
+  getVideoMaterial() {
+    const currentId = this.get("currentId");
+    const currentMaterial = this.get("allMaterials").filter(material => {
       if (material.id === currentId) {
         return material;
       }
@@ -117,17 +127,17 @@ export default Component.extend({
     return currentMaterial.material;
   },
 
-  animate(){
-    this.get('composer').render();
+  animate() {
+    this.get("composer").render();
     const animationFrame = requestFrame(() => {
-      this.animate()
+      this.animate();
     });
-    this.set('animationFrame', animationFrame);
+    this.set("animationFrame", animationFrame);
   },
 
   // TODO: create touch input version
-  updateShader(e){
-    const canvas = this.get('container').children[0];
+  updateShader(e) {
+    const canvas = this.get("container").children[0];
 
     // TODO: these should be stored and reset on screen resize
     var offset = $(canvas).offset();
@@ -135,13 +145,15 @@ export default Component.extend({
     const height = $(canvas).innerHeight();
 
     const relativeMouseX = e.pageX - offset.left;
-    const normalisedCentredX = (relativeMouseX - width/2) / (width/2);
+    const normalisedCentredX = (relativeMouseX - width / 2) / (width / 2);
 
     const relativeMouseY = e.pageY - offset.top;
-    const normalisedCentredY = (relativeMouseY - height/2 ) / (height/2);
+    const normalisedCentredY = (relativeMouseY - height / 2) / (height / 2);
 
-    const effect = this.get('effect');
-    effect.uniforms[ 'distortion' ].value = normalisedCentredX*10;
-    effect.uniforms[ 'time' ].value = normalisedCentredY*10;
+    const badTvShader = this.get("badTvShader");
+    badTvShader.uniforms["distortion"].value = normalisedCentredX * 7;
+
+    const rgbShiftShader = this.get("rgbShiftShader");
+    rgbShiftShader.uniforms["amount"].value = normalisedCentredY / 20;
   }
 });

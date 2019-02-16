@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -20,12 +20,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('node_modules/three/build/three.js');
-  app.import('vendor/CopyShader.js');
-  app.import('vendor/EffectComposer.js');
-  app.import('vendor/RenderPass.js');
-  app.import('vendor/ShaderPass.js');
-  app.import('vendor/shaders/BadTVShader.js');
+  app.import("node_modules/three/build/three.js");
+  app.import("vendor/CopyShader.js");
+  app.import("vendor/EffectComposer.js");
+  app.import("vendor/RenderPass.js");
+  app.import("vendor/ShaderPass.js");
+  app.import("vendor/shaders/BadTVShader.js");
+  app.import("vendor/shaders/RGBShiftShader.js");
 
   return app.toTree();
 };
