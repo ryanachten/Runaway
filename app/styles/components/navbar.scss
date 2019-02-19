@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   align-items: end;
   box-sizing: border-box;
   display: flex;
@@ -7,57 +7,57 @@
   width: 100%;
   z-index: 2;
 
-  .logo{
+  .logo {
     @include runaway-logo--dark(0.5);
   }
 }
 
-.navbar__menu-left-align{
+.navbar__menu-left-align {
   align-items: center;
   display: flex;
 }
 
-.navbar__menu-button, .navbar__menu-signout{
-  i{
+.navbar__menu-button,
+.navbar__menu-signout {
+  i {
     font-size: 2.5rem;
   }
 }
 
-.navbar__menu-signout{
+.navbar__menu-signout {
   margin-right: 30px;
 }
 
 // Landing page -specific styles
-.isLanding, .isShowProject{
-  .navbar{
+.isLanding,
+.isShowProject {
+  .navbar {
     position: absolute;
 
-    .logo{
+    .logo {
       @include runaway-logotype-round--light;
     }
   }
-  .navbar.menuOpen{
+  .navbar.menuOpen {
     align-items: center;
     mix-blend-mode: hard-light;
   }
 
-  *{
+  * {
     color: $background-colour;
   }
 }
 
-
-.isShowProject{
-  .navbar{
-    .logo{
+.isShowProject {
+  .navbar {
+    .logo {
       @include runaway-logo--light(0.5);
     }
   }
 }
 
-
 // If menu is open
-.navbar.menuOpen{
+.navbar.menuOpen {
   background: $background-gradient;
   display: flex;
   height: 100vh;
@@ -68,22 +68,23 @@
   text-align: center;
   z-index: 2;
 
-  *{
+  * {
     color: $brand-primary;
     margin: 0 auto;
   }
 
-  .navbar__link, .navbar__menu-button{
+  .navbar__link,
+  .navbar__menu-button {
     @include text-header;
     color: $brand-primary;
     font-size: $size-03;
 
-    *{
+    * {
       color: $brand-primary;
     }
   }
 
-  .logo{
-    @include runaway-logotype-round--dark;
+  .logo {
+    @include runaway-logo--dark(0.6);
   }
 }

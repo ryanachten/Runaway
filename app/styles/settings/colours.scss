@@ -2,11 +2,16 @@ $dark-peach: #dfaa9b;
 $grey: #636363;
 $pink: #fff4f1;
 $shadow: #b9b9b9;
+$logo: red;
 
-$brand-primary: $dark-peach;
+$brand-primary: #fb3b3b; //$dark-peach;
 $brand-secondary: black;
 $text-primary: $grey;
 $text-inverse: $dark-peach;
 
-$background-colour: $pink;
-$background-gradient: radial-gradient($background-colour, white, $background-colour);
+$background-colour: white; //$pink;
+$background-gradient: radial-gradient(
+  $background-colour,
+  white,
+  $background-colour
+);
