@@ -10,7 +10,7 @@
 }
 .filter__check {
   @include icon-button;
-  font-family: "Metamorphous", sans-serif;
+  @include primary-font;
   display: inline-flex;
   font-size: smaller;
   letter-spacing: 2px;

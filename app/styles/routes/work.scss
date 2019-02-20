@@ -27,14 +27,14 @@
 
 .create-project__button {
   @include icon-button;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   margin: 20px auto;
   text-transform: uppercase;
 
   @include input-hover;
 
   i {
-    margin-left: 20px;
+    margin-left: 10px;
   }
 }
 

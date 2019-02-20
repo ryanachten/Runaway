@@ -40,7 +40,6 @@
   }
   .navbar.menuOpen {
     align-items: center;
-    mix-blend-mode: hard-light;
   }
 
   * {
@@ -81,6 +80,10 @@
 
     * {
       color: $brand-primary;
+    }
+
+    &:hover {
+      text-decoration: line-through;
     }
   }
 
