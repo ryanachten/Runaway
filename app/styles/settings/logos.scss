@@ -1,4 +1,3 @@
-
 @mixin bg-img-settings {
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +7,7 @@
 
 @mixin runaway-logotype--light($scale) {
   @include bg-img-settings;
-  background-image: url('/img/branding/runaway_logotype-light.svg');
+  background-image: url("/img/branding/runaway_logotype-light.svg");
   height: calc(50px / #{$scale});
   width: calc(200px / #{$scale});
 
@@ -18,41 +17,38 @@
 }
 @mixin runaway-logotype--dark($scale) {
   @include runaway-logotype--light($scale);
-  background-image: url('/img/branding/runaway_logotype-dark.svg');
-  // background-image: url('/img/branding/runaway_logotype.png');
-  // background-image: url('/img/branding/runaway_logotype2.png');
-  // background-image: url('/img/branding/runaway_logotype3.png');
+  background-image: url("/img/branding/runaway_logotype-dark.svg");
 }
 
 @mixin runaway-logotype-round--light {
   @include bg-img-settings;
-  background-image: url('/img/branding/runaway_logotype_round-light.svg');
+  background-image: url("/img/branding/runaway_logotype_round-light.svg");
   height: calc(223px / 2);
   width: calc(229px / 2);
 }
 @mixin runaway-logotype-round--dark {
   @include runaway-logotype-round--light;
-  background-image: url('/img/branding/runaway_logotype_round-dark.svg');
+  background-image: url("/img/branding/runaway_logotype_round-dark.svg");
 }
 
 @mixin runaway-logo--light($scale) {
   @include bg-img-settings;
-  background-image: url('/img/branding/runaway_logo-light.svg');
+  background-image: url("/img/branding/runaway_logo-light.svg");
   height: calc(223px * #{$scale});
   width: calc(229px * #{$scale});
 }
 @mixin runaway-logo--dark($scale) {
   @include runaway-logo--light($scale);
-  background-image: url('/img/branding/runaway_logo-dark.svg');
+  background-image: url("/img/branding/runaway_logo-dark.svg");
 }
 
 @mixin runaway-skeleton--light($scale) {
   @include bg-img-settings;
-  background-image: url('/img/branding/runaway_skeleton-light.svg');
+  background-image: url("/img/branding/runaway_skeleton-light.svg");
   height: calc(232px * #{$scale});
   width: calc(201px * #{$scale});
 }
 @mixin runaway-skeleton--dark($scale) {
   @include runaway-skeleton--light($scale);
-  background-image: url('/img/branding/runaway_skeleton-dark.svg');
+  background-image: url("/img/branding/runaway_skeleton-dark.svg");
 }
