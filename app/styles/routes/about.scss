@@ -1,23 +1,30 @@
-.about{
+.about {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 800px;
+  min-height: 80vh;
   text-align: center;
+
+  & * {
+    margin: 10px 0;
+  }
 }
 
-.about__header-img{
-  @include runaway-skeleton--dark(1.2);
+.about__container {
+  margin: 0 20px;
+}
+
+.about__header-img {
+  @include runaway-logotype--dark(1);
   margin: 0 auto 30px auto;
   width: 100%;
 }
 
-.about__header-logotype{
-  @include runaway-logotype--dark(1);
-  margin: 20px auto 60px auto;
-  width: 100%;
-}
-
-.about__header-overview{
+.about__header-overview {
   font-size: $size-01;
   line-height: $size-02;
   margin: 40px auto;
@@ -26,62 +33,45 @@
   text-align: center;
 }
 
-.about__services-container{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 0 20px;
+.about__title,
+.about__intro {
+  margin: 0 auto 30px auto;
 }
 
-.about__services-item{
-  align-items: center;
-  background-color: transparentize(white, 0.3) !important;
-  background-blend-mode: screen !important;
-  background-position: top center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  border-radius: 5px;
-  box-sizing: border-box;
+.about__form {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.about__input {
   flex-grow: 1;
-  flex-flow: row wrap;
-  justify-content: center;
   margin: 20px;
-  max-width: 700px;
-  min-height: 300px;
-  padding: 20px;
-  width: 45%;
-
-  // Bloom saturation badTvShader
-  transition: 500ms;
-  filter: saturate(70%);
-  &:hover{
-    transition: 500ms;
-    background-color: transparentize(white, 0.4) !important;
-    filter: saturate(190%);
-  }
-
-  *{
-    color: $text-primary;
-  }
-  hr{
-    border: none;
-    border-bottom: 1px solid $text-primary;
-    margin: 25px auto 20px auto;
-    width: 80%;
-  }
-  p{
-    line-height: $size-02;
-  }
+}
+.about__message-field {
+  margin: 20px;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 
-.about__services-title{
-  @include text-header;
-  word-break: break-word;
+.about__send-button {
+  @include icon-button;
 }
 
-@media screen and (max-width: 350px) {
-  .about__services-item{
-    margin: 10px;
-  }
+.about__reponse {
+  width: 100%;
+}
+
+.about__messages {
+  width: 100%;
+}
+.about__message {
+  align-items: center;
+  display: flex;
+}
+.about__message-body {
+  flex-grow: 1;
+}
+.about__delete-button {
+  height: fit-content;
+  width: fit-content;
 }

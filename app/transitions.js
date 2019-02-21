@@ -1,23 +1,19 @@
-export default function(){
+export default function() {
   this.transition(
-    this.toRoute('about'),
-    this.use('explode',
-      animateContainer('.about'),
-    ),
+    this.toRoute("about"),
+    this.use("explode", animateContainer(".about"))
   );
 
   this.transition(
-    this.toRoute('contact'),
-    this.use('explode',
-      animateContainer('.contact'),
-    ),
+    this.toRoute("about"),
+    this.use("explode", animateContainer(".about"))
   );
 }
 
 function animateContainer(container) {
   const duration = 2000;
-  return({
+  return {
     pickNew: container,
-    use: ['fade', {duration}]
-  });
+    use: ["fade", { duration }]
+  };
 }
