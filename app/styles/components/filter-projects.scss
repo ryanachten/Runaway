@@ -18,7 +18,11 @@
 
   @include input-hover;
 }
-.filter__check.selected {
+.filter__check.selected,
+.filter__check.selected:hover {
   background: $brand-primary;
   color: $background-colour;
+}
+.filter__check:hover {
+  background: transparentize($grey, 0.9);
 }
