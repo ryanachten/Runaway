@@ -27,9 +27,11 @@
 
 .create-project__button {
   @include icon-button;
-  letter-spacing: 4px;
+  @include primary-font;
+  font-size: smaller;
+  letter-spacing: 2px;
   margin: 20px auto;
-  text-transform: uppercase;
+  text-transform: lowercase;
 
   @include input-hover;
 
