@@ -26,11 +26,20 @@
 
 .about__header-overview {
   font-size: $size-01;
-  line-height: $size-02;
+  line-height: $size-03;
   margin: 40px auto;
   max-width: 900px;
-  padding: 0 40px;
   text-align: center;
+}
+
+.about__divider {
+  border-color: $brand-primary;
+  margin: 40px 0;
+}
+
+.about__title {
+  @include primary-font;
+  text-transform: lowercase;
 }
 
 .about__title,
