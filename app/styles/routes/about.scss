@@ -25,16 +25,13 @@
 }
 
 .about__header-overview {
+  border-bottom: 1px solid $brand-primary;
   font-size: $size-01;
   line-height: $size-03;
   margin: 40px auto;
   max-width: 900px;
+  padding-bottom: 40px;
   text-align: center;
-}
-
-.about__divider {
-  border-color: $brand-primary;
-  margin: 40px 0;
 }
 
 .about__title {
