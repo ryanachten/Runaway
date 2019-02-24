@@ -18,6 +18,12 @@
   margin: 0 20px;
 }
 
+.about__header-skeleton {
+  @include runaway-skeleton--dark(1);
+  margin: 0 auto 30px auto;
+  width: 100%;
+}
+
 .about__header-img {
   @include runaway-logotype--dark(1);
   margin: 0 auto 30px auto;
@@ -25,17 +31,16 @@
 }
 
 .about__header-overview {
-  border-bottom: 1px solid $brand-primary;
   font-size: $size-01;
   line-height: $size-03;
   margin: 40px auto;
   max-width: 900px;
-  padding-bottom: 40px;
   text-align: center;
 }
 
 .about__title {
   @include primary-font;
+  color: $brand-primary;
   text-transform: lowercase;
 }
 
