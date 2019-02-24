@@ -74,7 +74,7 @@ export default Component.extend({
     this.set("rgbShiftShader", rgbShiftShader);
 
     const badTvShader = new THREE.ShaderPass(THREE.BadTVShader);
-    badTvShader.uniforms["distortion"].value = 0.01;
+    badTvShader.uniforms["distortion"].value = 4;
     badTvShader.uniforms["distortion2"].value = 0;
     badTvShader.renderToScreen = true;
     composer.addPass(badTvShader);
