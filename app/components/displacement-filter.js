@@ -2,7 +2,7 @@ import Component from "@ember/component";
 import { requestFrame, cancelAnimation } from "../utilities/animation-frame";
 
 export default Component.extend({
-  elementId: "displacementFilterWrapper",
+  classNames: ["displacementFilterWrapper"],
   baseFrequency: 0,
   numOctaves: 1,
   scale: 50,
