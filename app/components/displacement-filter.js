@@ -2,6 +2,7 @@ import Component from "@ember/component";
 import { requestFrame, cancelAnimation } from "../utilities/animation-frame";
 
 export default Component.extend({
+  elementId: "displacementFilterWrapper",
   baseFrequency: 0,
   numOctaves: 1,
   scale: 50,
@@ -16,8 +17,8 @@ export default Component.extend({
     const frame = requestFrame(() => {
       this.animate();
     });
-    const speed = frame / 200;
-    const maxFreq = 0.04;
+    const speed = frame / 300;
+    const maxFreq = 0.03;
     this.set("baseFrequency", Math.sin(speed) * maxFreq);
     this.set("animation", frame);
   },
