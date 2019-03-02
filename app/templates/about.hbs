@@ -1,6 +1,7 @@
 <div class="about">
   <div class="about__container">
-    <div class="about__header-skeleton" />
+    {{displacement-filter}}
+    <div class="about__header-skeleton" style="filter: url(#displacementFilter)"/>
     <div class="about__header-img" />
     <blockquote class="about__header-overview">
       Runaway was started with the desire to help people.
@@ -31,6 +32,7 @@
 
   {{#if session.isAuthenticated}}
     <div class="about__messages">
+      <h3 class="about__title">Messages</h3>
       {{#each messages as | message |}}
         <div class="about__message">
           <div class="about__message-body">

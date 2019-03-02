@@ -86,3 +86,24 @@
   height: fit-content;
   width: fit-content;
 }
+
+body {
+  -webkit-animation: color-change-2x 2s linear infinite alternate both;
+  animation: color-change-2x 2s linear infinite alternate both;
+}
+@-webkit-keyframes color-change-2x {
+  0% {
+    background: transparentize($brand-primary, 1);
+  }
+  100% {
+    background: rgba(59, 216, 251, 0.09); //transparentize($brand-primary, 0.9);
+  }
+}
+@keyframes color-change-2x {
+  0% {
+    background: transparentize($brand-primary, 1);
+  }
+  100% {
+    background: rgba(59, 216, 251, 0.09); //transparentize($brand-primary, 0.9);
+  }
+}
