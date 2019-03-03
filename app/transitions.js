@@ -1,13 +1,13 @@
 export default function() {
-  // this.transition(
-  //   this.toRoute("about"),
-  //   this.use("explode", animateContainer(".about"))
-  // );
-  //
-  // this.transition(
-  //   this.toRoute("about"),
-  //   this.use("explode", animateContainer(".about"))
-  // );
+  this.transition(
+    this.toRoute("about"),
+    this.use("fade", animateContainer(".about"))
+  );
+
+  this.transition(
+    this.toRoute("work"),
+    this.use("fade", animateContainer(".work"))
+  );
 }
 
 function animateContainer(container) {
