@@ -93,17 +93,17 @@ body {
 }
 @-webkit-keyframes color-change-2x {
   0% {
-    background: transparentize($brand-primary, 1);
+    background: rgba(255, 255, 255, 0);
   }
   100% {
-    background: rgba(59, 216, 251, 0.09); //transparentize($brand-primary, 0.9);
+    background: rgba(159, 182, 255, 0.1);
   }
 }
 @keyframes color-change-2x {
   0% {
-    background: transparentize($brand-primary, 1);
+    background: rgba(255, 255, 255, 0);
   }
   100% {
-    background: rgba(59, 216, 251, 0.09); //transparentize($brand-primary, 0.9);
+    background: rgba(159, 182, 255, 0.1);
   }
 }
