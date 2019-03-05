@@ -1,3 +1,5 @@
+// Based on the following firefly simulation: https://codepen.io/mikegolus/pen/Jegvym
+
 // $quantity must be the same as quantity in particle-system.js
 $quantity: 15;
 
@@ -22,7 +24,7 @@ $quantity: 15;
   }
 
   &::before {
-    background: black;
+    background: $text-primary;
     opacity: 0.4;
     animation: drift ease alternate infinite;
   }
@@ -30,7 +32,7 @@ $quantity: 15;
   &::after {
     background: white;
     opacity: 0;
-    box-shadow: 0 0 0vw 0vw yellow;
+    box-shadow: 0 0 0vw 0vw $brand-primary;
     animation: drift ease alternate infinite, flash ease infinite;
   }
 }
@@ -57,8 +59,8 @@ $quantity: 15;
   @keyframes move#{$i} {
     @for $step from 0 through $steps {
       #{$step * (100 / $steps)}% {
-        transform: translateX(random(100) - 50vw)
-          translateY(random(100) - 50vh)
+        transform: translateX(random(90vw) - 50vw)
+          translateY(random(90vh) - 50vh)
           scale(random(75) / 100 + 0.25);
       }
     }
