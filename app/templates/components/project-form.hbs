@@ -1,0 +1,49 @@
+<form class="create-project" action="formTest">
+  {{input
+    class="create-project__title"
+    type='text' value=title placeholder='Title'
+  }}
+  {{input
+    class="create-project__client"
+    type='text' value=client placeholder='Client'
+  }}
+  {{input
+    class="create-project__date"
+    type='text' value=date placeholder='Date'
+  }}
+  {{input
+    class="create-project__category"
+    type='text' value=category placeholder='Category'
+  }}
+  {{input
+    class="create-project__videoFilename"
+    type='text' value=videoSnippetFileName placeholder='Video Snippet Filename'
+  }}
+  {{input
+    class="create-project__link"
+    type='text' value=videoVendorUrl placeholder='Vimeo Link'
+  }}
+  <div class="create-project__featured">
+    <label for="featured">Featured Project</label>
+    {{input
+      id="featured"
+      type='checkbox' checked=featured
+    }}
+  </div>
+  {{textarea
+    class="create-project__description"
+    value=description  placeholder='Description'
+  }}
+  <button
+  class="create-project__submit {{unless isAbleToCreateProject 'disabled'}}"
+  type="submit"
+  {{action "createProject" title client date category videoVendorUrl videoSnippetFileName description featured}}
+  >
+    <i class="fas fa-check"></i>
+  </button>
+  <button type="button" name="cloeForm" {{action "closeForm"}}>
+    <i class="fas fa-times"></i>
+  </button>
+</form>
+
+{{yield}}
