@@ -3,6 +3,7 @@
     {{ivy-videojs
       canplay='canplay'
       controls=true
+      playsinline=true
       fluid=true
       muted="muted"
       src=project.videoSnippetUrl}}
@@ -82,6 +83,7 @@
     </form>
   {{else}}
     {{ivy-videojs
+      playsinline=true
       canplay='canplay'
       controls=false
       fluid=true
