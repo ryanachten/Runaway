@@ -7,7 +7,7 @@ export default Component.extend({
   maxFrequency: 0.03,
   speed: 300,
   numOctaves: 1,
-  scale: 50,
+  scale: 25,
   animation: null,
 
   didInsertElement() {
