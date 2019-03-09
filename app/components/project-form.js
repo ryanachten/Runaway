@@ -1,7 +1,10 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default Component.extend({
+  store: service(),
+
   title: null,
   client: null,
   date: null,
@@ -35,7 +38,7 @@ export default Component.extend({
         "videoSnippetFileName"
       );
 
-      // return true; // TODO: put back
+      return true; // TODO: put back
       return (
         title &&
         client &&
@@ -58,7 +61,7 @@ export default Component.extend({
       description,
       featured
     ) {
-      if (!this.get("isAbleToCreateProject")) {
+      if (!this.isValid) {
         return;
       }
 
@@ -76,9 +79,6 @@ export default Component.extend({
         featured: featured
       });
 
-      console.log("newProject", newProject);
-
-      // return; //TODO: remove
       const saveStatus = newProject.save();
       saveStatus
         .then(result => {
@@ -93,9 +93,10 @@ export default Component.extend({
             featured: false,
             videoUploadStatus: null
           });
+          window.console.log("Created new project:", result);
         })
         .catch(e => {
-          console.log("Error while saving project", e);
+          window.console.log("Error while saving project:", e);
         });
     },
 
