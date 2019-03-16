@@ -1,5 +1,3 @@
-import Route from '@ember/routing/route';
-import Application from './application';
+import Application from "./application";
 
-export default Application.extend({
-});
+export default Application.extend({});

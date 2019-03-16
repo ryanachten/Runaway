@@ -91,7 +91,7 @@ export default Component.extend({
 
     window.addEventListener("resize", this.onWindowResize.bind(this), false);
 
-    $(".landing").mousemove(this.updateShader.bind(this));
+    this.$(".landing").mousemove(this.updateShader.bind(this));
   },
 
   willDestroyElement() {
@@ -99,7 +99,7 @@ export default Component.extend({
     window.removeEventListener("resize", this.onWindowResize);
     cancelAnimation(this.get("animationFrame"));
 
-    $(".landing").off("mousemove");
+    this.$(".landing").off("mousemove");
   },
 
   onWindowResize() {
@@ -140,9 +140,9 @@ export default Component.extend({
     const canvas = this.get("container").children[0];
 
     // TODO: these should be stored and reset on screen resize
-    var offset = $(canvas).offset();
-    const width = $(canvas).innerWidth();
-    const height = $(canvas).innerHeight();
+    const offset = this.$(canvas).offset();
+    const width = this.$(canvas).innerWidth();
+    const height = this.$(canvas).innerHeight();
 
     const relativeMouseX = e.pageX - offset.left;
     const normalisedCentredX = (relativeMouseX - width / 2) / (width / 2);

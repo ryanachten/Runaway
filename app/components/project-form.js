@@ -37,8 +37,6 @@ export default Component.extend({
         "description",
         "videoSnippetFileName"
       );
-
-      return true; // TODO: put back
       return (
         title &&
         client &&

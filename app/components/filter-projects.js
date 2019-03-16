@@ -1,53 +1,46 @@
-import Component from '@ember/component';
+import Component from "@ember/component";
+
+const filterValues = ["film", "animation", "motion graphics"];
 
 export default Component.extend({
-  classNames: ['filter-projects'],
-  value: '',
-  filtersValues: [
-    'film',
-    'animation',
-    'motion graphics'
-  ],
+  classNames: ["filter-projects"],
+  value: "",
+  filtersValues: filterValues,
 
-  init(){
+  init() {
     this._super(...arguments);
     this.resetFilter();
   },
 
-  resetFilter(){
-    this.get('filter')('').then(
-      (allResults) => {
-        this.set('results', allResults.results)
-      }
-    );
+  resetFilter() {
+    this.get("filter")("").then(allResults => {
+      this.set("results", allResults.results);
+    });
   },
 
   actions: {
-    handleFilterEntry(selectedFilter){
-
-      const element = event.target;
-
-      const existingFilter = this.get('value');
-      const filterValue = selectedFilter === existingFilter ? '' : selectedFilter;
-      this.set('value', filterValue);
+    handleFilterEntry(selectedFilter) {
+      const existingFilter = this.get("value");
+      const filterValue =
+        selectedFilter === existingFilter ? "" : selectedFilter;
+      this.set("value", filterValue);
 
       // If filter already is active, reset to none
       if (!filterValue) {
-        $(event.target).removeClass('selected');
+        this.$(event.target).removeClass("selected");
         return this.resetFilter();
       }
 
       // Otherwise, filter by selected filter
-      let filterAction = this.get('filter');
-      filterAction(filterValue).then(
-        (filterResults) => {
-          this.set('results', filterResults.results)
-        });
+      let filterAction = this.get("filter");
+      filterAction(filterValue).then(filterResults => {
+        this.set("results", filterResults.results);
+      });
 
-      if ($('.selected')) {
-        $('.selected').removeClass('selected');
+      if (this.$(".selected")) {
+        this.$(".selected").removeClass("selected");
       }
-      $(event.target).addClass('selected');
+      this.$(event.target).addClass("selected");
     }
   }
 });

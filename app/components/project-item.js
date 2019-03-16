@@ -37,7 +37,7 @@ export default Component.extend({
   },
 
   showProjectItem() {
-    $(this.get("element"))
+    this.$(this.get("element"))
       .children(".project-item")
       .fadeIn(2000);
   },

@@ -43,7 +43,6 @@ $quantity: 15;
   $rotationSpeed: random(10) + 8s;
 
   .particle:nth-child(#{$i}) {
-    @debug move;
     animation-name: move#{$i};
 
     &::before {
