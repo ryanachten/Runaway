@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 
 export default Controller.extend({
-  isCreatingProject: true, //TODO: put back to false
+  isCreatingProject: false,
 
   actions: {
     filterByCategory(category) {

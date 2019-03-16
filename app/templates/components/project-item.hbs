@@ -82,13 +82,18 @@
       </button>
     </form>
   {{else}}
-    {{ivy-videojs
-      playsinline=true
-      canplay='canplay'
-      controls=false
-      fluid=true
-      muted="muted"
-      src=project.videoSnippetUrl}}
+    {{#if videoError}}
+      <div class="project-item__video-error"style="background-color: red; height: 500px; width: 100%"/>
+    {{else}}
+      {{ivy-videojs
+        playsinline=true
+        canplay='canplay'
+        controls=false
+        fluid=true
+        muted="muted"
+        error='error'
+        src=project.videoSnippetUrl}}
+    {{/if}}
     <div class="project-item__info">
       <div class="project-item__info-container">
         <div>
