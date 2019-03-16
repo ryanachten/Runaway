@@ -1,8 +1,8 @@
-.project-item__meta{
+.project-item__meta {
   margin-bottom: 40px;
 }
 
-.project-page--video-inactive{
+.project-page--video-inactive {
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -10,17 +10,18 @@
   justify-content: center;
   width: 100%;
 
-  *{
+  * {
     color: $background-colour;
     text-align: center;
   }
 
-  .project-item__title{
+  .project-item__title {
     margin-bottom: 20px;
   }
 }
 
 // Fullscreen the background image
-.project-page-player.video-vendor__container{
+.project-page-player.video-vendor__container {
   height: 100vh !important;
+  background-color: $brand-primary;
 }

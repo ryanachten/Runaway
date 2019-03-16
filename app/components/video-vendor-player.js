@@ -7,7 +7,6 @@
 import { computed } from "@ember/object";
 import Component from "@ember/component";
 import { htmlSafe } from "@ember/string";
-import { on } from "@ember/object/evented";
 import { inject as service } from "@ember/service";
 
 export default Component.extend({
@@ -20,9 +19,23 @@ export default Component.extend({
   poster: null,
   providers: service("video-vendor-providers"),
 
+  async didInsertElement() {
+    const providers = this.get("providers");
+    const url = this.get("url");
+    const poster = this.get("poster");
+    if (poster) {
+      return;
+    }
+    try {
+      const thumbnailUrl = await providers.getThumbnailUrl(url);
+      this.set("videoThumbnail", thumbnailUrl);
+    } catch (e) {
+      window.console.log("Error falling back to background image:", e);
+    }
+  },
+
   click() {
     this.set("isDisplayed", true);
-    this.sendAction("showingVideo");
   },
 
   videoSrc: computed("url", function() {
@@ -30,20 +43,6 @@ export default Component.extend({
     let url = this.get("url");
 
     return providers.getUrl(url, "embedUrl", { autoplay: 1, background: 0 });
-  }),
-
-  getVideoBackground: on("didInsertElement", function() {
-    let providers = this.get("providers");
-    let url = this.get("url");
-    let poster = this.get("poster");
-
-    if (poster) {
-      return;
-    }
-
-    providers.getThumbnailUrl(url).then(res => {
-      this.set("videoThumbnail", res);
-    });
   }),
 
   style: computed("videoThumbnail", "poster", function() {
