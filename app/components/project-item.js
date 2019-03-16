@@ -1,14 +1,18 @@
 import Component from "@ember/component";
-import { inject } from "@ember/service";
+import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
+import { htmlSafe } from "@ember/string";
 
 export default Component.extend({
-  store: inject(),
+  store: service(),
   videoPlayer: null,
   videoElement: null,
   videoError: false,
+  videoThumbnail: null,
   isEditing: false,
   authed: false,
+
+  providers: service("video-vendor-providers"),
 
   canEdit: computed("isEditing", "authed", function() {
     const isEditing = this.get("isEditing");
@@ -87,7 +91,15 @@ export default Component.extend({
       this.showProjectItem();
     },
 
-    error() {
+    async error() {
+      //  If there's an error playing the video, we fallback to showing the vendor thumbnail img
+      const vendorUrl = this.get("project.videoVendorUrl");
+      const providers = this.get("providers");
+      const thumbnail = await providers.getThumbnailUrl(vendorUrl);
+      this.set(
+        "videoThumbnail",
+        htmlSafe(`background-image: url(${encodeURI(thumbnail)})`)
+      );
       this.set("videoError", true);
       this.showProjectItem();
     }
