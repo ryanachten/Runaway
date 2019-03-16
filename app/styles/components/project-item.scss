@@ -13,6 +13,9 @@
 
 .project-item__video-error {
   background-color: $brand-primary;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   // Mimic the video-js fluid player styles
   height: 0;
   max-width: 100%;

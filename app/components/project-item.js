@@ -95,11 +95,21 @@ export default Component.extend({
       //  If there's an error playing the video, we fallback to showing the vendor thumbnail img
       const vendorUrl = this.get("project.videoVendorUrl");
       const providers = this.get("providers");
-      const thumbnail = await providers.getThumbnailUrl(vendorUrl);
-      this.set(
-        "videoThumbnail",
-        htmlSafe(`background-image: url(${encodeURI(thumbnail)})`)
-      );
+      try {
+        await providers.getThumbnailUrl(vendorUrl).then(thumbnailUrl => {
+          this.set(
+            "videoThumbnail",
+            htmlSafe(
+              `background-color: unset; background-image: url(${encodeURI(
+                thumbnailUrl
+              )});`
+            )
+          );
+        });
+      } catch (e) {
+        //  Finally, if there's an error getting the thumbnail image, we fallback to the defualt background-color
+        window.console.log("Error falling back to background image:", e);
+      }
       this.set("videoError", true);
       this.showProjectItem();
     }
